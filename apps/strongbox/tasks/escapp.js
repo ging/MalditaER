@@ -5,18 +5,19 @@ const fs = require('fs-extra');
 const { execSync } = require('child_process');
 
 const app_path = resolve(__dirname, '../app');
-const escapp_library_path = resolve(__dirname, '../../escapp_client');
+const escapp_library_path = resolve(__dirname, '../../../../escapp_client');
 
 if(!fs.existsSync(escapp_library_path)){
   //Abort
   console.log("Escapp library not found");
+  console.log(escapp_library_path);
   return;
 }
 
 let commands = [];
 commands.push('cd ' + escapp_library_path + ' && npm run production');
 
-let apps = ['../app','../app/extras/RESCORMail/app','../app/extras/PeriodicTable/app','../app/extras/DigitalPuzzle/app'];
+let apps = ['../app'];
 for(let i=0; i<apps.length; i++){
 	let app_path = resolve(__dirname, apps[i]);
 	if(!fs.existsSync(app_path)){
