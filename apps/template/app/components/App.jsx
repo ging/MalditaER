@@ -76,9 +76,6 @@ export class App extends React.Component {
     let appContent = "";
     let currentScreen = this.props.screen;
 
-    console.log("LOADING")
-    console.log(this.props.loading);
-
     if(this.props.loading){
       return "";
     }
@@ -86,9 +83,6 @@ export class App extends React.Component {
     appHeader = (
       <Header config={GLOBAL_CONFIG} I18n={I18n} isLogged={((currentScreen !== 1) && (this.props.puzzle > 0))} onClickHome={this.onClickHome} onClickMail={this.onClickMail} onClickRepository={this.onClickRepository} onClickInfo={this.onClickInfo} onClickVaccine={this.onClickVaccine} onClickCloseSession={this.onClickCloseSession} current_puzzle={this.props.puzzle}/>
     );
-
-    console.log("CURRENT SCREEN")
-    console.log(currentScreen);
 
     switch (currentScreen){
     case 1:

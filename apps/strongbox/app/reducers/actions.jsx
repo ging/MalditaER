@@ -19,13 +19,6 @@ export function loaded(is_loaded = true){
   };
 }
 
-export function changeScreen(screen = 1){
-  return {
-    type:'CHANGE_SCREEN',
-    screen:screen,
-  };
-}
-
 export function changePuzzle(puzzle_id = 0){
   return {
     type:'CHANGE_PUZZLE',

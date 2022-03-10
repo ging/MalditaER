@@ -9,7 +9,6 @@ import * as Utils from '../vendors/Utils.js';
 import * as I18n from '../vendors/I18n.js';
 import * as LocalStorage from '../vendors/Storage.js';
 
-import Header from './Header.jsx';
 import MainScreen from './MainScreen.jsx';
 
 let escapp;
@@ -17,9 +16,6 @@ let escapp;
 export class App extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      completionDialogShown:false,
-    };
     this.saveState = this.saveState.bind(this);
     this.onPuzzleCompleted = this.onPuzzleCompleted.bind(this);
     this.reset = this.reset.bind(this);
@@ -65,55 +61,16 @@ export class App extends React.Component {
     this.props.dispatch(loaded(true));
   }
   onPuzzleCompleted(puzzle_id){
-    if(puzzle_id === 7){
-      this.setState({completionDialogShown:false});
-    }
     this.props.dispatch(changePuzzle(puzzle_id));
     this.saveState();
   }
   render(){
-    let appHeader = "";
-    let appContent = "";
-    let currentScreen = this.props.screen;
-
-    console.log("LOADING")
-    console.log(this.props.loading);
-
     if(this.props.loading){
       return "";
     }
 
-    appHeader = (
-      <Header config={GLOBAL_CONFIG} I18n={I18n} isLogged={((currentScreen !== 1) && (this.props.puzzle > 0))} onClickHome={this.onClickHome} onClickMail={this.onClickMail} onClickRepository={this.onClickRepository} onClickInfo={this.onClickInfo} onClickVaccine={this.onClickVaccine} onClickCloseSession={this.onClickCloseSession} current_puzzle={this.props.puzzle}/>
-    );
-
-    console.log("CURRENT SCREEN")
-    console.log(currentScreen);
-
-    switch (currentScreen){
-    case 1:
-      // MainScreen
-      appContent = (
-        <MainScreen dispatch={this.props.dispatch} config={GLOBAL_CONFIG} I18n={I18n} Utils={Utils} escapp={escapp} onPuzzleCompleted={this.onPuzzleCompleted} current_puzzle={this.props.puzzle}/>
-      );
-      break;
-    default:
-      // Default
-    }
-
-    // Finish screen
-    // if((this.props.puzzle > 6) && (this.state.completionDialogShown === false)){
-    //   this.setState({completionDialogShown:true});
-    //   setTimeout(function(){
-    //     escapp.displayCompletionDialog();
-    //   }, 500);
-    // }
-
     return (
-      <div id="container">
-        {appHeader}
-        {appContent}
-      </div>
+        <MainScreen dispatch={this.props.dispatch} config={GLOBAL_CONFIG} I18n={I18n} Utils={Utils} escapp={escapp} onPuzzleCompleted={this.onPuzzleCompleted} current_puzzle={this.props.puzzle}/>
     );
   }
 }

@@ -1,6 +1,39 @@
-div.screen_wrapper.screen_main {
+div#container {
 	background-image: url("../images/background.jpg");
 	background-position: center;
 	background-repeat: no-repeat;
-	background-size: cover; 
+	background-size: contain;
+}
+
+div.boxButton {
+	background-image: url("../images/background_number.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	display: flex;
+	width: 70px;
+	height: 70px;
+	color: white;
+}
+
+div.boxButton li {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	font-size: 2vw;
+	font-family: "Consolas", "Roboto", sans-serif;
+  	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none; 
+    -moz-user-select: none;
+    -ms-user-select: none; 
+    user-select: none; 
+}
+
+div.boxButton1 {
+	left: 10%;
 }
