@@ -5,14 +5,16 @@ let LOCALES = {
   },
 };
 
+//For a new template: change localStorageKey, escapp[localStorageKey] and escapp[appPuzzleIds]
+
 export let GLOBAL_CONFIG = {
   availableLocales:["es"],
   locale:"es",
   defaultLocale:"es",
-  localStorageKey:"STRONGBOX_2022",
+  localStorageKey:"TEMPLATE_2022",
   escapp:{
-    endpoint:"https://escapp.etsisi.upm.es/api/escapeRooms/9",
-    localStorageKey:"ESCAPP_STRONGBOX_2022",
+    endpoint:"https://escapp.dit.upm.es/api/escapeRooms/9",
+    localStorageKey:"ESCAPP_TEMPLATE_2022",
     imagesPath:"assets/images/",
     I18n:{
       availableLocales:["es", "en"],
