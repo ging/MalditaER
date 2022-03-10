@@ -5,16 +5,19 @@ let LOCALES = {
   },
 };
 
-//For a new template: change localStorageKey, escapp[localStorageKey] and escapp[appPuzzleIds]
-
 export let GLOBAL_CONFIG = {
   availableLocales:["es"],
   locale:"es",
   defaultLocale:"es",
-  localStorageKey:"TEMPLATE_2022",
+  localStorageKey:"WEB_SWITCHER_2022",
+  webs:[
+    {name:"Ediphy MalditaER (I)", url:"https://vishub.org/ediphy_documents/401.full", switchOnPuzzle:0},
+    {name:"Ediphy MalditaER (II)", url:"https://vishub.org/ediphy_documents/402.full", switchOnPuzzle:1},
+  ],
   escapp:{
     endpoint:"https://escapp.dit.upm.es/api/escapeRooms/306",
-    localStorageKey:"ESCAPP_TEMPLATE_2022",
+    restoreState:"AUTO",
+    localStorageKey:"WEB_SWITCHER_2022",
     imagesPath:"assets/images/",
     I18n:{
       availableLocales:["es", "en"],
@@ -22,9 +25,16 @@ export let GLOBAL_CONFIG = {
       defaultLocale:"es",
       locales:LOCALES,
     },
-    appPuzzleIds:[1],
-    notifications:true,
+    appPuzzleIds:[],
+    notifications:false,
     rtc:true,
-    forceValidation: true,
+    forceValidation:true,
   },
 };
+
+// Autofill appPuzzleIds
+for(let i = 0; i < GLOBAL_CONFIG.webs.length; i++){
+  if((typeof GLOBAL_CONFIG.webs[i].switchOnPuzzle === "number") && (GLOBAL_CONFIG.webs[i].switchOnPuzzle > 0) && (typeof GLOBAL_CONFIG.webs[i].url === "string")){
+    GLOBAL_CONFIG.escapp.appPuzzleIds.push(GLOBAL_CONFIG.webs[i].switchOnPuzzle);
+  }
+}

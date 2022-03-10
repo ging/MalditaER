@@ -11,7 +11,7 @@ export let GLOBAL_CONFIG = {
   defaultLocale:"es",
   localStorageKey:"STRONGBOX_2022",
   escapp:{
-    endpoint:"https://escapp.etsisi.upm.es/api/escapeRooms/9",
+    endpoint:"https://escapp.dit.upm.es/api/escapeRooms/306",
     localStorageKey:"ESCAPP_STRONGBOX_2022",
     imagesPath:"assets/images/",
     I18n:{
