@@ -10,16 +10,22 @@ import * as I18n from '../vendors/I18n.js';
 import * as LocalStorage from '../vendors/Storage.js';
 
 import MainScreen from './MainScreen.jsx';
+import MessageScreen from './MessageScreen.jsx';
 
 let escapp;
 
 export class App extends React.Component {
   constructor(props){
     super(props);
+    this.state = {
+      showMessageScreen:false,
+    };
     this.saveState = this.saveState.bind(this);
+    this.onBoxOpen = this.onBoxOpen.bind(this);
+    this.submitSolution = this.submitSolution.bind(this);
     this.onPuzzleCompleted = this.onPuzzleCompleted.bind(this);
     this.reset = this.reset.bind(this);
-  }
+  };
   componentDidMount(){
     I18n.init();
     LocalStorage.init(GLOBAL_CONFIG.localStorageKey);
@@ -33,11 +39,11 @@ export class App extends React.Component {
         this.restoreState(er_state);
       }
     }.bind(this));
-  }
+  };
   reset(){
     escapp.reset();
     localStorage.clear();
-  }
+  };
   restoreState(er_state){
     // console.log(er_state);
     if(er_state.puzzlesSolved.length > 0){
@@ -48,22 +54,50 @@ export class App extends React.Component {
       this.props.dispatch(loaded(true));
       // this.restoreLocalState();
     }
-  }
+  };
   saveState(){
     let currentState = this.props.store.getState();
     LocalStorage.saveSetting("app_state", currentState);
-  }
+  };
   restoreLocalState(){
     let stateToRestore = LocalStorage.getSetting("app_state");
     if(typeof stateToRestore !== "undefined"){
       this.props.dispatch(restoreState(stateToRestore));
     }
     this.props.dispatch(loaded(true));
-  }
-  onBoxOpen(){
-    console.log("onBoxOpen");
-    //TODO. Check config to see action after open...
-  }
+  };
+  onBoxOpen(solution){
+    LocalStorage.saveSetting("puzzle_solution",solution);
+    switch(GLOBAL_CONFIG.afterOpen){
+      case "SHOW_MESSAGE":
+        this.setState({showMessageScreen:true});
+        break;
+      case "SHOW_MESSAGE_AND_CONTINUE":
+        this.setState({showMessageScreen:true});
+        break;
+      default:
+        if(this.props.puzzle < GLOBAL_CONFIG.escapp.appPuzzleIds[0]){
+          this.submitSolution(solution);
+        }
+        break;
+    }
+  };
+  submitSolution(solution){
+    if(typeof solution === "undefined"){
+      solution = LocalStorage.getSetting("puzzle_solution");
+    }
+    if(typeof solution !== "string"){
+      return;
+    }
+    escapp.submitPuzzle(GLOBAL_CONFIG.escapp.appPuzzleIds[0], solution, {}, function(success){
+      //Success should be always true unless unespected failure in Escapp server
+      //console.log("Puzzle submitted: " + success);
+      if((GLOBAL_CONFIG.afterOpen === "SHOW_MESSAGE")||(GLOBAL_CONFIG.afterOpen === "SHOW_URL")){
+        this.onPuzzleCompleted(GLOBAL_CONFIG.escapp.appPuzzleIds[0]);
+      }
+      //Otherwise (afterOpen === "NOTHING" or afterOpen === "SHOW_MESSAGE_AND_CONTINUE"), do nothing.
+    }.bind(this));
+  };
   onPuzzleCompleted(puzzle_id){
     this.props.dispatch(changePuzzle(puzzle_id));
     this.saveState();
@@ -73,8 +107,26 @@ export class App extends React.Component {
       return "";
     }
 
+    let puzzleCompleted = (this.props.puzzle >= GLOBAL_CONFIG.escapp.appPuzzleIds[0]);
+
+    let showMessageScreen = ((GLOBAL_CONFIG.afterOpen==="SHOW_MESSAGE")||(GLOBAL_CONFIG.afterOpen==="SHOW_MESSAGE_AND_CONTINUE"));
+    if (showMessageScreen && (this.state.showMessageScreen!==true)){
+      if(GLOBAL_CONFIG.afterOpen === "SHOW_MESSAGE"){
+        showMessageScreen = puzzleCompleted;
+      } else {
+        //SHOW_MESSAGE_AND_CONTINUE
+        showMessageScreen = (typeof LocalStorage.getSetting("puzzle_solution") === "string");
+      }
+    }
+
+    if(showMessageScreen === true){
+      return (
+        <MessageScreen dispatch={this.props.dispatch} config={GLOBAL_CONFIG} I18n={I18n} Utils={Utils} escapp={escapp} submitSolution={this.submitSolution} />
+      );
+    }
+
     return (
-        <MainScreen dispatch={this.props.dispatch} config={GLOBAL_CONFIG} I18n={I18n} Utils={Utils} escapp={escapp} onBoxOpen={this.onBoxOpen} current_puzzle={this.props.puzzle}/>
+        <MainScreen dispatch={this.props.dispatch} config={GLOBAL_CONFIG} I18n={I18n} Utils={Utils} escapp={escapp} onBoxOpen={this.onBoxOpen} />
     );
   }
 }
