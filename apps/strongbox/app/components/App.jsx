@@ -60,6 +60,10 @@ export class App extends React.Component {
     }
     this.props.dispatch(loaded(true));
   }
+  onBoxOpen(){
+    console.log("onBoxOpen");
+    //TODO. Check config to see action after open...
+  }
   onPuzzleCompleted(puzzle_id){
     this.props.dispatch(changePuzzle(puzzle_id));
     this.saveState();
@@ -70,7 +74,7 @@ export class App extends React.Component {
     }
 
     return (
-        <MainScreen dispatch={this.props.dispatch} config={GLOBAL_CONFIG} I18n={I18n} Utils={Utils} escapp={escapp} onPuzzleCompleted={this.onPuzzleCompleted} current_puzzle={this.props.puzzle}/>
+        <MainScreen dispatch={this.props.dispatch} config={GLOBAL_CONFIG} I18n={I18n} Utils={Utils} escapp={escapp} onBoxOpen={this.onBoxOpen} current_puzzle={this.props.puzzle}/>
     );
   }
 }

@@ -1,4 +1,4 @@
-div#container {
+div#root {
 	background-image: url("../images/background.jpg");
 	background-position: center;
 	background-repeat: no-repeat;
@@ -9,17 +9,10 @@ div#container {
 	justify-content: center;
 }
 
-div.boxButton {
-	background-image: url("../images/background_number.jpg");
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: contain;
+div#container {
 	display: flex;
-	width: 8vmin;
-	height: 9vmin;
-	margin-top: 0.3vmin;
-	margin-right: 0.8vmin;
-	color: white;
+	flex-direction: column;
+	justify-content: space-around;
 }
 
 div#container div.row {
@@ -27,11 +20,19 @@ div#container div.row {
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	margin-left: 4vw;
 }
 
-div#row1 {
-	margin-top: 1vh;
+div.boxButton {
+	background-image: url("../images/background_number.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	display: flex;
+	color: white;
+}
+
+div.boxButton:active {
+	transform: scale(0.9);
 }
 
 div.boxButton li {
@@ -42,12 +43,40 @@ div.boxButton li {
 	width: 100%;
 	height: 100%;
 	text-align: center;
-	font-size: 4.5vmin;
+	font-size: 4vmin;
 	font-family: "Consolas", "Roboto", sans-serif;
   	-webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none; 
     -moz-user-select: none;
     -ms-user-select: none; 
-    user-select: none; 
+    user-select: none;
+    cursor: pointer; 
+}
+
+div.boxlight {
+	position: absolute;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	width: 8vmin;
+	height: 6vmin;
+	border: none;
+	outline: none;
+	text-decoration: none;
+	border-image: none;
+}
+
+div.boxlight.boxlight_off {
+	background-image: url("../images/light_off.png");
+}
+
+div.boxlight.boxlight_red {
+	display: none;
+	background-image: url("../images/light_red.png");
+}
+
+div.boxlight.boxlight_green {
+	display: none;
+	background-image: url("../images/light_green.png");
 }

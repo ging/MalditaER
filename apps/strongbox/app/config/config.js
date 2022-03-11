@@ -10,6 +10,8 @@ export let GLOBAL_CONFIG = {
   locale:"es",
   defaultLocale:"es",
   localStorageKey:"STRONGBOX_2022",
+  passwordLength: 4,
+  afterOpen: "SHOW_MESSAGE",
   escapp:{
     endpoint:"https://escapp.dit.upm.es/api/escapeRooms/306",
     localStorageKey:"ESCAPP_STRONGBOX_2022",
