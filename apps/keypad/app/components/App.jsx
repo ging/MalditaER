@@ -45,8 +45,8 @@ export class App extends React.Component {
     localStorage.clear();
   };
   restoreState(er_state){
-    // console.log(er_state);
-    if(er_state.puzzlesSolved.length > 0){
+    //console.log(er_state);
+    if((typeof er_state !== "undefined")&&(er_state.puzzlesSolved.length > 0)){
       let lastPuzzleSolved = Math.max.apply(null, er_state.puzzlesSolved);
       // lastPuzzleSolved = 3; //Force a puzzle (for development)
       this.props.dispatch(restoreStateForPuzzle(lastPuzzleSolved));

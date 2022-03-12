@@ -34,5 +34,5 @@ export let GLOBAL_CONFIG = {
 };
 
 if (GLOBAL_CONFIG.afterOpen === "SHOW_MESSAGE_AND_CONTINUE"){
-  //GLOBAL_CONFIG.escapp.restoreState = "NEVER";
+  GLOBAL_CONFIG.escapp.restoreState = "NEVER";
 }
