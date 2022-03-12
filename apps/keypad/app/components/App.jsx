@@ -11,6 +11,7 @@ import * as LocalStorage from '../vendors/Storage.js';
 
 import MainScreen from './MainScreen.jsx';
 import MessageScreen from './MessageScreen.jsx';
+import ContentScreen from './ContentScreen.jsx';
 
 let escapp;
 
@@ -45,7 +46,7 @@ export class App extends React.Component {
     localStorage.clear();
   };
   restoreState(er_state){
-    //console.log(er_state);
+    // console.log(er_state);
     if((typeof er_state !== "undefined")&&(er_state.puzzlesSolved.length > 0)){
       let lastPuzzleSolved = Math.max.apply(null, er_state.puzzlesSolved);
       // lastPuzzleSolved = 3; //Force a puzzle (for development)
@@ -69,12 +70,10 @@ export class App extends React.Component {
   onBoxOpen(solution){
     LocalStorage.saveSetting("puzzle_solution",solution);
     switch(GLOBAL_CONFIG.afterOpen){
-      case "SHOW_MESSAGE":
-        this.setState({showMessageScreen:true});
-        break;
       case "SHOW_MESSAGE_AND_CONTINUE":
         this.setState({showMessageScreen:true});
         break;
+      case "SHOW_MESSAGE":
       default:
         if(this.props.puzzle < GLOBAL_CONFIG.escapp.appPuzzleIds[0]){
           this.submitSolution(solution);
@@ -122,6 +121,13 @@ export class App extends React.Component {
     if(showMessageScreen === true){
       return (
         <MessageScreen dispatch={this.props.dispatch} config={GLOBAL_CONFIG} I18n={I18n} Utils={Utils} escapp={escapp} submitSolution={this.submitSolution} />
+      );
+    }
+
+    let showContentScreen = ((GLOBAL_CONFIG.afterOpen==="SHOW_URL")&&(puzzleCompleted));
+    if(showContentScreen === true){
+      return (
+        <ContentScreen dispatch={this.props.dispatch} config={GLOBAL_CONFIG} I18n={I18n} Utils={Utils} escapp={escapp} />
       );
     }
 
