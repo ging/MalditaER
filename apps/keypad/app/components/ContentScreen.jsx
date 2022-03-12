@@ -7,27 +7,27 @@ export default class ContentScreen extends React.Component {
     this.handleResize = this.handleResize.bind(this);
   }
 
-  componentDidMount() {
+  componentDidMount(){
     window.addEventListener('resize', this.handleResize);
     this.handleResize();
-  };
-  componentWillUnmount() {
+  }
+  componentWillUnmount(){
     window.removeEventListener('resize', this.handleResize);
-  };
+  }
 
   handleResize(){
-    var contentHeight = $("#root").height();
-    var contentWidth = $("#root").width();
-    var aspectRatio = 4/3;
-    var boxWidth = Math.min(contentHeight*aspectRatio,contentWidth);
-    var boxHeight = boxWidth/aspectRatio;
+    let contentHeight = $("#root").height();
+    let contentWidth = $("#root").width();
+    let aspectRatio = 4 / 3;
+    let boxWidth = Math.min(contentHeight * aspectRatio, contentWidth);
+    let boxHeight = boxWidth / aspectRatio;
 
-    var contentContainer = $("div#content_container");
-    $(contentContainer).width(boxWidth*0.55);
-    $(contentContainer).height(boxHeight*0.75);
-    $(contentContainer).css("margin-right",boxWidth/2*0.1);
+    let contentContainer = $("div#content_container");
+    $(contentContainer).width(boxWidth * 0.55);
+    $(contentContainer).height(boxHeight * 0.75);
+    $(contentContainer).css("margin-right", boxWidth / 2 * 0.1);
     // $(contentContainer).css("margin-top",boxHeight*0.03);
-  };
+  }
 
   render(){
     if(typeof this.props.config.url !== "string"){

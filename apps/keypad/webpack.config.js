@@ -53,6 +53,7 @@ const config = {
         ],
       },
       { test: /\.(png|jpg|gif)$/, use: 'file-loader' },
+      { test: /\.(mp3|wav)$/, use: 'file-loader' },
       { test: /\.eot(\?v=\d+.\d+.\d+)?$/, use: 'file-loader' },
       { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, use: 'file-loader' },
       { test: /\.[ot]tf(\?v=\d+.\d+.\d+)?$/, use: 'file-loader' },

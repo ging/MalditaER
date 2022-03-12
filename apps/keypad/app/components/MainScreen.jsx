@@ -11,39 +11,39 @@ export default class MainScreen extends React.Component {
     this.password = [];
     this.processing_click = false;
     this.checking = false;
-  };
+  }
 
-  componentDidMount() {
+  componentDidMount(){
     window.addEventListener('resize', this.handleResize);
     this.handleResize();
-  };
-  componentWillUnmount() {
+  }
+  componentWillUnmount(){
     window.removeEventListener('resize', this.handleResize);
-  };
+  }
 
   handleResize(){
-    var contentHeight = $("#root").height();
-    var contentWidth = $("#root").width();
-    var aspectRatio = 4/3;
-    var boxWidth = Math.min(contentHeight*aspectRatio,contentWidth);
-    var boxHeight = boxWidth/aspectRatio;
+    let contentHeight = $("#root").height();
+    let contentWidth = $("#root").width();
+    let aspectRatio = 4 / 3;
+    let boxWidth = Math.min(contentHeight * aspectRatio, contentWidth);
+    let boxHeight = boxWidth / aspectRatio;
 
-    var buttonContainer = $("div#container");
-    $(buttonContainer).width(boxWidth*0.22);
-    $(buttonContainer).css("margin-left",boxWidth/2*0.09);
-    //$(buttonContainer).css("margin-top",boxHeight*0.3 + (contentHeight-boxHeight)/2);
-    $(buttonContainer).height(boxHeight*0.4);
+    let buttonContainer = $("div#container");
+    $(buttonContainer).width(boxWidth * 0.22);
+    $(buttonContainer).css("margin-left", boxWidth / 2 * 0.09);
+    // $(buttonContainer).css("margin-top",boxHeight*0.3 + (contentHeight-boxHeight)/2);
+    $(buttonContainer).height(boxHeight * 0.4);
 
-    $("div.boxButton").width(boxWidth*0.06);
-    $("div.boxButton").height(boxHeight*0.1);
+    $("div.boxButton").width(boxWidth * 0.06);
+    $("div.boxButton").height(boxHeight * 0.1);
 
-    var boxLight = $("div.boxlight");
-    $(boxLight).css('left', $("#root").width()/2 + boxWidth/2*0.3);
-    $(boxLight).css('top', $("#root").height()/2 - boxHeight/2*0.4);
-  };
+    let boxLight = $("div.boxlight");
+    $(boxLight).css('left', $("#root").width() / 2 + boxWidth / 2 * 0.3);
+    $(boxLight).css('top', $("#root").height() / 2 - boxHeight / 2 * 0.4);
+  }
 
   onClickButton(value){
-    if((this.processing_click===true)||(this.checking===true)){
+    if((this.processing_click === true) || (this.checking === true)){
       return;
     }
     this.processing_click = true;
@@ -53,36 +53,36 @@ export default class MainScreen extends React.Component {
     }
 
     let shortBeep = document.getElementById("audio_beep");
-    
+
     // shortBeep.onended = function() {
     setTimeout(function(){
       if(this.password.length === this.props.config.passwordLength){
-        //Submit solution
+        // Submit solution
         this.checking = true;
         this.processing_click = false;
 
         let solution = this.password.join("");
         this.password = [];
         this.props.escapp.checkPuzzle(this.props.config.escapp.appPuzzleIds[0], solution, {}, function(success){
-          //Success === true => Good password. Otherwise, bad password.
-          this.changeBoxLight(success,solution);
+          // Success === true => Good password. Otherwise, bad password.
+          this.changeBoxLight(success, solution);
         }.bind(this));
       } else {
         this.processing_click = false;
       }
-    }.bind(this),300);
+    }.bind(this), 300);
     // }.bind(this);
-    
+
     shortBeep.pause();
     shortBeep.currentTime = 0;
     shortBeep.play();
-  };
+  }
 
-  changeBoxLight(success,solution){
+  changeBoxLight(success, solution){
     let value;
     let audio;
 
-    if(success===true){
+    if(success === true){
       value = "green";
       audio = document.getElementById("audio_success");
     } else {
@@ -91,34 +91,34 @@ export default class MainScreen extends React.Component {
     }
 
     // audio.onended = function() {
-    setTimeout(function(){ 
+    setTimeout(function(){
       if(value === "red"){
         $("div.boxlight_off").show();
         $("div.boxlight_red").hide();
       }
-      this.afterChangeBoxLight(success,solution);
-    }.bind(this),1000);
+      this.afterChangeBoxLight(success, solution);
+    }.bind(this), 1000);
     // }.bind(this);
-    
+
     $("div.boxlight_" + value).show();
     $("div.boxlight_off").hide();
     audio.play();
-  };
+  }
 
-  afterChangeBoxLight(success,solution){
+  afterChangeBoxLight(success, solution){
     if(success){
       return this.props.onBoxOpen(solution);
     }
     this.checking = false;
-  };
+  }
 
   render(){
     return (
       <div id="screen_main" className="screen_wrapper">
         <div id="container">
-          <audio id="audio_beep" src="../assets/sounds/beep-short.mp3" autostart="false" preload="auto"></audio>
-          <audio id="audio_failure" src="../assets/sounds/access-denied.mp3" autostart="false" preload="auto"></audio>
-          <audio id="audio_success" src="../assets/sounds/correct.mp3" autostart="false" preload="auto"></audio>
+          <audio id="audio_beep" src="assets/sounds/beep-short.mp3" autostart="false" preload="auto" />
+          <audio id="audio_failure" src="assets/sounds/access-denied.mp3" autostart="false" preload="auto" />
+          <audio id="audio_success" src="assets/sounds/correct.mp3" autostart="false" preload="auto" />
           <div id="row1" className="row">
             <BoxButton value={"1"} position={1} onClick={this.onClickButton}/>
             <BoxButton value={"2"} position={2} onClick={this.onClickButton}/>
@@ -139,9 +139,9 @@ export default class MainScreen extends React.Component {
             <BoxButton value={"0"} position={11} onClick={this.onClickButton}/>
             <BoxButton value={"#"} position={12} onClick={this.onClickButton}/>
           </div>
-          <div className="boxlight boxlight_off"></div>
-          <div className="boxlight boxlight_red"></div>
-          <div className="boxlight boxlight_green"></div>
+          <div className="boxlight boxlight_off" />
+          <div className="boxlight boxlight_red" />
+          <div className="boxlight boxlight_green" />
         </div>
       </div>
     );
