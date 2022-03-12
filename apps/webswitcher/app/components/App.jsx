@@ -30,6 +30,12 @@ export class App extends React.Component {
     // this.reset(); //For development
     escapp.validate(function(success, er_state){
       if(success){
+        // Add escapp's user credentials to each URL
+        if((typeof GLOBAL_CONFIG === "object") && (GLOBAL_CONFIG.webs instanceof Array)){
+          for(let i = 0; i < GLOBAL_CONFIG.webs.length; i++){
+            GLOBAL_CONFIG.webs[i].url = escapp.addUserCredentialsToUrl(GLOBAL_CONFIG.webs[i].url);
+          }
+        }
         this.restoreState(er_state);
       }
     }.bind(this));
