@@ -20,7 +20,6 @@ export let GLOBAL_CONFIG = {
     imagesPath:"assets/images/",
     I18n:{
       availableLocales:["es", "en"],
-      locale:"es",
       defaultLocale:"es",
       locales:ESCAPP_LOCALES,
     },
