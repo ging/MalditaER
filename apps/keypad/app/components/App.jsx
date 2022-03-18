@@ -33,8 +33,12 @@ export class App extends React.Component {
     GLOBAL_CONFIG.escapp.onNewErStateCallback = function(er_state){
       this.restoreState(er_state);
     }.bind(this);
+    GLOBAL_CONFIG.escapp.onErRestartCallback = function(er_state){
+      // this.reset(); //For development
+      // localStorage.clear();
+      LocalStorage.removeSetting("puzzle_solution");
+    }.bind(this);
     escapp = new ESCAPP(GLOBAL_CONFIG.escapp);
-    // this.reset(); //For development
     escapp.validate(function(success, er_state){
       if(success){
         this.restoreState(er_state);
@@ -46,7 +50,6 @@ export class App extends React.Component {
     localStorage.clear();
   }
   restoreState(er_state){
-    // console.log(er_state);
     if((typeof er_state !== "undefined") && (er_state.puzzlesSolved.length > 0)){
       let lastPuzzleSolved = Math.max.apply(null, er_state.puzzlesSolved);
       // lastPuzzleSolved = 3; //Force a puzzle (for development)
