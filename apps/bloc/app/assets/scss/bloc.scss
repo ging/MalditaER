@@ -1,0 +1,58 @@
+
+.bloc_body {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-start;
+	font-family: "Reenie Beanie", mono;
+	flex: 1;
+	width: 100%;
+
+	.left_bloc {
+		width: 50%;
+		padding: 10% 7% 10% 10%;
+
+	}
+	.right_bloc{
+		width: 50%;
+		padding: 10% 10% 10% 7%;
+	}
+
+	p {
+		margin-block-start: 0.3em;
+		margin-block-end: 0.3em;
+		font-size: 2.4em;
+	}
+
+	input#bloc_input {
+		width: 100%;
+		font-size: 1.3em;
+		display: block;
+		font-family: inherit;
+		font-size: inherit;
+		border: none; /* Removes the default border */
+		&:focus {
+	  		outline: none;
+	  	}
+	  	line-height: 110%;
+	  	padding: 0;
+
+	  	&::placeholder {
+	  		color: #cccccc;
+	  	}
+
+	}
+
+	p.danger {
+		color: tomato;
+		font-family: monospace;
+		font-size: 1.5em;
+	}
+
+	p.success {
+		color: #3ECA6B;
+		font-family: monospace;
+		font-size: 1.5em;
+	}
+
+}
