@@ -7,9 +7,9 @@ export let GLOBAL_CONFIG = {
   defaultLocale:"es",
   localStorageKey:"WEB_SWITCHER_2022",
   webs:[
-    {name:"Ediphy MalditaER (I)", url:"https://vishub.org/ediphy_documents/401.full", switchOnPuzzle:0},
-    {name:"Ediphy MalditaER (II)", url:"https://vishub.org/ediphy_documents/402.full", switchOnPuzzle:1},
-    {name:"Ediphy MalditaER (III)", url:"https://vishub.org/ediphy_documents/403.full", switchOnPuzzle:3}
+    {name:"Ediphy MalditaER (I)", url:"https://vishub.org/ediphy_documents/401.full?nowatermark=1", switchOnPuzzle:0},
+    {name:"Ediphy MalditaER (II)", url:"https://vishub.org/ediphy_documents/402.full?nowatermark=1", switchOnPuzzle:1},
+    {name:"Ediphy MalditaER (III)", url:"https://vishub.org/ediphy_documents/403.full?nowatermark=1", switchOnPuzzle:3},
   ],
   escapp:{
     endpoint:"https://escapp.dit.upm.es/api/escapeRooms/306",
