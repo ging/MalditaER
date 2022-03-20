@@ -38,6 +38,7 @@ export class App extends React.Component {
     escapp = new ESCAPP(GLOBAL_CONFIG.escapp);
     // this.reset(); //For development
     escapp.validate((success, er_state) => {
+      console.log(er_state)
       if(success){
         this.restoreState(er_state);
       }
@@ -52,7 +53,6 @@ export class App extends React.Component {
   restoreState(er_state){
     if(er_state.puzzlesSolved.length > 0){
       let lastPuzzleSolved = Math.max.apply(null, er_state.puzzlesSolved);
-      console.log(er_state);
       this.props.dispatch(restoreStateForPuzzle(lastPuzzleSolved, er_state.puzzleData));
     } else {
       this.props.dispatch(loaded(true));
@@ -75,7 +75,7 @@ export class App extends React.Component {
         } else {
           this.setState({escappFailMessage:I18n.getTrans("wrong_solution"), escappRightMessage:null});
         }
-      } catch (e){console.log(e);}
+      } catch (e){console.error(e);}
     });
   }
 

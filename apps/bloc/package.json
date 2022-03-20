@@ -1,7 +1,7 @@
 {
-  "name": "Strongbox",
+  "name": "Bloc",
   "version": "1.0.0",
-  "description": "Reto para escapp consistene en una caja fuerte",
+  "description": "Reto para escapp consistene en un bloc de notas",
   "author": "Aldo Gordillo <a.gordillo@upm.es>",
   "main": "index.js",
   "scripts": {
