@@ -1,0 +1,45 @@
+body {
+  background-color: white;
+}
+
+div.header_wrapper img {
+  width: 71px;
+  height: 50px;
+  float: left;
+  margin-top: 8px;
+}
+
+#heading {
+  font-size: 30px;
+  margin: 8px;
+}
+
+#tracking{
+  font-size: 18px;
+  color: black;
+  margin: 8px;
+}
+
+#tracking span {
+  margin-right: 40px;
+}
+
+#logged_user {
+  font-size: 18px;
+  color: gray;
+  margin: 8px;
+}
+
+div.csic_boletin_wrapper, div.csic_boletin_wrapper div, div.csic_boletin_wrapper table, div.csic_boletin_wrapper tbody, div.csic_boletin_wrapper td, div.csic_boletin_wrapper tr {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+}
+
+#atom_img_rescormail{
+  width: 80px;
+  right: 0px;
+  float: right;
+  margin: 0;
+  padding: 0;
+}
