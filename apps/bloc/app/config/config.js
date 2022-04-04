@@ -25,6 +25,6 @@ export let GLOBAL_CONFIG = {
     appPuzzleIds:[5],
     notifications:false,
     rtc:true,
-    forceValidation:true
+    forceValidation:true,
   },
 };

@@ -13,6 +13,7 @@ export default class MainScreen extends React.Component {
           escapp={this.props.escapp}
           handleWrite={this.props.handleWrite}
           handleKeyUp={this.props.handleKeyUp}
+          onContinue={this.props.onContinue}
           text={this.props.text}
           escappFailMessage={this.props.escappFailMessage}
           escappRightMessage={this.props.escappRightMessage}

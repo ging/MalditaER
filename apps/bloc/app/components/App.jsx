@@ -29,6 +29,7 @@ export class App extends React.Component {
     this.onTextSolve = this.onTextSolve.bind(this);
     this.handleWrite = this.handleWrite.bind(this);
     this.handleKeyUp = this.handleKeyUp.bind(this);
+    this.onContinue = this.onContinue.bind(this);
   }
 
   componentDidMount(){
@@ -38,7 +39,6 @@ export class App extends React.Component {
     escapp = new ESCAPP(GLOBAL_CONFIG.escapp);
     // this.reset(); //For development
     escapp.validate((success, er_state) => {
-      console.log(er_state)
       if(success){
         this.restoreState(er_state);
       }
@@ -107,6 +107,10 @@ export class App extends React.Component {
     }
   }
 
+  onContinue(){
+    this.onTextSolve((this.state.text || "").toString());
+  }
+
   // puzzle_solution
   render(){
     if(this.props.loading){
@@ -126,6 +130,7 @@ export class App extends React.Component {
             text={this.state.text}
             handleWrite={this.handleWrite}
             handleKeyUp={this.handleKeyUp}
+            onContinue={this.onContinue}
             onTextSolve={this.onTextSolve}
             current_puzzle={this.props.puzzle}
             puzzleCompleted={puzzleCompleted}

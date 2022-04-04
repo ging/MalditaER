@@ -14,6 +14,7 @@ export default class Bloc extends React.Component {
             value={this.props.text}
             placeholder={this.props.I18n.getTrans("placeholder")}
             autoCorrect="off" autoComplete="off" />}</p>
+          {this.props.puzzleCompleted ? null : <p><button className="continue" onClick={this.props.onContinue}>{this.props.I18n.getTrans("continue")}</button></p>}
           {this.props.escappFailMessage ? <p className="danger">{this.props.escappFailMessage}</p> : null}
           {this.props.escappRightMessage ? <p className="success">{this.props.escappRightMessage}</p> : null}
         </div>
