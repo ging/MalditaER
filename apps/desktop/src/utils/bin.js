@@ -105,6 +105,7 @@ export class Bin {
   }
 
   parseFolder(data, name, host = null) {
+    console.log(data,name)
     var item = new Item({
       type: data.type,
       name: data.name || name,

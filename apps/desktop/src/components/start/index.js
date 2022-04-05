@@ -50,7 +50,7 @@ export const DesktopApp = () => {
         deskApps.apps.map((app, i) => {
           return (
             <div key={i} className="dskApp">
-              <Icon click={app.action} className="dskIcon prtclk" src={app.icon} payload={app.payload || "full"} pr width={Math.round(deskApps.size * 36)} menu="app" />
+              <Icon click={app.action} className="dskIcon prtclk" src={app.icon} payload={app.payload || "full"} extra={app.extra} pr width={Math.round(deskApps.size * 36)} menu="app" />
               <div className="appName">{app.name}</div>
             </div>
           );
@@ -152,7 +152,6 @@ export const SidePane = () => {
   });
 
   useEffect(() => {
-    // console.log("ok")
     var tmp = [];
     for (var i = 0; i < sidepane.quicks.length; i++) {
       var val = getTreeValue(setting, sidepane.quicks[i].state);

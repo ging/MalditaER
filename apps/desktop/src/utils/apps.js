@@ -45,8 +45,8 @@ var apps = [{
   name: 'DCIM_214.png',
   icon: 'photos',
   type: 'app',
-  action: 'EXTERNAL',
-  payload: 'https://www.buymeacoffee.com/blueedgetechno'
+  action: 'PHOTOS',
+  extra: 'asset/boats.jpg'
 },
 {
   name: 'Store',
@@ -104,13 +104,6 @@ var apps = [{
   name: 'Yammer',
   icon: 'yammer',
   type: 'app'
-},
-{
-  name: 'Mail',
-  icon: 'mail',
-  type: 'app',
-  action: 'EXTERNAL',
-  payload: 'mailto:blueedgetechno@gmail.com'
 },
 {
   name: 'Movies',
@@ -178,12 +171,6 @@ var apps = [{
   name: 'Security',
   icon: 'security',
   type: 'app'
-},
-{
-  name: 'Spotify',
-  icon: 'spotify',
-  type: 'app',
-  action: 'SPOTIFY'
 },
 {
   name: 'Share',

@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Icon, Image, ToolBar } from "../../../utils/general";
 
-export const Photos = () => {
+
+
+export const Photos = (props) => {
   const apps = useSelector((state) => state.apps);
   const wnapp = useSelector((state) => state.apps.photos);
   const dispatch = useDispatch();
-
   return (
     <div
       className="photosapp floatTab dpShad"
@@ -29,7 +30,7 @@ export const Photos = () => {
         <div className="restWindow h-full flex-grow">
           <div className="w-full h-full overflow-hidden">
               <div className="img-container">
-                <img src={"https://www.redeszone.net/app/uploads-redeszone.net/2020/09/WPA3_config_router_pc_smartphone.jpg"}/>
+                {wnapp.extra ? <img className="enableContextMenu" src={"img/"+wnapp.extra}/> : <p> No image selected </p>}
               </div>
               {/*<div className="player">
                 <div>Prev</div>

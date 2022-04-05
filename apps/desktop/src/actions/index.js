@@ -89,6 +89,7 @@ export const changeTaskAlign = (align, menu) =>{
 }
 
 export const performApp = (act, menu)=>{
+  console.log({act,menu})
   var data = {
     type: menu.dataset.action,
     payload: menu.dataset.payload

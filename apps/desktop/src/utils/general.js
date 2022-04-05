@@ -37,7 +37,8 @@ export const Icon = (props)=>{
   const clickDispatch = (event)=>{
     var action = {
       type: event.target.dataset.action,
-      payload: event.target.dataset.payload
+      payload: event.target.dataset.payload,
+      extra: event.target.dataset.extra
     };
 
     if(action.type){
@@ -49,7 +50,7 @@ export const Icon = (props)=>{
     return (
       <div className={`uicon prtclk ${props.className||""}`}
         onClick={props.onClick || (props.click && clickDispatch) || null}
-        data-action={props.click} data-payload={props.payload}
+        data-action={props.click} data-payload={props.payload}  data-extra={props.extra}
         data-menu={props.menu}>
         <FontAwesomeIcon
           data-flip={props.flip!=null}
@@ -69,7 +70,7 @@ export const Icon = (props)=>{
     return(
       <div className={`uicon prtclk ${props.className||""}`}
         onClick={props.onClick || (props.click && clickDispatch) || null}
-        data-action={props.click} data-payload={props.payload}
+        data-action={props.click} data-payload={props.payload}  data-extra={props.extra}
         data-menu={props.menu}>
         <CustomIcon
           data-flip={props.flip!=null}
@@ -87,7 +88,7 @@ export const Icon = (props)=>{
     return (
       <div className={`uicon prtclk ${props.className||""}`}
         onClick={props.onClick || (props.click && clickDispatch) || null}
-        data-action={props.click} data-payload={props.payload}
+        data-action={props.click} data-payload={props.payload} data-extra={props.extra}
         data-menu={props.menu}>
           <i className={"ms-Icon ms-Icon--"+props.msi} style={{
             fontSize: props.width || '16px',
@@ -101,7 +102,7 @@ export const Icon = (props)=>{
     return (
       <div className={`uicon ${props.className||""} ${prtclk}`}
         data-open={props.open} data-action={props.click}
-        data-active={props.active} data-payload={props.payload}
+        data-active={props.active} data-payload={props.payload} data-extra={props.extra}
         onClick={props.onClick || (props.pr && clickDispatch) || null}
         data-menu={props.menu} data-pr={props.pr}>
           {props.className=='tsIcon'?
@@ -110,6 +111,7 @@ export const Icon = (props)=>{
             style={{width:props.width,height:props.width}}
             data-action={props.click}
             data-payload={props.payload}
+            data-extra={props.extra}
             data-click={props.click!=null}
             data-flip={props.flip!=null}
             data-invert={props.invert!=null?'true':'false'}
@@ -119,6 +121,7 @@ export const Icon = (props)=>{
             width={props.width} height={props.height}
             data-action={props.click}
             data-payload={props.payload}
+            data-extra={props.extra}
             data-click={props.click!=null}
             data-flip={props.flip!=null}
             data-invert={props.invert!=null?'true':'false'}
@@ -132,6 +135,7 @@ export const Icon = (props)=>{
             onClick={props.click!=null?clickDispatch:null}
             data-action={props.click}
             data-payload={props.payload}
+            data-extra={props.extra}
             data-click={props.click!=null}
             data-flip={props.flip!=null}
             data-invert={props.invert!=null?'true':'false'}

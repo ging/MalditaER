@@ -67,6 +67,7 @@ export const StartMenu = () => {
     var action = {
       type: event.target.dataset.action,
       payload: event.target.dataset.payload,
+      extra: event.target.dataset.extra
     };
 
     if (action.type) {
@@ -120,7 +121,7 @@ export const StartMenu = () => {
                     return app.empty ? (
                       <div key={i} className="pnApp pnEmpty"></div>
                     ) : (
-                      <div key={i} className="prtclk pnApp" value={app.action != null} onClick={clickDispatch} data-action={app.action} data-payload={app.payload || "full"}>
+                      <div key={i} className="prtclk pnApp" value={app.action != null} onClick={clickDispatch} data-action={app.action} data-payload={app.payload || "full"} data-extra={app.extra} >
                         <Icon className="pnIcon" src={app.icon} width={32} />
                         <div className="appName">{app.name}</div>
                       </div>
@@ -139,7 +140,7 @@ export const StartMenu = () => {
                 <div className="reApps">
                   {start.rcApps.slice(0, 6).map((app, i) => {
                     return app.name ? (
-                      <div key={i} className="rnApp" value={app.action != null} onClick={clickDispatch} data-action={app.action} data-payload={app.payload || "full"}>
+                      <div key={i} className="rnApp" value={app.action != null} onClick={clickDispatch} data-action={app.action} data-payload={app.payload || "full"} data-extra={app.extra}>
                         <Icon className="pnIcon" src={app.icon} width={32} />
                         <div className="acInfo">
                           <div className="appName">{app.name}</div>
@@ -174,7 +175,7 @@ export const StartMenu = () => {
 
                   ldx.forEach((app, j) => {
                     tpApps.push(
-                      <div key={app.name} className="allApp prtclk" onDoubleClick={clickDispatch} data-action={app.action} data-payload={app.payload || "full"}>
+                      <div key={app.name} className="allApp prtclk" onDoubleClick={clickDispatch} data-action={app.action} data-payload={app.payload || "full"} data-extra={app.extra}>
                         <Icon className="pnIcon" src={app.icon} width={24} />
                         <div className="appName">{app.name}</div>
                       </div>
@@ -283,7 +284,7 @@ export const StartMenu = () => {
                     {start.rcApps.slice(1, 7).map((app, i) => {
                       return (
                         <div key={i} className="topApp pt-6 py-4 ltShad">
-                          <Icon onDoubleClick={clickDispatch} click={app.action} payload={app.payload || "full"} src={app.icon} width={30} />
+                          <Icon onDoubleClick={clickDispatch} click={app.action} payload={app.payload || "full"} src={app.icon} width={30} data-extra={app.extra} />
                           <div className="text-xs mt-2">{app.name}</div>
                         </div>
                       );
@@ -309,7 +310,7 @@ export const StartMenu = () => {
                 <div className="">{match.name}</div>
                 <div className="text-xss mt-2">App</div>
                 <div className="hline mt-8"></div>
-                <div className="openlink w-4/5 flex prtclk handcr pt-3" onClick={clickDispatch} data-action={match.action} data-payload={match.payload ? match.payload : "full"}>
+                <div className="openlink w-4/5 flex prtclk handcr pt-3" onClick={clickDispatch} data-action={match.action} data-payload={match.payload ? match.payload : "full"}  data-extra={match.extra}>
                   <Icon className="blueicon" src="link" ui width={16} />
                   <div className="text-xss ml-3">Open</div>
                 </div>

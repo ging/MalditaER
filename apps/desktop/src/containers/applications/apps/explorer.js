@@ -3,6 +3,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {Icon, Image, ToolBar} from '../../../utils/general';
 import {dispatchAction, handleFileOpen} from '../../../actions';
 import './assets/fileexpo.scss';
+import * as Actions from "../../../actions";
 
 const NavTitle = (props)=>{
   var src = props.icon || "folder"
@@ -196,11 +197,32 @@ const ContentArea = ({searchtxt})=>{
     }
   }
 
+  const clickDispatch = (event) => {
+    var action = {
+      type: event.target.dataset.action,
+      payload: event.target.dataset.payload,
+      extra: event.target.dataset.extra
+    };
+
+    if (action.type) {
+      if (action.type != action.type.toUpperCase()) {
+        Actions[action.type](action.payload);
+      } else dispatch(action);
+    }
+  };
+
   return(
     <div className="contentarea" onClick={emptyClick} onKeyDown={handleKey} tabIndex="-1">
       <div className="contentwrap win11Scroll">
         <div className="gridshow" data-size="lg">
           {fdata.data.map((item,i)=>{
+            console.log(item)
+            if (item.app != undefined) {
+              return <div key={i} className="dskApp">
+              <Icon click={clickDispatch} className="dskIcon prtclk" src={item.icon} payload={item.payload || "full"} extra={item.extra} pr menu="app" />
+              <div className="appName">{item.name}</div>
+            </div>
+            }
             return item.name.includes(searchtxt) && (
               <div key={i} className="conticon hvtheme flex flex-col items-center prtclk"
                 data-id={item.id} data-focus={selected==item.id}

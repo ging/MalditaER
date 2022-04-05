@@ -94,6 +94,7 @@ const appReducer = (state = defState, action) => {
           case 'full':{
             obj.hide = false;
             obj.size = 'full'
+            obj.extra = action.extra;
             toTop(obj);
             break;
           }
@@ -136,6 +137,7 @@ const appReducer = (state = defState, action) => {
           }
         }
         tmpState[keys[i]] = obj;
+        console.log(tmpState);
         return tmpState;
       }
     }

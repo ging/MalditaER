@@ -95,6 +95,7 @@ function App() {
   }
 
   window.oncontextmenu = (e) => {
+    if (e.target.className.match("enableContextMenu")){return;}
     afterMath(e);
     e.preventDefault();
     // dispatch({ type: 'GARBAGE'});

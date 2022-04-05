@@ -26,37 +26,7 @@
           "AMD": {},
           "BraveSoftware": {},
           "Common Files": {},
-          "Dell": {},
-          "dotnet": {},
-          "Git": {},
-          "Goodix": {},
-          "heroku": {},
-          "Intel": {},
-          "Internet Explorer": {},
-          "mcafee": {},
-          "Microsoft Office 15": {},
-          "Microsoft Update Health Tools": {},
-          "ModifiableWindowsApps": {},
-          "MongoDB": {},
-          "MSBuild": {},
-          "MySQL": {},
-          "nodejs": {},
-          "OpenVPN": {},
-          "PCHealthCheck": {},
-          "PowerShell": {},
-          "PowerToys": {},
-          "Realtek": {},
-          "Reference Assemblies": {},
-          "Riot Vanguard": {},
-          "Rivet Networks": {},
-          "Waves": {},
-          "Windows Defender": {},
-          "Windows Mail": {},
-          "Windows Media Player": {},
-          "Windows NT": {},
-          "Windows Photo Viewer": {},
-          "WindowsPowerShell": {},
-          "WinRAR": {}
+          "Dell": {}
         }
       },
       "temp": {},
@@ -103,17 +73,7 @@
                     }
                   },
                   "Adobe": {},
-                  "Attachments": {},
-                  "Custom": {},
-                  "Downloadable": {},
-                  "Fax": {},
-                  "FeedbackHub": {},
-                  "Freelancing": {},
-                  "My Games": {},
-                  "OneNote notebooks": {},
-                  "OnScreen Control": {},
-                  "Outlook Files": {},
-                  "Visual Studio": {}
+                  "Attachments": {}
                 }
               },
               "Downloads": {
@@ -149,7 +109,9 @@
                   "DCIM": {
                     "data": {
                       "sdfsdf.png": {
-                        "icon": "pics"
+                        "icon": "pics",
+                        "app": "PHOTOS",
+                        "extra": "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2012/August/120815/430190-pb-120815-japanisland-hmed-742p.jpg"
                       }
                     }
                   },
