@@ -22,7 +22,7 @@ import {
   WidPane,
   CalnWid
 } from './components/start';
-
+import Escapp from './Escapp';
 import {loadSettings} from './actions';
 import * as Applications from './containers/applications';
 import * as Drafts from './containers/applications/draft.js';
@@ -159,6 +159,7 @@ function App() {
         </div>
         <Taskbar/>
         <ActMenu/>  
+        <Escapp/>  
       </div>
      </ErrorBoundary>
     </div>
