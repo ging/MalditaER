@@ -8,8 +8,7 @@ export let GLOBAL_CONFIG = {
   localStorageKey:"WEB_SWITCHER_2022",
   webs:[
     {name:"Ediphy MalditaER (I)", url:"https://vishub.org/ediphy_documents/401.full?nowatermark=1", switchOnPuzzle:0},
-    {name:"Ediphy MalditaER (II)", url:"https://vishub.org/ediphy_documents/402.full?nowatermark=1", switchOnPuzzle:1},
-    {name:"Ediphy MalditaER (III)", url:"https://vishub.org/ediphy_documents/403.full?nowatermark=1", switchOnPuzzle:3},
+    {name:"Ediphy MalditaER (Full)", url:"https://vishub.org/ediphy_documents/402.full?nowatermark=1", switchOnPuzzle:1},
   ],
   escapp:{
     endpoint:"https://escapp.dit.upm.es/api/escapeRooms/306",
