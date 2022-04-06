@@ -4,7 +4,6 @@ import './../assets/scss/main.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 let GLOBAL_CONFIG = require('../config/config.js');
 import * as I18n from '../vendors/I18n.js';
-import * as Utils from '../vendors/Utils.js';
 import * as LocalStorage from '../vendors/Storage.js';
 
 import NavBar from "./navBar";
@@ -15,7 +14,6 @@ import {
   seleccionarPieza,
   intercambiarPiezas,
   darVuelta,
-  darVueltaTodas,
   comprobarCompletado,
   restoreState,
 } from '../reducers/actions';
@@ -90,7 +88,7 @@ export class App extends React.Component {
 
     let instrucciones = "";
     if(this.state.mostrarMsgInicial){
-      instrucciones = (<InitialMessage ocultarInstrucciones={this.ocultarInstrucciones}/>);
+      instrucciones = (<InitialMessage config={GLOBAL_CONFIG} I18n={I18n} ocultarInstrucciones={this.ocultarInstrucciones}/>);
     }
 
     return (
@@ -129,38 +127,6 @@ export class App extends React.Component {
     if(this.props.piezasSeleccionadas[0][0] !== -1 && this.props.piezasSeleccionadas[1][0] !== -1){
       this.props.dispatch(intercambiarPiezas(this.props.piezasSeleccionadas));
       this.saveState();
-    }
-  }
-
-  toggle(){
-    this.props.dispatch(darVueltaTodas());
-  }
-
-  mostrarMsgFinal(){
-    this.setState({mostrarMsgFinal:true});
-  }
-
-  ocultarMsgFinal(){
-    this.setState({mostrarMsgFinal:false});
-  }
-
-  comprobarCompletado(flag){
-    if(flag === "gameover"){
-      this.setState({timeFinished:true});
-    }
-
-    // Comprueba si se ha completado el puzzle
-    let solution = "";
-    for(let row = 1; row <= GLOBAL_CONFIG.N; row++){
-      for(let col = 1; col <= GLOBAL_CONFIG.M; col++){
-        for(let p in this.props.piezas){
-          let pieza = this.props.piezas[p];
-          if(pieza.row === row && pieza.column === col){
-            solution = solution + pieza.faceImgId;
-            break;
-          }
-        }
-      }
     }
   }
 

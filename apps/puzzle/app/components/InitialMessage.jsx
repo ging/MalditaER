@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-let GLOBAL_CONFIG = require('../config/config.js');
 import {Modal, Button, CardGroup, Card, Tab, Tabs, Sonnet} from 'react-bootstrap';
 import './../assets/scss/main.scss';
 
@@ -14,9 +13,9 @@ export default function InitialMessage(props){
   goalCard = (
     <Card>
       <Card.Body>
-        <Card.Title><b>Objetivo</b></Card.Title>
+        <Card.Title><b>{props.I18n.getTrans("i.instructions_c1_title")}</b></Card.Title>
         <Card.Text >
-            Ordenar las piezas para dar con la solución.
+            {props.I18n.getTrans("i.instructions_c1")}
         </Card.Text>
       </Card.Body>
 
@@ -25,12 +24,12 @@ export default function InitialMessage(props){
 
   let flipPieceCard = "";
 
-  GLOBAL_CONFIG.reverseMode ? flipPieceCard = (
+  props.config.reverseMode ? flipPieceCard = (
     <Card>
       <Card.Body>
-        <Card.Title><b>Piezas reversibles</b></Card.Title>
+        <Card.Title><b>{props.I18n.getTrans("i.instructions_c3_title")}</b></Card.Title>
         <Card.Text>
-            Para dar la vuelta a una pieza se debe hacer doble click sobre ella.
+            {props.I18n.getTrans("i.instructions_c3")}
         </Card.Text>
       </Card.Body>
 
@@ -41,9 +40,9 @@ export default function InitialMessage(props){
   interchangeCard = (
     <Card>
       <Card.Body>
-        <Card.Title><b>Intercambio de piezas</b></Card.Title>
+        <Card.Title><b>{props.I18n.getTrans("i.instructions_c2_title")}</b></Card.Title>
         <Card.Text>
-          Mediante un click se selecciona la pieza y se deposita con otro click en el lugar de destino.
+          {props.I18n.getTrans("i.instructions_c2")}
         </Card.Text>
       </Card.Body>
 
@@ -54,7 +53,7 @@ export default function InitialMessage(props){
     <>
       <Modal backdrop="static" keyboard={false} show={show} onHide={handleClose} animation={false} size="lg">
         <Modal.Header>
-          <Modal.Title style={{fontSize:"45px"}}>Instrucciones</Modal.Title>
+          <Modal.Title style={{fontSize:"45px"}}>{props.I18n.getTrans("i.instructions_title")}</Modal.Title>
         </Modal.Header>
         <Modal.Body className="tab">
           <Tabs defaultActiveKey="instructions" id="uncontrolled-tab-example" >
@@ -68,7 +67,7 @@ export default function InitialMessage(props){
           </Tabs>
         </Modal.Body>
         <Modal.Footer>
-          <Button className={"btn btn-dark"}style={{width:"50%", margin:"auto"}} variant="primary" disabled={!enable && props.temporizador} onClick={()=>{handleClose(); props.ocultarInstrucciones();}}>
+          <Button className={"btn btn-dark"}style={{width:"50%", margin:"auto"}} variant="primary" onClick={()=>{handleClose(); props.ocultarInstrucciones();}}>
             <p style={{fontSize:"20px"}}><b>Entendido</b></p>
           </Button>
         </Modal.Footer>

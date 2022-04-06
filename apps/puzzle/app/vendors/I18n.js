@@ -1,5 +1,7 @@
-import {LOCALES} from '../config/locales.js';
+import * as Utils from '../vendors/Utils.js';
+import {APP_LOCALES} from '../config/locales.js';
 
+let LOCALES = APP_LOCALES;
 let defaultLocale;
 let locale;
 
@@ -25,6 +27,11 @@ export function init(GLOBAL_CONFIG){
     } else {
       locale = defaultLocale;
     }
+  }
+
+  //Merge locales
+  if(typeof GLOBAL_CONFIG.locales !== "undefined"){
+    LOCALES = Utils.deepMerge(LOCALES, GLOBAL_CONFIG.locales);
   }
 }
 

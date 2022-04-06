@@ -1,10 +1,8 @@
 export let LOCALES = {
   en:{
-    "i.answer":"Answer",
-    "i.difficulty":"Difficulty",
+    "i.instructions_title":"Instructions",
   },
   es:{
-    "i.answer":"Responder",
-    "i.difficulty":"Dificultad",
+    "i.instructions_title":"Instrucciones",
   },
 };

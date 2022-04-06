@@ -1,39 +1,19 @@
-let next_objective_id = 1;
-
-export function Objective(options){
-  // Constructor
-  let defaults = {
-    id:next_objective_id,
-    accomplished:false,
-    progress_measure:0,
-    score:null,
-    accomplished_score:null,
-
-  };
-  let _objective = Object.assign({}, defaults, options);
-
-  _objective.progress_measure = Math.max(0, Math.min(1, _objective.progress_measure));
-
-  if(typeof _objective.score === "number"){
-    _objective.score = Math.max(0, Math.min(1, _objective.score));
-    if(typeof _objective.accomplished_score === "number"){
-      _objective.accomplished_score = Math.min(_objective.accomplished_score, _objective.score);
+export function deepMerge(h1,h2){
+  if((typeof h1 === "object")&&(typeof h2 === "object")&&(!(h1 instanceof Array))){
+    let keys = Object.keys(Object.assign({},h1,h2));
+    let keysL = keys.length;
+    for(let i=0; i<keysL; i++){
+      h1[keys[i]] = deepMerge(h1[keys[i]],h2[keys[i]]);
+    }
+    return h1;
+  } else {
+    if(typeof h2 !== "undefined"){
+      return h2;
+    } else {
+      return h1;
     }
   }
-
-
-  next_objective_id += 1;
-  return _objective;
-}
-
-export function ResetObjective(objective){
-  if(typeof objective !== "object"){
-    return objective;
-  }
-  objective.accomplished = false;
-  objective.accomplished_score = null;
-  return objective;
-}
+};
 
 export function shuffleArray(array){
   return array.map((a) => [Math.random(), a]).sort((a, b) => a[0] - b[0]).map((a) => a[1]);
