@@ -8,6 +8,8 @@ export let GLOBAL_CONFIG = {
   locale:"es",
   defaultLocale:"es",
   localStorageKey:"DESKTOP_2022",
+  mailAppLink: "https://ging.github.io/MalditaER/Fakemail",
+  blocAppLink: "https://ging.github.io/MalditaER/bloc",
   escapp:{
     endpoint:"https://escapp.dit.upm.es/api/escapeRooms/306",
     localStorageKey:"ESCAPP_DESKTOP_2022",
@@ -18,7 +20,7 @@ export let GLOBAL_CONFIG = {
       defaultLocale:"es",
       locales:ESCAPP_LOCALES,
     },
-    appPuzzleIds:[6],
+    appPuzzleIds:[4,5],
     notifications:false,
     rtc:true,
     forceValidation:true,

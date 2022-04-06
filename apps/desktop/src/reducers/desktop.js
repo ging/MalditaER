@@ -7,7 +7,8 @@ const defState = {
   hide: false,
   size: 1,
   sort: "none",
-  abOpen: false
+  abOpen: false,
+  showNotification: false
 };
 
 const deskReducer = (state = defState, action) => {
@@ -43,10 +44,18 @@ const deskReducer = (state = defState, action) => {
       return {
         ...state, sort: action.payload || "none"
       };
-      case 'DESKABOUT':
-        return {
-          ...state, abOpen: action.payload
-        };
+    case 'DESKABOUT':
+      return {
+        ...state, abOpen: action.payload
+      };
+    case 'SHOW_NOTIFICATION':
+      return {
+        ...state, showNotification: true
+      };
+    case 'HIDE_NOTIFICATION':
+      return {
+        ...state, showNotification: true
+      };
     default:
       return state;
   }

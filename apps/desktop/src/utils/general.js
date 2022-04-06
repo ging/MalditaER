@@ -40,7 +40,6 @@ export const Icon = (props)=>{
       payload: event.target.dataset.payload,
       extra: event.target.dataset.extra
     };
-
     if(action.type){
       dispatch(action);
     }

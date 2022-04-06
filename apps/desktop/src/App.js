@@ -22,10 +22,10 @@ import {
   WidPane,
   CalnWid
 } from './components/start';
-import Escapp from './Escapp';
 import {loadSettings} from './actions';
 import * as Applications from './containers/applications';
 import * as Drafts from './containers/applications/draft.js';
+import {GLOBAL_CONFIG} from './config.js';
 
 function ErrorFallback({error, resetErrorBoundary}) {
   return (
@@ -63,7 +63,7 @@ function ErrorFallback({error, resetErrorBoundary}) {
     );
   }
 
-
+let escapp;
 function App() {
   const apps = useSelector(state => state.apps);
   const wall = useSelector(state => state.wallpaper);
@@ -120,7 +120,43 @@ function App() {
 
   window.onload = (e) => {
     dispatch({type: "WALLBOOTED"})
+    GLOBAL_CONFIG.escapp.onNewErStateCallback = function(er_state){
+      if (er_state && er_state.puzzlesSolved && er_state.puzzlesSolved.indexOf(GLOBAL_CONFIG.escapp.appPuzzleIds[0])!=-1){
+        dispatch({type: "WALLUNLOCK"})
+      } else {
+        dispatch({type: "WALLALOCK"})
+      }
+
+      if (er_state && er_state.puzzlesSolved && er_state.puzzlesSolved.indexOf(GLOBAL_CONFIG.escapp.appPuzzleIds[1])!=-1){
+        dispatch({type: "SHOW_NOTIFICATION"})
+      } else {
+        dispatch({type: "HIDE_NOTIFICATION"})
+      }
+    };
+    GLOBAL_CONFIG.escapp.onErRestartCallback = function(er_state){
+      localStorage.clear();
+    };
+    escapp = new ESCAPP(GLOBAL_CONFIG.escapp);
+    escapp.validate(function(success, er_state){
+      if(success){
+        if (er_state && er_state.puzzlesSolved && er_state.puzzlesSolved.indexOf(GLOBAL_CONFIG.escapp.appPuzzleIds[0])!=-1){
+          dispatch({type: "WALLUNLOCK"})
+        } else {
+          dispatch({type: "WALLALOCK"})
+        }
+
+        if (er_state && er_state.puzzlesSolved && er_state.puzzlesSolved.indexOf(GLOBAL_CONFIG.escapp.appPuzzleIds[1])!=-1){
+          dispatch({type: "SHOW_NOTIFICATION"})
+        } else {
+          dispatch({type: "HIDE_NOTIFICATION"})
+        }
+      }
+    });
   };
+
+  const checkLogin = (password, callback) => {
+    escapp.submitPuzzle(GLOBAL_CONFIG.escapp.appPuzzleIds[0], password, {}, callback);
+  }
 
   useEffect(()=>{
     if(!window.onstart){
@@ -134,9 +170,11 @@ function App() {
 
   return (
     <div className="App">  
+
       <ErrorBoundary FallbackComponent={ErrorFallback}>
+
       {!wall.booted?<BootScreen dir={wall.dir}/>:null}
-      {wall.locked?<LockScreen dir={wall.dir}/>:null}
+      {wall.locked?<LockScreen dir={wall.dir} checkLogin={checkLogin}/>:null}
       <div className="appwrap">
         <Background/>
         <div className="desktop" data-menu="desk">
@@ -159,7 +197,6 @@ function App() {
         </div>
         <Taskbar/>
         <ActMenu/>  
-        <Escapp/>  
       </div>
      </ErrorBoundary>
     </div>

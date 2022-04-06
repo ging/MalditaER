@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {Icon, Image, ToolBar, LazyComponent} from '../../../utils/general';
+import {GLOBAL_CONFIG} from '../../../config.js';
 
 export const EdgeMenu = ()=>{
   const apps = useSelector(state => state.apps)
@@ -14,13 +15,7 @@ export const EdgeMenu = ()=>{
   const iframes = {
     "https://www.google.com/webhp?igu=1": "Google",
     "https://bing.com": "Bing",
-    "https://www.youtube.com/embed/m0EHSoZzHEA": "Youtube",
-    "https://blueedge.me": "blueedge",
-    "https://andrewstech.me": "\nandrewstech",
-    "https://blueedge.me/unescape": "Unescape",
-    "https://win11.blueedge.me": "Inception",
-    "https://bluelab.blueedge.me": "BlueLab",
-    "https://othello.blueedge.me": "Othello",
+    "https://www.youtube.com/embed/m0EHSoZzHEA": "Youtube"
   }
 
   const favicons = {
@@ -99,9 +94,9 @@ export const EdgeMenu = ()=>{
   }
 
   useEffect(()=>{
-    if(wnapp.url){
+    if(wnapp.url || wnapp.extra){
       setTyping(false)
-      setUrl(wnapp.url)
+      setUrl( wnapp.url || wnapp.extra)
       dispatch({type: "EDGELINK"})
     }
   })
@@ -136,7 +131,7 @@ export const EdgeMenu = ()=>{
                 onKeyDown={action}
                 onChange={typing}
                 data-payload={3}
-                value={url}
+                value={url == GLOBAL_CONFIG.mailAppLink ? "https://gmail.com" : url}
                 placeholder="Type url or a query to search"
                 type="text"/>
                 <Icon className="z-1 handcr"
@@ -165,16 +160,6 @@ export const EdgeMenu = ()=>{
                 className="w-full h-full">
               </iframe>
             </LazyComponent>
-            {ierror?(
-              <div className="bg-blue-200 w-48 rounded dpShad p-2 absolute bottom-0 right-0 my-4 mx-12">
-                <div className="absolute bg-red-400 m-1 text-red-800 text-xs px-1 font-bold handcr top-0 right-0"
-                  onClick={handleFailed}>x</div>
-                <div className="text-gray-800 text-xs font-medium">
-                  If it shows <b>"Refused to connect"</b>, then <b>that website doesn't allow </b>
-                  other websites to show their content. <b>I cannot fix it</b>.
-                </div>
-              </div>
-            ):null}
           </div>
         </div>
       </div>

@@ -92,19 +92,20 @@ export const LockScreen = (props) => {
   };
 
   const proceed = () => {
-    if (password == 1234) {
-      setUnLock(true);
-      setTimeout(() => {
-        dispatch({ type: "WALLUNLOCK" });
-      }, 1000);
-    } else {
-       setUnLock(false);
-       setFailed(true);
-       setTimeout(() => {
-        setFailed(false);
-      }, 3000);
-    }
-   
+    props.checkLogin(password,(success) => {
+      if (success) {
+        setUnLock(true);
+        setTimeout(() => {
+          dispatch({ type: "WALLUNLOCK" });
+        }, 1000);
+      } else {
+         setUnLock(false);
+         setFailed(true);
+         setTimeout(() => {
+          setFailed(false);
+        }, 3000);
+      }
+    })
   };
 
   const action2 = (e) => {

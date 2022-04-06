@@ -216,7 +216,7 @@ const ContentArea = ({searchtxt})=>{
       <div className="contentwrap win11Scroll">
         <div className="gridshow" data-size="lg">
           {fdata.data.map((item,i)=>{
-            console.log(item)
+            // console.log(item)
             if (item.app != undefined) {
               return <div key={i} className="dskApp">
               <Icon click={clickDispatch} className="dskIcon prtclk" src={item.icon} payload={item.payload || "full"} extra={item.extra} pr menu="app" />

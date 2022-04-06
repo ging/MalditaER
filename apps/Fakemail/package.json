@@ -7,7 +7,7 @@
   "scripts": {
     "start": "webpack-dev-server",
     "clean": "rimraf dist rimraf dist_scorm",
-    "production": "rimraf dist && cross-env NODE_ENV=production webpack --config webpack.production.config.js --progress --profile --colors && cross-env npm run copy_assets",
+    "production": "rimraf dist && cross-env NODE_ENV=production webpack --config webpack.production.config.js --progress --profile --colors && cross-env npm run copy_assets && cross-env npm run publish_app",
     "copy_assets": "cross-env mkdir -p dist/assets && cross-env cp -r app/assets dist/ && cross-env rm -rf dist/assets/scss",
     "escapp": "cross-env node tasks/escapp.js",
     "escapp_and_start": "cross-env npm run escapp && cross-env npm start",
@@ -16,7 +16,9 @@
     "test:watch": "jest --watch",
     "coverage": "jest --coverage",
     "precommit": "cross-env npm run lint && npm test",
-    "prepush": "cross-env npm run lint && npm test"
+    "prepush": "cross-env npm run lint && npm test",
+    "publish_app": "rm -rf ../../docs/Fakemail && cp -r dist ../../docs/Fakemail"
+
   },
   "jest": {
     "setupFiles": [

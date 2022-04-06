@@ -5,6 +5,7 @@ import "./startmenu.scss";
 import "./searchpane.scss";
 import "./sidepane.scss";
 import Battery from "../Battery";
+import MailNotification from "../MailNotification";
 
 import axios from "axios";
 
@@ -42,6 +43,7 @@ export const DesktopApp = () => {
     arr.apps = tmpApps;
     return arr;
   });
+  const showNotification = useSelector(state=> state.desktop.showNotification);
   const dispatch = useDispatch();
 
   return (
@@ -55,6 +57,7 @@ export const DesktopApp = () => {
             </div>
           );
         })}
+        <MailNotification show={showNotification}/>
     </div>
   );
 };

@@ -49,6 +49,13 @@ var apps = [{
   extra: 'asset/boats.jpg'
 },
 {
+  name: 'notes.txt',
+  icon: 'notepad',
+  type: 'app',
+  action: 'NOTEPAD',
+  extra: 'Borrador del artículo'
+},
+{
   name: 'Store',
   icon: 'store',
   type: 'app',
