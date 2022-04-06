@@ -361,7 +361,7 @@ body[data-theme="dark"] .win11Scroll,
 .bloc {
     position: fixed;
     z-index: 10000;
-    bottom: calc(-100% - max(-70%, 240px));
+    bottom: -200%;
     right: 0%;
     display: block;
     width: 45%; 
@@ -376,7 +376,7 @@ body[data-theme="dark"] .win11Scroll,
       font-size: 1.8em;
     }
     &.show {
-      bottom: max(-70%,-240px);
+      bottom: -10%;
       visibility: visible;
     }
 

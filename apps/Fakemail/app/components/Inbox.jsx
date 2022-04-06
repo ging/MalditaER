@@ -46,7 +46,6 @@ export default class Inbox extends React.Component {
       }
     }
     this.props.dispatch(updateEmails(emails));
-    this.props.saveState();
   }
   getEmailsFromCategory(category){
     let emails = [];

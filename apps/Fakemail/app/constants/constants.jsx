@@ -1,6 +1,6 @@
 export const INITIAL_STATE = {
   loading:true,
-  logged:false,
+  logged:true,
   profile:{},
   emails:[],
   chats:[],
