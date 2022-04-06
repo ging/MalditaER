@@ -8,7 +8,7 @@
     "start": "webpack-dev-server",
     "startc": "cross-env npm run crop && webpack-dev-server",
     "clean": "rimraf dist",
-    "production": "cross-env npm run crop && rimraf dist && cross-env NODE_ENV=production webpack --config webpack.production.config.js --progress --profile --colors && cross-env npm run copy_assets",
+    "production": "cross-env npm run crop && rimraf dist && cross-env NODE_ENV=production webpack --config webpack.production.config.js --progress --profile --colors && cross-env npm run copy_assets && cross-env npm run publish_app",
     "copy_assets": "cross-env mkdir -p dist/assets && cross-env cp -r app/assets dist/ && cross-env rm -rf dist/assets/scss  && cross-env rm -rf dist/assets/images/puzzle",
     "crop": "rimraf app/assets/images/crop && cross-env mkdir -p app/assets/images/crop && cross-env NODE_ENV=dev_crop node tasks/crop.js",
     "escapp": "cross-env node tasks/escapp.js",
@@ -18,7 +18,8 @@
     "test:watch": "jest --watch",
     "coverage": "jest --coverage",
     "precommit": "cross-env npm run lint && npm test",
-    "prepush": "cross-env npm run lint && npm test"
+    "prepush": "cross-env npm run lint && npm test",
+    "publish_app": "rm -rf ../../docs/puzzle && cp -r dist ../../docs/puzzle"
   },
   "jest": {
     "setupFiles": [
