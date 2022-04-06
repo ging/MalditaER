@@ -7,7 +7,7 @@ import {
 } from 'react-redux';
 import './index.css';
 import './short.css';
-
+import Bloc from './Bloc';
 import {
   Background,
   BootScreen,
@@ -63,12 +63,13 @@ function ErrorFallback({error, resetErrorBoundary}) {
     );
   }
 
-let escapp;
+
 function App() {
+  let [escapp, setEscapp] = useState(undefined);
   const apps = useSelector(state => state.apps);
   const wall = useSelector(state => state.wallpaper);
+  const desktop = useSelector(state => state.desktop);
   const dispatch = useDispatch();
-
   const afterMath = (event) => {
     var ess = [
       ["START", "STARTHID"],
@@ -118,44 +119,32 @@ function App() {
 
   window.onclick = afterMath
 
+
+  const prepareSetup = (er_state) => {
+    if (er_state && er_state.puzzlesSolved && er_state.puzzlesSolved.indexOf(GLOBAL_CONFIG.escapp.appPuzzleIds[0])!=-1){
+      dispatch({type: "WALLUNLOCK"});
+    } else {
+      dispatch({type: "WALLALOCK"});
+    }
+
+    if (er_state && er_state.puzzlesSolved && er_state.puzzlesSolved.indexOf(GLOBAL_CONFIG.escapp.appPuzzleIds[1])!=-1){
+      dispatch({type: "SHOW_NOTIFICATION"});
+    } else {
+      dispatch({type: "HIDE_NOTIFICATION"});
+    }
+  }
+
   window.onload = (e) => {
-    dispatch({type: "WALLBOOTED"})
-    GLOBAL_CONFIG.escapp.onNewErStateCallback = function(er_state){
-      if (er_state && er_state.puzzlesSolved && er_state.puzzlesSolved.indexOf(GLOBAL_CONFIG.escapp.appPuzzleIds[0])!=-1){
-        dispatch({type: "WALLUNLOCK"})
-      } else {
-        dispatch({type: "WALLALOCK"})
-      }
-
-      if (er_state && er_state.puzzlesSolved && er_state.puzzlesSolved.indexOf(GLOBAL_CONFIG.escapp.appPuzzleIds[1])!=-1){
-        dispatch({type: "SHOW_NOTIFICATION"})
-      } else {
-        dispatch({type: "HIDE_NOTIFICATION"})
-      }
-    };
-    GLOBAL_CONFIG.escapp.onErRestartCallback = function(er_state){
-      localStorage.clear();
-    };
-    escapp = new ESCAPP(GLOBAL_CONFIG.escapp);
-    escapp.validate(function(success, er_state){
-      if(success){
-        if (er_state && er_state.puzzlesSolved && er_state.puzzlesSolved.indexOf(GLOBAL_CONFIG.escapp.appPuzzleIds[0])!=-1){
-          dispatch({type: "WALLUNLOCK"})
-        } else {
-          dispatch({type: "WALLALOCK"})
-        }
-
-        if (er_state && er_state.puzzlesSolved && er_state.puzzlesSolved.indexOf(GLOBAL_CONFIG.escapp.appPuzzleIds[1])!=-1){
-          dispatch({type: "SHOW_NOTIFICATION"})
-        } else {
-          dispatch({type: "HIDE_NOTIFICATION"})
-        }
-      }
-    });
+    dispatch({type: "WALLBOOTED"});
+    
   };
 
   const checkLogin = (password, callback) => {
     escapp.submitPuzzle(GLOBAL_CONFIG.escapp.appPuzzleIds[0], password, {}, callback);
+  }
+
+  const checkPlace = (place, callback) => {
+    escapp.submitPuzzle(GLOBAL_CONFIG.escapp.appPuzzleIds[1], place, {}, callback);
   }
 
   useEffect(()=>{
@@ -163,10 +152,36 @@ function App() {
       loadSettings()
       window.onstart = setTimeout(()=>{
         // console.log("prematurely loading ( ﾉ ﾟｰﾟ)ﾉ");
-        dispatch({type: "WALLBOOTED"})
+        dispatch({type: "WALLBOOTED"});
       },5000)
     }
   })
+
+  useEffect(()=>{
+    GLOBAL_CONFIG.escapp.onNewErStateCallback = function(er_state){
+      prepareSetup(er_state);
+    };
+    GLOBAL_CONFIG.escapp.onErRestartCallback = function(er_state){
+      localStorage.clear();
+    };
+    //eslint-disable-next-line no-undef
+    const newEscapp = new ESCAPP(GLOBAL_CONFIG.escapp);
+    newEscapp.validate(function(success, er_state){
+      if(success){
+        prepareSetup(er_state)
+      }
+    });
+
+    setEscapp(newEscapp);
+  },[]);
+
+  let showBloc = false;
+  if (apps && apps.notepad) {
+    try {
+      const extra = JSON.parse(apps.notepad.extra);
+      showBloc = !apps.notepad.hide && extra.showBloc;
+    } catch(e) {}
+  }
 
   return (
     <div className="App">  
@@ -194,11 +209,15 @@ function App() {
           <SidePane/>
           <WidPane/>
           <CalnWid/>
+          
         </div>
         <Taskbar/>
         <ActMenu/>  
       </div>
      </ErrorBoundary>
+     <Bloc show={showBloc} checkPlace={checkPlace} 
+        puzzleSolution={escapp?.getNewestState().puzzleData[GLOBAL_CONFIG.escapp.appPuzzleIds[1]]?.solution}
+        puzzleCompleted={escapp?.getNewestState().puzzlesSolved.indexOf(GLOBAL_CONFIG.escapp.appPuzzleIds[1]) != -1}/>
     </div>
   );
 }

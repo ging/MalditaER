@@ -41,19 +41,19 @@ var apps = [{
   type: 'app',
   action: 'MSEDGE'
 },
-{
+/*{
   name: 'DCIM_214.png',
   icon: 'photos',
   type: 'app',
   action: 'PHOTOS',
   extra: 'asset/boats.jpg'
-},
+},*/
 {
-  name: 'notes.txt',
+  name: 'tweet.doc',
   icon: 'notepad',
   type: 'app',
   action: 'NOTEPAD',
-  extra: 'Borrador del artículo'
+  extra: JSON.stringify({text: "news", image: 'asset/boats.jpg', showBloc: true})
 },
 {
   name: 'Store',

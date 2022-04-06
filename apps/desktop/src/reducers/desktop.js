@@ -48,13 +48,17 @@ const deskReducer = (state = defState, action) => {
       return {
         ...state, abOpen: action.payload
       };
+    case 'CLOSE_BLOC_SHOW_NOTIFICATION':
+      return {
+        ...state, showNotification: true
+      };
     case 'SHOW_NOTIFICATION':
       return {
         ...state, showNotification: true
       };
     case 'HIDE_NOTIFICATION':
       return {
-        ...state, showNotification: true
+        ...state, showNotification: false
       };
     default:
       return state;

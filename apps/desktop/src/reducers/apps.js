@@ -24,6 +24,7 @@ for (var i = 0; i < allApps.length; i++) {
 defState.hz = 2;
 
 const appReducer = (state = defState, action) => {
+  console.log(action)
   var tmpState = { ...state };
   if(action.type=="EDGELINK"){
     var obj = {...tmpState["edge"]};
@@ -83,7 +84,17 @@ const appReducer = (state = defState, action) => {
   }else if (action.type=="DELAPP") {
     delete tmpState[action.payload];
     return tmpState;
-  }else{
+  } else if(action.type == "CLOSE_BLOC_SHOW_NOTIFICATION") {
+    var keys = Object.keys(state);
+    for (var i = 0; i < keys.length; i++)  {
+      var obj = state[keys[i]];
+      tmpState = {...state};
+      if (typeof obj == "object") obj.hide = true;
+      tmpState[keys[i]] = obj;
+    }
+    return tmpState;
+
+  } else {
     var keys = Object.keys(state);
     for (var i = 0; i < keys.length; i++) {
       var obj = state[keys[i]];
@@ -137,7 +148,6 @@ const appReducer = (state = defState, action) => {
           }
         }
         tmpState[keys[i]] = obj;
-        console.log(tmpState);
         return tmpState;
       }
     }

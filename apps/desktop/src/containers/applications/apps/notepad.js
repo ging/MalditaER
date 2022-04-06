@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Icon, Image, ToolBar } from "../../../utils/general";
+import { useTranslation } from 'react-i18next';
 
 export const Notepad = () => {
   const apps = useSelector((state) => state.apps);
   const wnapp = useSelector((state) => state.apps.notepad);
   const dispatch = useDispatch();
-
+  const { t, i18n } = useTranslation();
+  const extra = JSON.parse(wnapp.extra || "{}");
   return (
     <div
       className="notepad floatTab dpShad"
@@ -19,7 +21,7 @@ export const Notepad = () => {
       data-hide={wnapp.hide}
       id={wnapp.icon + "App"}
     >
-      <ToolBar app={wnapp.action} icon={wnapp.icon} size={wnapp.size} name="Untitled - Notepad" />
+      <ToolBar app={wnapp.action} icon={wnapp.icon} size={wnapp.size} name="Notepad" />
       <div className="windowScreen flex flex-col" data-dock="true">
         <div className="flex text-xs py-2 topBar">
           <div className="mx-2">File</div>
@@ -28,7 +30,8 @@ export const Notepad = () => {
         </div>
         <div className="restWindow h-full flex-grow">
           <div className="w-full h-full overflow-hidden">
-            <textarea className="noteText win11Scroll" id="textpad" defaultValue={wnapp.extra}/>
+            <img className="image enableContextMenu" src={"img/"+extra.image} />
+            <textarea className="noteText win11Scroll" id="textpad" defaultValue={extra.text ? t(extra.text) : ""}/>
           </div>
         </div>
       </div>
