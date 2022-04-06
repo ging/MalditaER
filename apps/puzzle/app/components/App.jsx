@@ -4,6 +4,9 @@ import './../assets/scss/main.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 let GLOBAL_CONFIG = require('../config/config.js');
 import * as I18n from '../vendors/I18n.js';
+import * as Utils from '../vendors/Utils.js';
+import * as LocalStorage from '../vendors/Storage.js';
+
 import NavBar from "./navBar";
 import Puzzle from './Puzzle';
 import {
@@ -14,6 +17,7 @@ import {
   darVuelta,
   darVueltaTodas,
   comprobarCompletado,
+  restoreState,
 } from '../reducers/actions';
 import InitialMessage from './InitialMessage';
 
@@ -25,28 +29,34 @@ export class App extends React.Component {
     this.seleccionarPieza = this.seleccionarPieza.bind(this);
     this.darVuelta = this.darVuelta.bind(this);
     this.iniciarPuzzle = this.iniciarPuzzle.bind(this);
-    this.toggle = this.toggle.bind(this);
-    this.comprobarCompletado = this.comprobarCompletado.bind(this);
     this.mostrarInstrucciones = this.mostrarInstrucciones.bind(this);
     this.ocultarInstrucciones = this.ocultarInstrucciones.bind(this);
-    this.restoreState = this.restoreState.bind(this);
 
     this.state = {
       mostrarMsgInicial:false,
-      showZoom:false,
-      zoomImgPath:"",
-      widthPiece:0,
-      heightPiece:0,
-      isExtraPiece:false,
     };
   }
+
   componentDidMount(){
     I18n.init(GLOBAL_CONFIG);
-    this.iniciarPuzzle();
+    LocalStorage.init(GLOBAL_CONFIG.localStorageKey);
+
+    let stateToRestore = LocalStorage.getSetting("puzzle_state");
+    if(typeof stateToRestore !== "undefined"){
+      console.log("RESTORE HERE");
+      console.log(stateToRestore);
+      this.props.dispatch(restoreState(stateToRestore));
+      this.props.dispatch(loaded(true));
+    } else {
+      this.iniciarPuzzle();
+    }
   }
-  restoreState(){
-    //TODO
+
+  saveState(){
+    let currentState = this.props.store.getState();
+    LocalStorage.saveSetting("puzzle_state", currentState);
   }
+
   render(){
     let appContent = "";
 
@@ -63,8 +73,6 @@ export class App extends React.Component {
           conf={GLOBAL_CONFIG}
           seleccionarPieza={this.seleccionarPieza}
           darVuelta = {this.darVuelta}
-          toggle = {this.toggle}
-          comprobarCompletado={this.comprobarCompletado}
           dispatch={this.props.dispatch}
           lupa={this.state.lupa}
           zoomImage={this.zoomImage}
@@ -111,22 +119,19 @@ export class App extends React.Component {
     }
     this.props.dispatch(iniciarPuzzle());
   }
-  // Darle la vuelta a una pieza
+
   darVuelta(row, col){
     this.props.dispatch(darVuelta(row, col));
   }
-  // Selección de una de las piezas
+
   seleccionarPieza(row, column){
-    // if(!this.state.lupa){
     this.props.dispatch(seleccionarPieza(row, column));
-    // Si hay dos piezas seleccionadas se lanza el dispatch de intercambiar
     if(this.props.piezasSeleccionadas[0][0] !== -1 && this.props.piezasSeleccionadas[1][0] !== -1){
       this.props.dispatch(intercambiarPiezas(this.props.piezasSeleccionadas));
+      this.saveState();
     }
-
   }
 
-  // Dar vuelta a todas las piezas
   toggle(){
     this.props.dispatch(darVueltaTodas());
   }

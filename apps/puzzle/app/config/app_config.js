@@ -22,13 +22,6 @@ let GLOBAL_CONFIG_DEVELOPMENT = {
 
   // Reverse mode (defecto -> false)
   reverseMode:true,
-
-  // Zoom
-  zoomMode:true, // activar modo zoom
-  zoomFactor:10, // factor de ampliación
-
-  // Mensaje final
-  endMessageFail:"No parece un modelado adecuado, ¡sigue intentándolo!", // mensaje de fallo
 };
 
 module.exports = GLOBAL_CONFIG_DEVELOPMENT;

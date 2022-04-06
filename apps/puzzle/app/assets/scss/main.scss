@@ -239,7 +239,7 @@ div.modal-body nav.nav-tabs {
 }
 
 div.modal-content {
-  background: #fc0;
+  background: #8f8f8f;
   border: 2px solid black;
   z-index: 1000;
 }
@@ -265,15 +265,20 @@ div.modal-footer {
 }
 
 div.modal-footer button {
-  background-color: #b31829;
+  background-color: black;
   font-weight: 700;
   color: white;
-  border: 1px solid black;
+  border: 1px solid white;
   outline: none;
 }
 
 div.modal-footer button:hover {
   background-color: black;
+}
+
+div.modal-footer p {
+  margin: 0;
+  padding: 5px;
 }
 
 div.modal-body {
@@ -292,5 +297,3 @@ div.react-card-flip {
 div.zoom img.zoom_img {
   border: 1px solid black;
 }
-
-@import "print.scss";

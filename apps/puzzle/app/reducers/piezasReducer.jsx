@@ -10,6 +10,8 @@ function piezasReducer(state = [], action){
   let numPiezasExtra;
 
   switch (action.type){
+  case 'RESTORE_STATE':
+    return action.new_state.piezas;
   case 'INICIAR_PUZZLE':
     puzzle = [];
     shufflePieces = shuffle(GLOBAL_CONFIG.pieces);

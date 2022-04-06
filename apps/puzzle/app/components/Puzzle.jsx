@@ -3,7 +3,6 @@ import {Fragment} from 'react';
 import Piece from "./Piece";
 import '../assets/scss/main.scss';
 import * as Utils from '../vendors/Utils';
-import {addObjectives} from "../reducers/actions";
 let GLOBAL_CONFIG = require('../config/config.js');
 
 export default class Puzzle extends React.Component {
@@ -11,9 +10,6 @@ export default class Puzzle extends React.Component {
     super(props);
   }
   componentDidMount(){
-    let objectives = [];
-    objectives.push(new Utils.Objective({id:(1), progress_measure:(1), score:(1)}));
-    this.props.dispatch(addObjectives(objectives));
   }
   render(){
     let rows = []; // rows=[1,2,3,4,5,...,N]

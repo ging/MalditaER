@@ -17,8 +17,8 @@ export default class NavBar extends React.Component {
                 <img width="50"
                   height="50"
                   className="d-inline-block align-top icon"
-                  src="assets/icons/instructions.svg"
-                  title="¿Cómo jugar?"
+                  src="assets/icons/info_icon.png"
+                  title="Info"
                   style={{cursor:"pointer"}}
                   onClick={()=>{this.props.mostrarInstrucciones();}}
                 />

@@ -5,20 +5,14 @@ import './../assets/scss/main.scss';
 
 export default function InitialMessage(props){
   const [show, setShow] = useState(true);
-  const [enable, setEnable] = useState(GLOBAL_CONFIG.timeToReadInstructions === undefined || GLOBAL_CONFIG.timeToReadInstructions < 1);
+  const [enable, setEnable] = useState(true);
   const handleClose = () => setShow(false);
-
-  let timeToReadInstructions;
-  (GLOBAL_CONFIG.timeToReadInstructions === undefined || GLOBAL_CONFIG.timeToReadInstructions < 1) ?
-    timeToReadInstructions = "" : timeToReadInstructions = GLOBAL_CONFIG.timeToReadInstructions;
-
 
   let styleCards = {maxWidth:"70px", margin:"auto", marginTop:"10px"};
 
   let goalCard = "";
   goalCard = (
     <Card>
-      <Card.Img style={styleCards} src="assets/icons/goal.svg"/>
       <Card.Body>
         <Card.Title><b>Objetivo</b></Card.Title>
         <Card.Text >
@@ -33,7 +27,6 @@ export default function InitialMessage(props){
 
   GLOBAL_CONFIG.reverseMode ? flipPieceCard = (
     <Card>
-      <Card.Img style={styleCards} src="assets/icons/flip_piece.svg"/>
       <Card.Body>
         <Card.Title><b>Piezas reversibles</b></Card.Title>
         <Card.Text>
@@ -47,7 +40,6 @@ export default function InitialMessage(props){
   let interchangeCard = "";
   interchangeCard = (
     <Card>
-      <Card.Img style={styleCards} src="assets/icons/interchange.svg"/>
       <Card.Body>
         <Card.Title><b>Intercambio de piezas</b></Card.Title>
         <Card.Text>
