@@ -123,7 +123,7 @@ export class App extends React.Component {
     }
     return (
       <div id="container">
-        {this.props.logged ? <Inbox dispatch={this.props.dispatch} config={GLOBAL_CONFIG} profile={this.props.profile} emails={this.props.emails} chats={this.props.chats} saveState={this.saveState} close={this.close}/> : <Login login={this.login} error={this.state.login_error} config={GLOBAL_CONFIG} profile={this.props.profile}/>}
+        <Inbox dispatch={this.props.dispatch} config={GLOBAL_CONFIG} profile={this.props.profile} emails={this.props.emails} chats={this.props.chats} saveState={this.saveState} close={this.close}/>
       </div>
     );
   }

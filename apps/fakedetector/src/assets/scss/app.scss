@@ -1,0 +1,42 @@
+html, body {
+  margin:0;
+  padding: 0;
+  //overflow:hidden;
+}
+
+html {
+  background: url("../../../public/images/tablet.png") no-repeat center center fixed; 
+  background-size: 100% 100%;
+}
+
+.App {  
+  height: 90vh;
+  overflow:hidden;
+  padding: 5vh 5vw 5vh 5vw;
+  display: grid;
+  justify-content: stretch;
+  align-content: stretch;    
+  grid-template-rows: 10% 80% 10%;
+}
+
+
+.header {
+  background-color: #fafafa;
+  grid-row: 1/1;
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  background-color: #dfdddd;
+  grid-row: 2/2;
+  display: flex;
+  justify-content: center;
+}
+
+.footer {
+  background-color: #ffc2c2;
+  grid-row: 3/3;
+  display: flex;
+  justify-content: center;
+}
