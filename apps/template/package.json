@@ -1,7 +1,7 @@
 {
-  "name": "Strongbox",
+  "name": "Template",
   "version": "1.0.0",
-  "description": "Reto para escapp consistene en una caja fuerte",
+  "description": "Template for creating escapp puzzles",
   "author": "Aldo Gordillo <a.gordillo@upm.es>",
   "main": "index.js",
   "scripts": {

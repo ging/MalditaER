@@ -24,3 +24,7 @@ export function deepMerge(h1,h2){
     }
   }
 };
+
+export function replaceAll(string, find, replace){
+  return string.replace(new RegExp(find.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'g'), replace);
+};
