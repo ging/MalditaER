@@ -44,7 +44,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "production" : "npm run build && rm -rf ../../docs/desktop && cp -r build ../../docs/desktop",
+    "production": "npm run build && rm -rf ../../docs/desktop && cp -r build ../../docs/desktop",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint --fix --ext .js,.jsx,.es6 src",
