@@ -14,7 +14,6 @@ function Bloc(props) {
       textSolve((text || "").toString());
     }
   }
- const puzzleCompleted2 = false
   const handleWrite = (e) => {
     setText(e.target.value);
     if(escappFailMessage != undefined) {
@@ -25,16 +24,12 @@ function Bloc(props) {
   const textSolve = (text) => {
   	checkPlace(text, (success) => {
   		if (success) {
-  			setEscappSuccessMessage(true)
+  			setEscappSuccessMessage(true);
   			// to-do
   			// Close app and open email
-  			try {
-  				dispatch({type: "CLOSE_BLOC_SHOW_NOTIFICATION"});
-  			} catch(e){
-  				console.error(e)
-  			}
+        setTimeout(()=>{dispatch({type: "CLOSE_BLOC_SHOW_NOTIFICATION"})},2000);
   		} else {
-  			setEscappFailMessage(true)
+  			setEscappFailMessage(true);
   		}
   	});
   }
