@@ -24,7 +24,6 @@ for (var i = 0; i < allApps.length; i++) {
 defState.hz = 2;
 
 const appReducer = (state = defState, action) => {
-  console.log(action)
   var tmpState = { ...state };
   if(action.type=="EDGELINK"){
     var obj = {...tmpState["edge"]};

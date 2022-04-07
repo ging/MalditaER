@@ -178,9 +178,10 @@ function App() {
   let showBloc = false;
   if (apps && apps.notepad) {
     try {
+      let toppest = Math.max(...Object.keys(apps).map(e=>apps[e].z).filter(r=>r!==undefined));
       const extra = JSON.parse(apps.notepad.extra);
-      showBloc = !apps.notepad.hide && extra.showBloc;
-    } catch(e) {}
+      showBloc = !apps.notepad.hide && (apps.notepad.z >= toppest) && extra.showBloc;
+    } catch(e) {console.error(e)}
   }
 
   return (
