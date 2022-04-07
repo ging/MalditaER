@@ -39,7 +39,7 @@ export default class MessageScreen extends React.Component {
   }
 
   render(){
-    let message = (typeof this.props.config.message === "string") ? this.props.config.message : "";
+    let message = (typeof this.props.I18n.getTrans("i.message") === "string") ? this.props.I18n.getTrans("i.message") : "";
     return (
       <div id="screen_message" className="screen_wrapper">
         <div id="message_container"><pre>{message}</pre></div>
