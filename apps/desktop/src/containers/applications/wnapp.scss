@@ -102,6 +102,15 @@ body[data-theme="dark"] .wnstore {
   .restWindow {
     background: var(--bg1);
   }
+
+  .image {
+    width: 300px;
+    max-width: 80%;
+    padding: 10px;
+    display: block;
+  }
+
+  
 }
 
 body[data-theme="dark"] .notepad {
@@ -210,3 +219,4 @@ body[data-theme="dark"] .settingsApp {
     }
   }
 }
+

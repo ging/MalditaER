@@ -96,10 +96,15 @@ export const EdgeMenu = ()=>{
   useEffect(()=>{
     if(wnapp.url || wnapp.extra){
       setTyping(false)
-      setUrl( wnapp.url || wnapp.extra)
-      dispatch({type: "EDGELINK"})
+      if (url !== (wnapp.url || wnapp.extra)) {
+        setUrl(wnapp.url || wnapp.extra);
+        dispatch({type: "EDGELINK"});
+      }
+      
     }
   })
+  
+
 
   return (
     <div className="edgeBrowser floatTab dpShad"

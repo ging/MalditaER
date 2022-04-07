@@ -10,7 +10,7 @@ var {
     JSON.parse(localStorage.getItem("taskbar"))) || ["Settings", "File Explorer", "Edge"],
   desktop: (localStorage.getItem("desktop") &&
     JSON.parse(localStorage.getItem("desktop"))) || ["PC",  "File Explorer",  
-    "Browser", "DCIM_214.png", "notes.txt" ],
+    "Browser", "tweet.doc" ],
   pinned: (localStorage.getItem("pinned") &&
     JSON.parse(localStorage.getItem("pinned"))) || ["Browser", "Get Started", "Help", "Settings", "Store",
     "Notepad", "White Board", "Calculator", "File Explorer", "Terminal", 

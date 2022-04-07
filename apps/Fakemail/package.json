@@ -18,7 +18,6 @@
     "precommit": "cross-env npm run lint && npm test",
     "prepush": "cross-env npm run lint && npm test",
     "publish_app": "rm -rf ../../docs/Fakemail && cp -r dist ../../docs/Fakemail"
-
   },
   "jest": {
     "setupFiles": [
