@@ -10,9 +10,20 @@ let ESCAPP_LOCALES = {
 //For a new template: change localStorageKey, escapp[localStorageKey] and escapp[appPuzzleIds]
 
 export let GLOBAL_CONFIG = {
-  availableLocales:["es"],
-  locale:"es",
+  availableLocales:["es","en","it"],
+  locale:undefined,
   defaultLocale:"es",
+  locales: {
+    es:{
+      "i.hello":"Adiós #{name}",
+    },
+    en:{
+      "i.hello":"Goodbye #{name}",
+    },
+    it:{
+      "i.hello":"Arrivederci #{name}",
+    },
+  },
   localStorageKey:"TEMPLATE_2022",
   escapp:{
     endpoint:"https://escapp.dit.upm.es/api/escapeRooms/306",
