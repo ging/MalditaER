@@ -9,8 +9,9 @@ let ESCAPP_LOCALES = {
 
 
 export let GLOBAL_CONFIG = {
-  availableLocales:["es", "en"],
-  defaultLocale:"es",
+  availableLocales:["es", "en", "it"],
+  defaultLocale:"en",
+  locale: "en",
   localStorageKey:"maldito_fake_2022",
   escapp:{
     endpoint:"https://escapp.dit.upm.es/api/escapeRooms/306",

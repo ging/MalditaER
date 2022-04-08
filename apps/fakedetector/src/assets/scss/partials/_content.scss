@@ -1,0 +1,46 @@
+.full_content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    grid-row: 2/2;
+
+    background-color: $white;
+
+    button {
+        display: flex;
+        margin: 0 1rem;
+
+        svg {
+            width: 1rem;
+            fill: rgba($black, 1);
+
+            &:hover {
+                fill: rgba($black, $hover-opacity);
+            }
+        }
+    }
+
+    .content {
+
+        display: flex;
+        justify-content: center;
+        height: 90%;
+        border-radius: .5rem;
+        overflow: hidden;
+
+        img {
+            object-fit: contain;
+            
+        }
+    }
+
+    .selected {
+        border: $border-false;
+    }
+    .discarded {
+        border: $border-true;
+    }
+
+}
+
+/* {} */
