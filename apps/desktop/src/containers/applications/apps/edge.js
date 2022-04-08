@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {Icon, Image, ToolBar, LazyComponent} from '../../../utils/general';
-import {GLOBAL_CONFIG} from '../../../config.js';
+import {GLOBAL_CONFIG} from '../../../config/config.js';
 
 export const EdgeMenu = ()=>{
   const apps = useSelector(state => state.apps)

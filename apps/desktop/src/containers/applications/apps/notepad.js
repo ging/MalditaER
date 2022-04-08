@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Icon, Image, ToolBar } from "../../../utils/general";
-import { useTranslation } from 'react-i18next';
 
-export const Notepad = () => {
+export const Notepad = (props) => {
   const apps = useSelector((state) => state.apps);
   const wnapp = useSelector((state) => state.apps.notepad);
   const dispatch = useDispatch();
-  const { t, i18n } = useTranslation();
   const extra = JSON.parse(wnapp.extra || "{}");
   return (
     <div
@@ -31,7 +29,7 @@ export const Notepad = () => {
         <div className="restWindow h-full flex-grow">
           <div className="w-full h-full overflow-hidden">
             <img className="image enableContextMenu" src={"img/"+extra.image} />
-            <textarea className="noteText win11Scroll" id="textpad" defaultValue={extra.text ? t(extra.text) : ""}/>
+            <textarea className="noteText win11Scroll" id="textpad" defaultValue={extra.text ? props.I18n.getTrans(extra.text) : ""}/>
           </div>
         </div>
       </div>

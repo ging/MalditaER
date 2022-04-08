@@ -30,7 +30,7 @@ export const Photos = (props) => {
         <div className="restWindow h-full flex-grow">
           <div className="w-full h-full overflow-hidden">
               <div className="img-container">
-                {wnapp.extra ? <img className="enableContextMenu" src={"img/"+wnapp.extra}/> : <p> No image selected </p>}
+                {wnapp.extra ? <img className="enableContextMenu" src={"img/"+wnapp.extra}/> : null}
               </div>
               {/*<div className="player">
                 <div>Prev</div>

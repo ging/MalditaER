@@ -1,6 +1,6 @@
 import React, {useState, useEffect, Suspense} from 'react';
 import {ErrorBoundary} from 'react-error-boundary';
-import './i18nextConf';
+import * as I18n from './vendors/I18n.js';
 import {
   useSelector,
   useDispatch
@@ -25,7 +25,8 @@ import {
 import {loadSettings} from './actions';
 import * as Applications from './containers/applications';
 import * as Drafts from './containers/applications/draft.js';
-import {GLOBAL_CONFIG} from './config.js';
+import {GLOBAL_CONFIG} from './config/config.js';
+ I18n.init(GLOBAL_CONFIG);
 
 function ErrorFallback({error, resetErrorBoundary}) {
   return (
@@ -184,39 +185,40 @@ function App() {
     } catch(e) {console.error(e)}
   }
 
+
   return (
     <div className="App">  
 
       <ErrorBoundary FallbackComponent={ErrorFallback}>
 
-      {!wall.booted?<BootScreen dir={wall.dir}/>:null}
-      {wall.locked?<LockScreen dir={wall.dir} checkLogin={checkLogin}/>:null}
+      {!wall.booted?<BootScreen dir={wall.dir} I18n={I18n}/>:null}
+      {wall.locked?<LockScreen dir={wall.dir} checkLogin={checkLogin} I18n={I18n}/>:null}
       <div className="appwrap">
-        <Background/>
+        <Background I18n={I18n}/>
         <div className="desktop" data-menu="desk">
-          <DesktopApp/>
+          <DesktopApp I18n={I18n}/>
           {Object.keys(Applications).map((key,idx)=>{
             var WinApp = Applications[key]
-            return <WinApp key={idx}/>
+            return <WinApp key={idx} I18n={I18n}/>
           })}
           {Object.keys(apps).filter(x=> x!="hz")
             .map(key=> apps[key]).map((app,i)=>{
               if(app.pwa){
                 var WinApp = Drafts[app.data.type]
-                return <WinApp key={i} icon={app.icon} {...app.data}/>
+                return <WinApp key={i} icon={app.icon} {...app.data} I18n={I18n}/>
               }
           })}
-          <StartMenu/>
-          <SidePane/>
-          <WidPane/>
-          <CalnWid/>
+          <StartMenu I18n={I18n}/>
+          <SidePane I18n={I18n}/>
+          <WidPane I18n={I18n}/>
+          <CalnWid I18n={I18n}/>
           
         </div>
-        <Taskbar/>
-        <ActMenu/>  
+        <Taskbar I18n={I18n}/>
+        <ActMenu I18n={I18n}/>  
       </div>
      </ErrorBoundary>
-     <Bloc show={showBloc} checkPlace={checkPlace} 
+     <Bloc show={showBloc} checkPlace={checkPlace} I18n={I18n} 
         puzzleSolution={escapp?.getNewestState().puzzleData[GLOBAL_CONFIG.escapp.appPuzzleIds[1]]?.solution}
         puzzleCompleted={escapp?.getNewestState().puzzlesSolved.indexOf(GLOBAL_CONFIG.escapp.appPuzzleIds[1]) != -1}/>
     </div>

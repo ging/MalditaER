@@ -15,7 +15,7 @@ import * as Actions from "../../actions";
 export * from "./start";
 export * from "./widget";
 
-export const DesktopApp = () => {
+export const DesktopApp = (props) => {
   const deskApps = useSelector((state) => {
     var arr = { ...state.desktop };
     var tmpApps = [...arr.apps];
@@ -57,7 +57,7 @@ export const DesktopApp = () => {
             </div>
           );
         })}
-        <MailNotification show={showNotification}/>
+        <MailNotification show={showNotification} I18n={props.I18n}/>
     </div>
   );
 };

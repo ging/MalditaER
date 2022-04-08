@@ -5,7 +5,6 @@ import './assets/store.scss'
 import axios from 'axios'
 import storedata from './assets/store.json'
 import {installApp} from '../../../actions'
-import { useTranslation } from 'react-i18next';
 
 const geneStar = (item, rv=0)=>{
   var url = item.data.url,
@@ -42,7 +41,6 @@ export const MicroStore = ()=>{
   const [storeapps, setApps] = useState(storedata)
   const [fetchState, setFetch] = useState(0)
   const dispatch = useDispatch()
-  const { t, i18n } = useTranslation()
 
   const clickDispatch = (event)=>{
     var action = {
@@ -207,13 +205,12 @@ const DownPage = ({action, apps})=>{
   )
 }
 
-const DetailPage = ({app})=>{
+const DetailPage = ({app, I18n})=>{
   const apps = useSelector(state => state.apps)
   const [dstate, setDown] = useState(0)
   const stars = geneStar(app)
   const reviews = geneStar(app,1)
   const dispatch = useDispatch()
-  const { t, i18n } = useTranslation()
 
   const download = ()=>{
     setDown(1)
@@ -281,11 +278,11 @@ const DetailPage = ({app})=>{
           </div>
         ):null}
         <div className="briefcont py-2 pb-3">
-          <div className="text-xs font-semibold">{t('store.description')}</div>
+          <div className="text-xs font-semibold">{I18n.getTrans('store.description')}</div>
           <div className="text-xs mt-4"><pre>{app.data.desc}</pre></div>
         </div>
         <div className="briefcont py-2 pb-3">
-          <div className="text-xs font-semibold">{t('store.ratings')}</div>
+          <div className="text-xs font-semibold">{I18n.getTrans('store.ratings')}</div>
           <div className="flex mt-4 items-center">
             <div className="flex flex-col items-center">
               <div className="text-5xl reviewtxt font-bold">{stars}</div>
@@ -310,7 +307,7 @@ const DetailPage = ({app})=>{
           </div>
         </div>
         <div className="briefcont py-2 pb-3">
-          <div className="text-xs font-semibold">{t('store.features')}</div>
+          <div className="text-xs font-semibold">{I18n.getTrans('store.features')}</div>
           <div className="text-xs mt-4"><pre>{app.data.feat}</pre></div>
         </div>
       </div>
@@ -323,7 +320,6 @@ const FrontPage = (props)=>{
   const apprib = useSelector(state => state.globals.apprib)
   const gamerib = useSelector(state => state.globals.gamerib)
   const movrib = useSelector(state => state.globals.movrib)
-  const { t, i18n } = useTranslation()
 
   return (
     <div className="pagecont w-full absolute top-0">
@@ -347,8 +343,8 @@ const FrontPage = (props)=>{
       <div id="apprib" className="frontCont amzApps my-8 py-20 w-auto mx-8 \
         flex justify-between noscroll overflow-x-scroll overflow-y-hidden">
         <div className="flex w-64 flex-col text-gray-100 h-full px-8">
-          <div className="text-xl">{t('store.featured-app')}</div>
-          <div className="text-xs mt-2">{t('store.featured-app.info')}</div>
+          <div className="text-xl">{props.I18n.getTrans('store.featured-app')}</div>
+          <div className="text-xs mt-2">{props.I18n.getTrans('store.featured-app.info')}</div>
         </div>
         <div className="flex w-max pr-8">
           {apprib && apprib.map((x,i)=>{
@@ -366,7 +362,7 @@ const FrontPage = (props)=>{
                   <Icon className={stars>4?"bluestar":""} fafa="faStar" width={6}/>
                   <div className="text-xss">{1+x.charCodeAt(3)%5}k</div>
                 </div>
-                <div className="text-xss mt-8">{x.charCodeAt(4)%2?"{t('store.free')}":"{t('store.owned')}"}</div>
+                <div className="text-xss mt-8">{x.charCodeAt(4)%2?"{props.I18n.getTrans('store.free')}":"{props.I18n.getTrans('store.owned')}"}</div>
               </div>
             )
           })}
@@ -376,8 +372,8 @@ const FrontPage = (props)=>{
       <div id="gamerib" className="frontCont amzGames my-8 py-20 w-auto mx-8 \
         flex justify-between noscroll overflow-x-scroll overflow-y-hidden">
         <div className="flex w-64 flex-col text-gray-100 h-full px-8">
-          <div className="text-xl">{t('store.featured-game')}</div>
-          <div className="text-xs mt-2">{t('store.featured-game.info')}</div>
+          <div className="text-xl">{props.I18n.getTrans('store.featured-game')}</div>
+          <div className="text-xs mt-2">{props.I18n.getTrans('store.featured-game.info')}</div>
         </div>
         <div className="flex w-max pr-8">
           {gamerib && gamerib.map((x,i)=>{
@@ -395,7 +391,7 @@ const FrontPage = (props)=>{
                   <Icon className={stars>4?"bluestar":""} fafa="faStar" width={6}/>
                   <div className="text-xss">{1+x.charCodeAt(3)%5}k</div>
                 </div>
-                <div className="text-xss mt-8">{x.charCodeAt(4)%2?"{t('store.free')}":"{t('store.owned')}"}</div>
+                <div className="text-xss mt-8">{x.charCodeAt(4)%2?"{props.I18n.getTrans('store.free')}":"{props.I18n.getTrans('store.owned')}"}</div>
               </div>
             )
           })}
@@ -405,8 +401,8 @@ const FrontPage = (props)=>{
       <div id="movrib" className="frontCont amzMovies my-8 py-20 w-auto mx-8 \
         flex justify-between noscroll overflow-x-scroll overflow-y-hidden">
         <div className="flex w-64 flex-col text-gray-100 h-full px-8">
-          <div className="text-xl">{t('store.featured-film')}</div>
-          <div className="text-xs mt-2">{t('store.featured-film.info')}</div>
+          <div className="text-xl">{props.I18n.getTrans('store.featured-film')}</div>
+          <div className="text-xs mt-2">{props.I18n.getTrans('store.featured-film.info')}</div>
         </div>
         <div className="flex w-max pr-8">
           {movrib && movrib.map((x,i)=>{
@@ -424,7 +420,7 @@ const FrontPage = (props)=>{
                   <Icon className={stars>4?"bluestar":""} fafa="faStar" width={6}/>
                   <div className="text-xss">{1+x.charCodeAt(3)%5}k</div>
                 </div>
-                <div className="text-xss mt-8">{x.charCodeAt(4)%2?"{t('store.rent')}":"{t('store.owned')}"}</div>
+                <div className="text-xss mt-8">{x.charCodeAt(4)%2?"{props.I18n.getTrans('store.rent')}":"{props.I18n.getTrans('store.owned')}"}</div>
               </div>
             )
           })}

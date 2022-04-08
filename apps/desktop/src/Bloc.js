@@ -1,14 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import { useTranslation } from 'react-i18next';
 
 function Bloc(props) {
   const dispatch = useDispatch();
   const [text, setText] = useState("");
   const [escappFailMessage, setEscappFailMessage] = useState(undefined);
   const [escappSuccessMessage, setEscappSuccessMessage] = useState(undefined);
-  const { t, i18n } = useTranslation();
-  const {  checkPlace, puzzleSolution, puzzleCompleted } = props;
+  const { checkPlace, puzzleSolution, puzzleCompleted } = props;
   const handleKeyUp = (e) => {
   	if(e.keyCode == 13){
       textSolve((text || "").toString());
@@ -43,17 +41,17 @@ function Bloc(props) {
   		<div>	
 		    <img src="img/asset/notebook.svg"/>
 		    <div className="bloc_content">
-			    <p>{t("previous_text")}:</p>
+			    <p>{props.I18n.getTrans("previous_text")}:</p>
 			    {puzzleCompleted ? <p>{puzzleSolution}</p> : null}
 			    <p>{puzzleCompleted ? null : <input type="text" id="bloc_input" autoFocus
 			      onChange={handleWrite}
 			      onKeyUp={handleKeyUp}
 			      value={text}
-			      placeholder={t("placeholder")}
+			      placeholder={props.I18n.getTrans("placeholder")}
 			      autoCorrect="off" autoComplete="off" />}</p>
-			    {puzzleCompleted ? null : <p><button className="continue" onClick={onContinue}>{t("continue")}</button></p>}
-			    {escappFailMessage ? <p className="danger">{t("wrong_solution")}</p> : null}
-			    {escappSuccessMessage ? <p className="success">{t("right_solution")}</p> : null}
+			    {puzzleCompleted ? null : <p><button className="continue" onClick={onContinue}>{props.I18n.getTrans("continue")}</button></p>}
+			    {escappFailMessage ? <p className="danger">{props.I18n.getTrans("wrong_solution")}</p> : null}
+			    {escappSuccessMessage ? <p className="success">{props.I18n.getTrans("right_solution")}</p> : null}
 			    </div>
 		    </div>
     </div>;
