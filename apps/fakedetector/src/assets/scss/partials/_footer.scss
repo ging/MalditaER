@@ -1,0 +1,109 @@
+.footer {
+
+    background-color: $white;
+    grid-row: 3/3;
+    display: flex;
+    justify-content: center;
+
+    padding: 1rem;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    .information {
+
+        grid-column: 1/2;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+
+        button.buttoninfo {
+            display: flex;
+    
+            svg {
+                width: 1rem;
+                fill: rgba($black, 1);
+
+                &:hover {
+                    fill: rgba($black, $hover-opacity);
+                    transition: all 200ms ease-in;
+                }
+            } 
+        }
+    }
+
+    .selection_info {
+        grid-column: 2/3;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+
+        .counter {
+            width: 1.5rem;
+            height: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            border-radius: 50%;
+        }
+
+        .true {
+            display: flex;
+            
+            .true_news {
+                background-color: $true;
+            }
+
+            svg {
+                width: 1.5rem;
+                fill: $true;
+                margin: 0 .5rem;
+            }
+        }
+
+        .false {
+            display: flex;
+
+            svg {
+                width: 1.5rem;
+                fill: $false;
+                margin: 0 .5rem;
+            }
+
+            .false_news {
+                background-color: $false;
+            }
+        }
+    }
+
+    .submit {
+
+        grid-column: 3/3;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+
+        button.buttonsubmit {
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+    
+            @include button($false, $white, $hover-opacity);
+    
+            svg {
+                width: 1rem;
+                fill: $white;
+                margin-right: .5rem;
+            }
+        
+        }
+
+    }
+
+}
+  
+
+
+/* {} */

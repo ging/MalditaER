@@ -1,0 +1,101 @@
+.modal_content {
+  background-color: #fafafa;
+  width: 50%;
+  border-radius: .5rem;
+  padding: 1.5rem;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .modal_info {
+    margin-bottom: 1rem;
+  }
+
+  .instructions {
+
+    margin-bottom: 2rem;
+
+    .step_one {
+
+      display: flex;
+      justify-content: space-between;
+
+      p {
+        width: 50%;
+      }
+
+      .buttons_selections {
+    
+        .buttonno {
+    
+          @include button-selected($true);
+          margin-bottom: .5rem;
+    
+        }
+        .buttonyes {
+    
+          @include button-selected($false);
+          margin-left: .5rem;
+    
+        }
+      }
+    }
+
+    .step_two {
+
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1rem;
+
+      p {
+        width: 50%;
+      }
+
+      .button_submit {
+
+        button.buttonsubmit {
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+  
+          @include button($false, $white, 1);
+  
+          svg {
+              width: 1rem;
+              fill: $white;
+              margin-right: .5rem;
+          }
+        }
+      }
+    }
+  }
+
+  .continue {
+    display: flex;
+    justify-content: center;
+
+    button {
+      @include button($black, $white, $hover-opacity);
+    }
+
+  }
+
+  .close_modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+
+    display: flex;
+    align-items: center;
+
+    .close_modal_icon {
+      cursor: pointer;
+      width: .75rem;
+    }
+
+  }
+}
+  

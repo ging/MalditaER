@@ -1,0 +1,25 @@
+.header {
+    background-color: $white;
+    grid-row: 1/1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+
+    button.buttonno {
+        @include button-selection($true);
+        margin-right: 1rem;
+    }
+    button.buttonyes {
+        @include button-selection($false);
+    }
+
+    button.true_selected {
+        @include button-selected($true);
+    }
+    button.false_selected {
+        @include button-selected($false);
+    }
+  }
+
+  /* {} */
