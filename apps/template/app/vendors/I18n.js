@@ -51,7 +51,7 @@ export function getLocale(){
 
 function getUserLocale(){
   // Locale in URL
-  let urlParams = readURLparams();
+  let urlParams = Utils.getParamsFromUrl();
   if(isValidLocale(urlParams.locale)){
     return urlParams.locale;
   }
@@ -64,29 +64,6 @@ function getUserLocale(){
     return browserLang;
   }
   return undefined;
-};
-
-function readURLparams(){
-  let params = {};
-  try {
-    let location = window.location;
-    if(typeof location === "undefined"){
-      return params;
-    }
-    let URLparams = location.search;
-    URLparams = URLparams.substr(1, URLparams.length - 1);
-    let URLparamsArray = URLparams.split("&");
-    for(let i = 0; i < URLparamsArray.length; i++){
-      try {
-        let paramData = URLparamsArray[i].split("=");
-        if(typeof paramData[1] === "string"){
-          params[paramData[0]] = paramData[1];
-        }
-      } catch (e){}
-    }
-  } catch (e){}
-
-  return params;
 };
 
 function isValidLocale(locale){

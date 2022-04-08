@@ -33,7 +33,7 @@ export class App extends React.Component {
         // Add escapp's user credentials to each URL
         if((typeof GLOBAL_CONFIG === "object") && (GLOBAL_CONFIG.webs instanceof Array)){
           for(let i = 0; i < GLOBAL_CONFIG.webs.length; i++){
-            GLOBAL_CONFIG.webs[i].url = escapp.addUserCredentialsToUrl(GLOBAL_CONFIG.webs[i].url);
+            GLOBAL_CONFIG.webs[i].url = escapp.addUserCredentialsAndLocaleToUrl(GLOBAL_CONFIG.webs[i].url);
           }
         }
         this.restoreState(er_state);
