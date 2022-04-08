@@ -29,7 +29,7 @@ export class App extends React.Component {
     this.reset = this.reset.bind(this);
   }
   componentDidMount(){
-    I18n.init();
+    I18n.init(GLOBAL_CONFIG);
     LocalStorage.init(GLOBAL_CONFIG.localStorageKey);
     GLOBAL_CONFIG.escapp.onNewErStateCallback = (er_state) => this.restoreState(er_state);
     GLOBAL_CONFIG.escapp.onErRestartCallback = (er_state) => {

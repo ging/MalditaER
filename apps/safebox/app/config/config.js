@@ -4,9 +4,9 @@ let ESCAPP_LOCALES = {
 // AfterOpen can be "NOTHING", "SHOW_URL", "SHOW_MESSAGE" or "SHOW_MESSAGE_AND_CONTINUE"
 
 export let GLOBAL_CONFIG = {
-  availableLocales:["es"],
-  locale:"es",
-  defaultLocale:"es",
+  availableLocales:["es","en","it"],
+  locale:undefined,
+  defaultLocale:"en",
   localStorageKey:"SAFE_2022",
   passwordLength:4,
   message:"¡Has abierto la puerta! \n Pulsa 'Continuar' para entrar a la nueva sala.",
