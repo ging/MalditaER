@@ -11,7 +11,7 @@ export const EdgeMenu = ()=>{
   const [isTyping, setTyping] = useState(false)
   const [hist, setHist] = useState(["https://bing.com","https://bing.com"])
   const dispatch = useDispatch()
-
+  window.dispatch = dispatch;
   const iframes = {
     "https://www.google.com/webhp?igu=1": "Google",
     "https://bing.com": "Bing",

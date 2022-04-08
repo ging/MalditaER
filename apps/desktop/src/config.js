@@ -8,7 +8,7 @@ export let GLOBAL_CONFIG = {
   locale:"es",
   defaultLocale:"es",
   localStorageKey:"DESKTOP_2022",
-  mailAppLink: "https://ging.github.io/MalditaER/Fakemail",
+  mailAppLink: "https://sonsoleslp.neocities.org/iframe.html?url=https%3A%2F%2Fging.github.io%2FMalditaER%2FFakemail",
   escapp:{
     endpoint:"https://escapp.dit.upm.es/api/escapeRooms/306",
     localStorageKey:"ESCAPP_DESKTOP_2022",
