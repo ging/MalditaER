@@ -21,7 +21,7 @@ export class App extends React.Component {
     this.reset = this.reset.bind(this);
   }
   componentDidMount(){
-    I18n.init();
+    I18n.init(GLOBAL_CONFIG);
     LocalStorage.init(GLOBAL_CONFIG.localStorageKey);
     GLOBAL_CONFIG.escapp.onNewErStateCallback = function(er_state){
       this.restoreState(er_state);
@@ -88,7 +88,7 @@ export class App extends React.Component {
     if(this.props.loading){
       return "";
     }
-    return <MainScreen current_url={this.getCurrentURL()}/>;
+    return <MainScreen current_url={this.getCurrentURL()} I18n={I18n}/>;
   }
 }
 

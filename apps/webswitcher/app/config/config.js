@@ -2,9 +2,20 @@ let ESCAPP_LOCALES = {
 };
 
 export let GLOBAL_CONFIG = {
-  availableLocales:["es"],
-  locale:"es",
+  availableLocales:["es","en","it"],
+  locale:undefined,
   defaultLocale:"es",
+  locales: {
+    es:{
+      "i.help":"Pedir pista",
+    },
+    en:{
+      "i.help":"Request hint",
+    },
+    it:{
+      "i.help":"Pedir pista",
+    },
+  },
   localStorageKey:"WEB_SWITCHER_2022",
   webs:[
     {name:"Ediphy MalditaER (I)", url:"https://vishub.org/ediphy_documents/401.full?nowatermark=1", switchOnPuzzle:0},
@@ -17,7 +28,6 @@ export let GLOBAL_CONFIG = {
     imagesPath:"assets/images/",
     I18n:{
       availableLocales:["es", "en"],
-      locale:"es",
       defaultLocale:"es",
       locales:ESCAPP_LOCALES,
     },
