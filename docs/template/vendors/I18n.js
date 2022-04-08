@@ -109,7 +109,7 @@ export function getTrans(s, params){
 
 /*
  * Replace params (if they are provided) in the translations keys. Example:
- * // "i.dtest" : "Download #{name}",
+ * // "i.dtest"	: "Download #{name}",
  * // getTrans("i.dtest", {name: "SCORM package"}) -> "Download SCORM package"
  */
 function getTransWithParams(trans, params){

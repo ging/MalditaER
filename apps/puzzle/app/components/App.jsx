@@ -44,14 +44,22 @@ export class App extends React.Component {
       let stateTimeStamp = LocalStorage.getSetting("puzzle_state_timestamp");
       if(typeof stateTimeStamp !== "undefined"){
         let diffInHours = (Date.now() - stateTimeStamp)/(1000*60*60);
-        if(diffInHours < 2){
-          if((stateToRestore.piezas instanceof Array)&&(stateToRestore.piezas.length > 0)){
-            //TODO: Check if stateToRestore.piezas[0].faceImgPath exists in current paths
-            this.props.dispatch(restoreState(stateToRestore));
-            this.props.dispatch(loaded(true));
+        if(diffInHours < 1){
+          if((stateToRestore.piezas instanceof Array)&&(stateToRestore.piezas.length > 0)&&(typeof stateToRestore.piezas[0].faceImgPath === "string")){
+            var imgPath = stateToRestore.piezas[0].faceImgPath;
+            var cPieces = GLOBAL_CONFIG.pieces;
+            if(cPieces instanceof Array){
+              for(var i=0; i<cPieces.length; i++){
+                if((cPieces[i].face.path === imgPath)||(cPieces[i].reverse.path === imgPath)){
+                  //Restore
+                  this.props.dispatch(restoreState(stateToRestore));
+                  this.props.dispatch(loaded(true));
+                  return;
+                }
+              }
+            }
           }
         }
-        return;
       }
     }
     this.iniciarPuzzle();

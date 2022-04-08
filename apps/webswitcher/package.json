@@ -1,7 +1,7 @@
 {
-  "name": "Strongbox",
+  "name": "Webswitcher",
   "version": "1.0.0",
-  "description": "Reto para escapp consistene en una caja fuerte",
+  "description": "App for transitioning among URLs based on the escape room state in Escapp",
   "author": "Aldo Gordillo <a.gordillo@upm.es>",
   "main": "index.js",
   "scripts": {

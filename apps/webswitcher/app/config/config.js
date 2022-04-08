@@ -1,15 +1,33 @@
-let ESCAPP_LOCALES = {
-};
-
 export let GLOBAL_CONFIG = {
-  availableLocales:["es"],
-  locale:"es",
+  availableLocales:["es","en","it"],
+  locale:undefined,
   defaultLocale:"es",
+  locales: {
+    es:{
+      "i.help":"Pedir pista",
+    },
+    en:{
+      "i.help":"Request hint",
+    },
+    it:{
+      "i.help":"Pedir pista",
+    },
+  },
   localStorageKey:"WEB_SWITCHER_2022",
-  webs:[
-    {name:"Ediphy MalditaER (I)", url:"https://vishub.org/ediphy_documents/401.full?nowatermark=1", switchOnPuzzle:0},
-    {name:"Ediphy MalditaER (Full)", url:"https://vishub.org/ediphy_documents/402.full?nowatermark=1", switchOnPuzzle:1},
-  ],
+  webs:{
+    es:[
+      {name:"Ediphy MalditaER (I)", url:"https://vishub.org/ediphy_documents/401.full?nowatermark=1", switchOnPuzzle:0},
+      {name:"Ediphy MalditaER (Full)", url:"https://vishub.org/ediphy_documents/402.full?nowatermark=1", switchOnPuzzle:1},
+    ],
+    en:[
+      {name:"Ediphy MalditaER (I)", url:"https://vishub.org/ediphy_documents/401.full?nowatermark=1", switchOnPuzzle:0},
+      {name:"Ediphy MalditaER (Full)", url:"https://vishub.org/ediphy_documents/402.full?nowatermark=1", switchOnPuzzle:1},
+    ],
+    it:[
+      {name:"Ediphy MalditaER (I)", url:"https://vishub.org/ediphy_documents/401.full?nowatermark=1", switchOnPuzzle:0},
+      {name:"Ediphy MalditaER (Full)", url:"https://vishub.org/ediphy_documents/402.full?nowatermark=1", switchOnPuzzle:1},
+    ],
+  },
   escapp:{
     endpoint:"https://escapp.dit.upm.es/api/escapeRooms/306",
     restoreState:"AUTO",
@@ -17,9 +35,8 @@ export let GLOBAL_CONFIG = {
     imagesPath:"assets/images/",
     I18n:{
       availableLocales:["es", "en"],
-      locale:"es",
       defaultLocale:"es",
-      locales:ESCAPP_LOCALES,
+      locales:{},
     },
     appPuzzleIds:[],
     notifications:false,
@@ -29,8 +46,9 @@ export let GLOBAL_CONFIG = {
 };
 
 // Autofill appPuzzleIds
-for(let i = 0; i < GLOBAL_CONFIG.webs.length; i++){
-  if((typeof GLOBAL_CONFIG.webs[i].switchOnPuzzle === "number") && (GLOBAL_CONFIG.webs[i].switchOnPuzzle > 0) && (typeof GLOBAL_CONFIG.webs[i].url === "string")){
-    GLOBAL_CONFIG.escapp.appPuzzleIds.push(GLOBAL_CONFIG.webs[i].switchOnPuzzle);
+let webs = GLOBAL_CONFIG.webs[Object.keys(GLOBAL_CONFIG.webs)[0]];
+for(let i = 0; i < webs.length; i++){
+  if((typeof webs[i].switchOnPuzzle === "number") && (webs[i].switchOnPuzzle > 0) && (typeof webs[i].url === "string")){
+    GLOBAL_CONFIG.escapp.appPuzzleIds.push(webs[i].switchOnPuzzle);
   }
 }
