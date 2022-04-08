@@ -23,6 +23,15 @@ export class App extends React.Component {
   componentDidMount(){
     I18n.init(GLOBAL_CONFIG);
     LocalStorage.init(GLOBAL_CONFIG.localStorageKey);
+
+    // Set the array of webs to be used based on locale
+    let webLocales = Object.keys(GLOBAL_CONFIG.webs);
+    if(webLocales.indexOf(I18n.getLocale()) !== -1){
+      GLOBAL_CONFIG.webs = GLOBAL_CONFIG.webs[I18n.getLocale()];
+    } else {
+      GLOBAL_CONFIG.webs = GLOBAL_CONFIG.webs[webLocales[0]];
+    }
+
     GLOBAL_CONFIG.escapp.onNewErStateCallback = function(er_state){
       this.restoreState(er_state);
     }.bind(this);
@@ -30,7 +39,7 @@ export class App extends React.Component {
     // this.reset(); //For development
     escapp.validate(function(success, er_state){
       if(success){
-        // Add escapp's user credentials to each URL
+          // Add escapp's user credentials to each URL
         if((typeof GLOBAL_CONFIG === "object") && (GLOBAL_CONFIG.webs instanceof Array)){
           for(let i = 0; i < GLOBAL_CONFIG.webs.length; i++){
             GLOBAL_CONFIG.webs[i].url = escapp.addUserCredentialsAndLocaleToUrl(GLOBAL_CONFIG.webs[i].url);
