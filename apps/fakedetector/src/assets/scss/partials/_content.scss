@@ -9,6 +9,9 @@
     button {
         display: flex;
         margin: 0 1rem;
+        &.buttondisabled {
+            cursor: not-allowed;
+        } 
 
         svg {
             width: 1rem;

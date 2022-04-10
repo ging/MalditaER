@@ -78,26 +78,30 @@
     }
 
     .submit {
-
         grid-column: 3/3;
         display: flex;
         justify-content: end;
         align-items: center;
 
         button.buttonsubmit {
-
             display: flex;
             align-items: center;
-            justify-content: center;
-    
-            @include button($false, $white, $hover-opacity);
-    
+            justify-content: center;    
+            &.buttondisabled {
+                @include button(grey, $white, $hover-opacity);
+                cursor: not-allowed;
+            } 
+            &.buttonenabled {
+                @include button($false, $white, $hover-opacity);   
+            }
             svg {
                 width: 1rem;
                 fill: $white;
                 margin-right: .5rem;
-            }
-        
+            }        
+        }
+        button.buttondisabled {
+            
         }
 
     }
