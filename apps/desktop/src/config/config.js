@@ -8,7 +8,7 @@ export let GLOBAL_CONFIG = {
   locale: undefined,
   defaultLocale:"en",
   localStorageKey:"DESKTOP_2022",
-  mailAppLink: "https://sonsoleslp.neocities.org/iframe.html?url=https%3A%2F%2Fging.github.io%2FMalditaER%2FFakemail",
+  mailAppLink: "http://vishubcode.org/webappscode/549/index.html?url=https%3A%2F%2Fging.github.io%2FMalditaER%2FFakemail",
   escapp:{
     endpoint:"https://escapp.dit.upm.es/api/escapeRooms/306",
     localStorageKey:"ESCAPP_DESKTOP_2022",
@@ -19,7 +19,7 @@ export let GLOBAL_CONFIG = {
       defaultLocale:"es",
       locales:ESCAPP_LOCALES,
     },
-    appPuzzleIds:[4,5],
+    appPuzzleIds:[5,6],
     notifications:false,
     rtc:true,
     forceValidation:true,

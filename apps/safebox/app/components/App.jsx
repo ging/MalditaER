@@ -146,6 +146,7 @@ export class App extends React.Component {
     let boxLight = $("div.boxlight");
     $(boxLight).css('left', $("#root").width() / 2 + boxWidth / 2 * 0.3);
     $(boxLight).css('top', $("#root").height() / 2 - boxHeight / 2 * 0.4);
+
   }
 }
 
