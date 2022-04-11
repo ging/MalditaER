@@ -3,14 +3,17 @@ export let LOCALES = {
     "i.continue":"Continuar",
     "i.button_ok":"Ok",
     "i.button_nok":"Cancelar",
-    "slide":"Deslizar cuadro",
-    "see_keypad":"Ver cerradura",
+    "see_keys":"Ver llaves",
+    "grab_keys":"Coger llaves",
+    "thinking": "Son un montón de llaves. Debería cogerlas y probar si alguna de ellas abre la puerta de la sala de reuniones"
   },
   en:{
     "i.continue":"Continue",
     "i.button_ok":"Ok",
     "i.button_nok":"Cancel",
-    "slide":"Slide painting",
-    "see_keypad":"See keypad",
+    "see_keys":"See keys",
+    "grab_keys":"Grab keys",
+    "thinking": "Son un montón de llaves. Debería cogerlas y probar si alguna de ellas abre la puerta de la sala de reuniones"
+    
   },
 };
