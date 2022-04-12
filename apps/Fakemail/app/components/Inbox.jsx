@@ -87,9 +87,9 @@ export default class Inbox extends React.Component {
     let emails = this.getEmailsFromCategory(this.state.selectedCategory);
     let email = this.getEmailById(this.state.selectedEmailId);
     return <div className="wrapper">
-	    <LeftMenu config={this.props.config} profile={this.props.profile} chats={this.props.chats} selectedCategory={this.state.selectedCategory} getUnreadEmailsFromCategory={this.getUnreadEmailsFromCategory} selectCategory={category=>this.setState({selectedCategory:category})} close={this.props.close}/>
-	    <EmailList emails={emails} selectedEmail={email} selectEmail={this.readEmail} highlightEmail={this.highlightEmail} />
-	    <EmailContent profile={this.props.profile} email={email} highlightEmail={this.highlightEmail} />
+	    <LeftMenu I18n={this.props.I18n} config={this.props.config} profile={this.props.profile} chats={this.props.chats} selectedCategory={this.state.selectedCategory} getUnreadEmailsFromCategory={this.getUnreadEmailsFromCategory} selectCategory={category=>this.setState({selectedCategory:category})} close={this.props.close}/>
+	    <EmailList I18n={this.props.I18n} emails={emails} selectedEmail={email} selectEmail={this.readEmail} highlightEmail={this.highlightEmail} />
+	    <EmailContent I18n={this.props.I18n}  profile={this.props.profile} email={email} highlightEmail={this.highlightEmail} />
 	  </div>;
   }
 }

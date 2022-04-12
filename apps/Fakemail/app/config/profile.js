@@ -1,7 +1,7 @@
-let profile = {
-  name:"Carlos Darwin",
-  username:"c.darwin",
-  domain:"csic.es",
+export let profile = {
+  name:"David Guzli",
+  username:"d.guzli",
+  domain:"europeanalytica.tk",
   photo:"assets/images/darwin_avatar.jpg",
 };
 

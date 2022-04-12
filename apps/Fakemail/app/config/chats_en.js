@@ -1,10 +1,10 @@
-let chats = [{
-  name:"Yolanda Revilla",
-  msg:"Avísame cuando te hayan llegado las muestras",
+let CHATSen = [{
+  name:"ENYolanda Revilla",
+  msg:"ENAvísame cuando te hayan llegado las muestras",
   photo:"assets/images/virologa_avatar.jpg",
   status:"offline",
 }, {
-  name:"Gregorio Olmos",
+  name:"ENGregorio Olmos",
   msg:"¿Te ha gustado la foto?",
   photo:"assets/images/politico_avatar.jpg",
   status:"offline",
@@ -25,4 +25,4 @@ let chats = [{
   status:"offline",
 }];
 
-export default chats;
+export default CHATSen;

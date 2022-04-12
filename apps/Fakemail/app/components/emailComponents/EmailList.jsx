@@ -21,7 +21,7 @@ export default class EmailList extends React.Component {
     let {selectedEmail, emails} = this.props;
     return <div className="col2">
       <div className="col2_top">
-        <div className="searchbar" style={{visibility:"visible"}}><input type="text" placeholder="Buscar..." onChange={this.onChangeSearch} value={this.state.searchText}/></div>
+        <div className="searchbar" style={{visibility:"visible"}}><input type="text" placeholder={this.props.I18n.getTrans("i.search")} onChange={this.onChangeSearch} value={this.state.searchText}/></div>
         <div className="icons" style={{display:"none"}}>
           <i className="fas fa-sync-alt" />
           <i className="far fa-trash-alt" />

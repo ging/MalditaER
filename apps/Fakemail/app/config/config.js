@@ -1,7 +1,3 @@
-import profile from './profile';
-import emails from './emails';
-import chats from './chats';
-
 // let ESCAPP_LOCALES = {
 //   es:{
 //     "i.auth_text":"Introduce las credenciales (correo 'usuario@alumnos.upm.es' y contraseña) de tu usuario en la plataforma Escapp. Para que esta autenticación tenga éxito, previamente debes de haberte inscrito con tu usuario a la escape room en la plataforma Escapp.",
@@ -12,12 +8,12 @@ let ESCAPP_LOCALES = {
 };
 
 export let GLOBAL_CONFIG = {
-  profile:profile,
-  emails:emails,
-  chats:chats,
   hideLogo:true,
   localStorageKey:"FAKEMAIL_2022",
   restoreState:"AUTO", // AUTO, AUTO_NOTIFICATION, REQUEST_USER, NEVER
+  availableLocales:["es","en","it"],
+  locale: "en",
+  defaultLocale:"es",
   escapp:{
     endpoint:"https://escapp.dit.upm.es/api/escapeRooms/306",
     localStorageKey:"ESCAPP_TEMPLATE_2022",

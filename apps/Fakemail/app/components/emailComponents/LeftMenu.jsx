@@ -24,7 +24,7 @@ export default class LeftMenu extends React.Component {
       </div>
 
       <div className="button1" style={{visibility:"hidden"}}>Redactar</div>
-      <Categories selectedCategory={this.props.selectedCategory} getUnreadEmailsFromCategory={this.props.getUnreadEmailsFromCategory} selectCategory={this.props.selectCategory} />
+      <Categories I18n={this.props.I18n} selectedCategory={this.props.selectedCategory} getUnreadEmailsFromCategory={this.props.getUnreadEmailsFromCategory} selectCategory={this.props.selectCategory} />
 
       <div className="contacts">
         {chats.map((contact, i) => <ChatContact key={i} photo={contact.photo} name={contact.name} msg={contact.msg} status={contact.status} />)}
