@@ -17,7 +17,7 @@ export let GLOBAL_CONFIG = {
   chats:chats,
   hideLogo:true,
   localStorageKey:"FAKEMAIL_2022",
-  restoreState:"REQUEST_USER", // AUTO, AUTO_NOTIFICATION, REQUEST_USER, NEVER
+  restoreState:"AUTO", // AUTO, AUTO_NOTIFICATION, REQUEST_USER, NEVER
   escapp:{
     endpoint:"https://escapp.dit.upm.es/api/escapeRooms/306",
     localStorageKey:"ESCAPP_TEMPLATE_2022",
@@ -28,7 +28,7 @@ export let GLOBAL_CONFIG = {
       locales:ESCAPP_LOCALES,
     },
     appPuzzleIds:[3],
-    notifications: "FALSE_IF_EMBED",
+    notifications: "FALSE",
     rtc:true,
     forceValidation: true,
   },

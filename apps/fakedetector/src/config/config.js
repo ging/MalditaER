@@ -14,17 +14,18 @@ export let GLOBAL_CONFIG = {
   locale: "es",
   localStorageKey:"NOUSOmaldito_fake_2022",
   hitsToPass: 6,
+  restoreState:"AUTO",
   escapp:{
     endpoint:"https://escapp.dit.upm.es/api/escapeRooms/306",
-    localStorageKey:"maldito_fake_2022",
+    localStorageKey:"escapp_maldito_fake_2022",
     imagesPath:"assets/images/",
     I18n:{
       availableLocales:["es", "en"],
       defaultLocale:"en",
       locales:ESCAPP_LOCALES,
     },
-    appPuzzleIds:[5],
-    notifications:false,
+    appPuzzleIds:[3],
+    notifications: "FALSE",
     rtc:true,
     forceValidation:true
   },

@@ -1,8 +1,9 @@
+/* eslint-disable no-undef */
+
 import { useState, useEffect } from "react";
 import './../assets/scss/app.scss';
 import {GLOBAL_CONFIG} from '../config/config.js';
 import {NEWSes, NEWSit, NEWSen} from '../config/news.js';
-import * as Utils from '../vendors/Utils.js';
 import * as I18n from '../vendors/I18n.js';
 import * as LocalStorage from '../vendors/Storage.js';
 
@@ -29,8 +30,37 @@ export default function App() {
     } else {
       setNews(NEWSes);
     }
+    //LocalStorage.init(GLOBAL_CONFIG.localStorageKey);
+    GLOBAL_CONFIG.escapp.onNewErStateCallback = er_state => restoreState(er_state);
+    escapp = new ESCAPP(GLOBAL_CONFIG.escapp);
+    // reset(); //For development
+    //pedir login del usuario:
+    escapp.validate((success, er_state) => {
+      if(success){
+        restoreState(er_state);
+      }
+    });
+
     setLoading(false);
   }, []);
+
+  const reset = () => {
+    escapp.reset();
+    localStorage.clear();
+  }
+
+  //restaurar estado del puzzle. Es solo si ha terminado o no.
+  const restoreState = (er_state) => {
+    if(er_state.puzzlesSolved.length > 0){
+      let lastPuzzleSolved = Math.max.apply(null, er_state.puzzlesSolved);
+      // lastPuzzleSolved = 3; //Force a puzzle (for development)
+      if(lastPuzzleSolved >= GLOBAL_CONFIG.escapp.appPuzzleIds[0]){
+        setShowModalStart(false);
+        setPassed(true);
+        setShowModalEnd(true);
+      }
+    }
+  }
 
   const left = () => {
     if(newsIndex > 0){
@@ -57,14 +87,26 @@ export default function App() {
   }
 
   const submit = () => {
-    let hits = news.filter(n => n.answer === n.true_or_false).length;
-    if(hits >= GLOBAL_CONFIG.hitsToPass){
-      setPassed(true);
-    } else {
-      setPassed(false);
-    }
-    setShowModalEnd(true);
-
+    //let hits = news.filter(n => n.answer === n.true_or_false).length;
+    //if(hits >= GLOBAL_CONFIG.hitsToPass){
+    let solution = "";
+    news.map(n => {
+      if(n.answer===true){
+        solution += "1";
+      } else if (n.answer===false){
+        solution += "0";
+      }
+    });
+    console.log("SOLUTION: " + solution);
+    escapp.submitPuzzle(GLOBAL_CONFIG.escapp.appPuzzleIds[0], solution, {}, function(success){
+      if(success){
+        setPassed(true);    
+        setShowModalEnd(true);
+      } else {
+        setPassed(false);    
+        setShowModalEnd(true);
+      }      
+    });
   }
 
   const openModalStart = () => {
