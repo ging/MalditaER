@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<style type="text/css">
+			#iframe, html, body {
+				width:  100%;
+				width:  100vw;
+				height:  100%;
+				height:  100vh;
+				border : none;
+				margin: 0;
+				padding: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<iframe id="iframe" src=""></iframe>
+		<script type="text/javascript">
+			window.onload = function(){
+				var query = new URLSearchParams(window.location.search);
+				document.getElementById("iframe").src = query.get("url");
+			}
+		</script>
+	</body>
+</html>

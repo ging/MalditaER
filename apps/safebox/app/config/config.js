@@ -21,10 +21,10 @@ export let GLOBAL_CONFIG = {
       defaultLocale:"es",
       locales:ESCAPP_LOCALES,
     },
-    appPuzzleIds:[6],
+    appPuzzleIds:[7],
     notifications:false,
     rtc:true,
-    forceValidation:true,
+    forceValidation:false,
   },
 };
 
