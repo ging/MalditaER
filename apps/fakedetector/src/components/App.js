@@ -33,9 +33,10 @@ export default function App() {
     //LocalStorage.init(GLOBAL_CONFIG.localStorageKey);
     GLOBAL_CONFIG.escapp.onNewErStateCallback = er_state => restoreState(er_state);
     escapp = new ESCAPP(GLOBAL_CONFIG.escapp);
-    reset(); //For development
+    //reset(); //For development
     //pedir login del usuario:
     escapp.validate((success, er_state) => {
+      console.log(success,er_state)
       if(success){
         restoreState(er_state);
       }
