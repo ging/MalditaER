@@ -1,11 +1,10 @@
 /* eslint-disable no-undef */
-
+import React from 'react';
 import { useState, useEffect } from "react";
 import './../assets/scss/app.scss';
 import {GLOBAL_CONFIG} from '../config/config.js';
 import {NEWSes, NEWSit, NEWSen} from '../config/news.js';
 import * as I18n from '../vendors/I18n.js';
-import * as LocalStorage from '../vendors/Storage.js';
 
 import ModalStart from "./ModalStart";
 import ModalEnd from "./ModalEnd";
