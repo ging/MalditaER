@@ -3,23 +3,61 @@
     grid-row: 1/1;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    //align-items: center;
     padding: 1rem;
 
-    button.buttonno {
-        @include button-selection($true);
-        margin-right: 1rem;
-    }
-    button.buttonyes {
-        @include button-selection($false);
+    .notice_data {
+
+        h2 {
+            margin: 0 0 1rem 0;
+        }
+
     }
 
-    button.true_selected {
-        @include button-selected($true);
-    }
-    button.false_selected {
-        @include button-selected($false);
-    }
-  }
+    .selection_info {
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: fit-content;
 
-  /* {} */
+        .counter {
+            width: 1.5rem;
+            height: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            border-radius: 50%;
+        }
+
+        .true {
+            display: flex;
+            margin-right: 2rem;
+
+            svg {
+                width: 1.5rem;
+                fill: $true;
+                margin-right: .5rem;
+            }
+            
+            .true_news {
+                background-color: $true;
+            }
+        }
+
+        .false {
+            display: flex;
+
+            svg {
+                width: 1.5rem;
+                fill: $false;
+                margin-right: .5rem;
+            }
+
+            .false_news {
+                background-color: $false;
+            }
+        }
+    }
+}

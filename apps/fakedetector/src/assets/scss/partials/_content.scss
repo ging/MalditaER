@@ -9,9 +9,6 @@
     button {
         display: flex;
         margin: 0 1rem;
-        &.buttondisabled {
-            cursor: not-allowed;
-        } 
 
         svg {
             width: 1rem;
@@ -21,6 +18,16 @@
                 fill: rgba($black, $hover-opacity);
             }
         }
+
+        &.buttondisabled {
+            //desactivado
+/*             cursor: not-allowed;
+            svg {
+                fill: gray;
+            } */
+            //desaparece
+            visibility: hidden;
+        } 
     }
 
     .content {
@@ -30,8 +37,10 @@
         height: 90%;
         border-radius: .5rem;
         overflow: hidden;
+        padding: .5rem;
 
         img {
+            height: 100%;
             object-fit: contain;
             
         }
@@ -39,9 +48,11 @@
 
     .selected {
         border: $border-false;
+        background-color: rgba($false, .15);
     }
     .discarded {
         border: $border-true;
+        background-color: rgba($true, .15);
     }
 
 }

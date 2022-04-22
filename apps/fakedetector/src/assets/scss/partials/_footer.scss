@@ -10,6 +10,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 
+    position: relative;
+
     .information {
 
         grid-column: 1/2;
@@ -32,48 +34,26 @@
         }
     }
 
-    .selection_info {
+    .selection_buttons {
+
         grid-column: 2/3;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: center;
         align-items: center;
 
-        .counter {
-            width: 1.5rem;
-            height: 1.5rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            border-radius: 50%;
+        button.buttonno {
+            @include button-selection($true);
+            margin-right: 1rem;
         }
-
-        .true {
-            display: flex;
-            
-            .true_news {
-                background-color: $true;
-            }
-
-            svg {
-                width: 1.5rem;
-                fill: $true;
-                margin: 0 .5rem;
-            }
+        button.buttonyes {
+            @include button-selection($false);
         }
-
-        .false {
-            display: flex;
-
-            svg {
-                width: 1.5rem;
-                fill: $false;
-                margin: 0 .5rem;
-            }
-
-            .false_news {
-                background-color: $false;
-            }
+    
+        button.true_selected {
+            @include button-selected($true);
+        }
+        button.false_selected {
+            @include button-selected($false);
         }
     }
 
@@ -87,12 +67,35 @@
             display: flex;
             align-items: center;
             justify-content: center;    
+
             &.buttondisabled {
-                @include button(grey, $white, $hover-opacity);
+                @include button(gray, $white, $hover-opacity);
                 cursor: not-allowed;
+                
+                .send_warning {
+                    display: none;
+                    position: absolute;
+                    font-size: .8rem;
+                    bottom: 1rem;
+                    right: 1rem;
+
+                    color: gray;
+
+                }
+
+                &:hover {
+                    .send_warning {
+                        display: block;
+                    }
+                }
+
             } 
             &.buttonenabled {
-                @include button($false, $white, $hover-opacity);   
+                .send_warning {
+                    display: none;
+                }
+                @include button($false, $white, $hover-opacity); 
+
             }
             svg {
                 width: 1rem;
@@ -108,6 +111,3 @@
 
 }
   
-
-
-/* {} */
