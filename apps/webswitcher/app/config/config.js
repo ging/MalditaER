@@ -16,16 +16,19 @@ export let GLOBAL_CONFIG = {
   localStorageKey:"WEB_SWITCHER_2022",
   webs:{
     es:[
-      {name:"Ediphy MalditaER (I)", url:"https://vishub.org/ediphy_documents/401.full?nowatermark=1", switchOnPuzzle:0},
-      {name:"Ediphy MalditaER (Full)", url:"https://vishub.org/ediphy_documents/402.full?nowatermark=1", switchOnPuzzle:1},
+      {name:"Ediphy MalditaER (I)", url:"https://ging.github.io/MalditaER/video", switchOnPuzzle:0},
+      {name:"Ediphy MalditaER (I)", url:"https://vishub.org/ediphy_documents/401.full?nowatermark=1", switchOnPuzzle:1},
+      {name:"Ediphy MalditaER (Full)", url:"https://vishub.org/ediphy_documents/402.full?nowatermark=1", switchOnPuzzle:2},
     ],
     en:[
-      {name:"Ediphy MalditaER (I)", url:"https://vishub.org/ediphy_documents/401.full?nowatermark=1", switchOnPuzzle:0},
-      {name:"Ediphy MalditaER (Full)", url:"https://vishub.org/ediphy_documents/402.full?nowatermark=1", switchOnPuzzle:1},
+      {name:"Ediphy MalditaER (I)", url:"https://ging.github.io/MalditaER/video", switchOnPuzzle:0},
+      {name:"Ediphy MalditaER (I)", url:"https://vishub.org/ediphy_documents/401.full?nowatermark=1", switchOnPuzzle:1},
+      {name:"Ediphy MalditaER (Full)", url:"https://vishub.org/ediphy_documents/402.full?nowatermark=1", switchOnPuzzle:2},
     ],
     it:[
-      {name:"Ediphy MalditaER (I)", url:"https://vishub.org/ediphy_documents/401.full?nowatermark=1", switchOnPuzzle:0},
-      {name:"Ediphy MalditaER (Full)", url:"https://vishub.org/ediphy_documents/402.full?nowatermark=1", switchOnPuzzle:1},
+      {name:"Ediphy MalditaER (I)", url:"https://ging.github.io/MalditaER/video", switchOnPuzzle:0},
+      {name:"Ediphy MalditaER (I)", url:"https://vishub.org/ediphy_documents/401.full?nowatermark=1", switchOnPuzzle:1},
+      {name:"Ediphy MalditaER (Full)", url:"https://vishub.org/ediphy_documents/402.full?nowatermark=1", switchOnPuzzle:2},
     ],
   },
   escapp:{

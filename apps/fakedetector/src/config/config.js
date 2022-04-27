@@ -24,7 +24,7 @@ export let GLOBAL_CONFIG = {
       defaultLocale:"en",
       locales:ESCAPP_LOCALES,
     },
-    appPuzzleIds:[3],
+    appPuzzleIds:[4],
     //notifications: "FALSE",
     rtc:true,
     forceValidation:false

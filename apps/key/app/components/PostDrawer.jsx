@@ -1,7 +1,6 @@
 import React from 'react';
-import * as LocalStorage from '../vendors/Storage.js';
 
-import './../assets/scss/PostDrawer.scss';
+import './../assets/scss/postdrawer.scss';
 
 export default class PostDrawer extends React.Component {
   render(){

@@ -20,7 +20,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "copy_assets": "cross-env cp -r public/assets/ dist/ && cross-env cp -r public/vendor dist/vendor",
+    "copy_assets": "cross-env cp -r public/assets/ dist/ && cross-env cp -r public/vendors dist/vendors",
     "publish_app": "rm -rf ../../docs/fakedetector && cp -r dist ../../docs/fakedetector"
   },
   "eslintConfig": {
