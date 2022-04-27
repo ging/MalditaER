@@ -21,12 +21,12 @@ export let GLOBAL_CONFIG = {
       "i.continue":"Continui",
     },
   },
-  localStorageKey:"KEYPAD_2022",
+  localStorageKey:"KEYPAD_OFFICE_2022",
   passwordLength:4,
   afterOpen:"SHOW_MESSAGE_AND_CONTINUE",
   url:"https://vishub.org/pictures/20203.png",
   escapp:{
-    localStorageKey:"ESCAPP_KEYPAD_2022",
+    localStorageKey:"ESCAPP_KEYPAD_OFFICE_2022",
     restoreState:"AUTO",
     imagesPath:"assets/images/",
     I18n:{

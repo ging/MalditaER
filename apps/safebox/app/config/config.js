@@ -8,7 +8,7 @@ export let GLOBAL_CONFIG = {
   locale:undefined,
   defaultLocale:"en",
   localStorageKey:"SAFE_2022",
-  passwordLength:4,
+  passwordLength:5,
   message:"¡Has abierto la puerta! \n Pulsa 'Continuar' para entrar a la nueva sala.",
   url:"https://vishub.org/pictures/20203.png",
   escapp:{
