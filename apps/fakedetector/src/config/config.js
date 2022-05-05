@@ -13,7 +13,6 @@ export let GLOBAL_CONFIG = {
   defaultLocale:"en",
   locale: "es",
   localStorageKey:"NOUSOmaldito_fake_2022",
-  hitsToPass: 6,
   restoreState:"AUTO",
   escapp:{
     endpoint:"https://escapp.dit.upm.es/api/escapeRooms/306",

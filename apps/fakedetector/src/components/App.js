@@ -53,7 +53,7 @@ export default function App() {
   const restoreState = (er_state) => {
     if(er_state.puzzlesSolved.length > 0){
       let lastPuzzleSolved = Math.max.apply(null, er_state.puzzlesSolved);
-       lastPuzzleSolved = 3; //Force a puzzle (for development)
+      //lastPuzzleSolved = 3; //Force a puzzle (for development)
       if(lastPuzzleSolved >= GLOBAL_CONFIG.escapp.appPuzzleIds[0]){
         setShowModalStart(false);
         setPassed(true);
@@ -115,6 +115,10 @@ export default function App() {
     setShowModalStart(true);
   }
 
+  const openModalEnd = () => {
+    setShowModalEnd(true);
+  }
+
   const closeModalStart = () => {
     setShowModalStart(false);
   }
@@ -130,7 +134,7 @@ export default function App() {
     return <>
       <ModalStart showModal={showModalStart} closeModal={closeModalStart} I18n={I18n}/>
       <ModalEnd showModal={showModalEnd} closeModal={closeModalEnd} I18n={I18n} passed={passed}/>
-      <MainScreen passed={passed} news={news} newsIndex={newsIndex} openModalStart={openModalStart} left={left} right={right} isfalse={isfalse} istrue={istrue} submit={submit} I18n={I18n}/>
+      <MainScreen passed={passed} news={news} newsIndex={newsIndex} openModalStart={openModalStart} openModalEnd={openModalEnd} left={left} right={right} isfalse={isfalse} istrue={istrue} submit={submit} I18n={I18n}/>
     </>;
   }
 }

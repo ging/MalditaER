@@ -17,7 +17,8 @@ export let LOCALES = {
     "i.modalheader2": "Aplicación de elaboración de desinformación de Europe Analytica",
     "i.feedback": "Comentarios del redactor",
     "i.congrats2": "Además han aparecido los comentarios de los redactores, cerrando este modal podré ver lo que piensan sobre cada elemento.",
-    "i.close": "Cerrar"
+    "i.close": "Cerrar",
+    "i.end": "Reto superado"
   },
   en:{
     "i.modal1":"In this tablet ...",
