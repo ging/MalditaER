@@ -6,19 +6,19 @@ export default function MainScreen(props) {
 
     const [touchStart, setTouchStart] = useState(0);
     const [touchEnd, setTouchEnd] = useState(0);
-    
+
     const handleTouchStart = (e) => {
         setTouchStart(e.targetTouches[0].clientX);
     }
-    
+
     const handleTouchMove = (e) => {
         setTouchEnd(e.targetTouches[0].clientX);
     }
-    
+
     const handleTouchEnd = (e) => {
         if (touchStart - touchEnd > 150) {
             props.right();
-        }    
+        }
         if (touchStart - touchEnd < -150) {
             props.left();
         }
@@ -55,8 +55,8 @@ export default function MainScreen(props) {
         <div className='header'>
           <div className="notice_data">
             <h2>{props.I18n.getTrans("i.header")}</h2>
-            {item.context && <div className="context">
-              <p>{props.I18n.getTrans("i.context") + ": " + item.context}</p>
+            {props.passed && item.feedback && <div className="context">
+              <p>{props.I18n.getTrans("i.feedback") + ": " + item.feedback}</p>
             </div>}
           </div>
           <div className="selection_info">
@@ -81,7 +81,7 @@ export default function MainScreen(props) {
           </div>
 
         </div>
-        
+
         <div className="full_content" onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent)} onTouchMove={touchMoveEvent => handleTouchMove(touchMoveEvent)} onTouchEnd={() => handleTouchEnd()}>
           <button className={"buttonleft " + (buttonleftdisabled ? "buttondisabled":"buttonenabled")} onClick={()=>props.left()}>
             <svg viewBox="0 0 23 22">
@@ -89,7 +89,7 @@ export default function MainScreen(props) {
             </svg>
 					</button>
           <div className={'content ' + selectedClassname }>
-              <img src={item.path} alt=""/>        
+              <img src={item.path} alt=""/>
           </div>
           <button className={"buttonright " + (buttonrightdisabled ? "buttondisabled":"buttonenabled")} onClick={()=>props.right()}>
             <svg viewBox="0 0 23 22">
@@ -127,7 +127,7 @@ export default function MainScreen(props) {
             </button>
           </div>
 
-        </div> 
+        </div>
       </div>
     );
   }

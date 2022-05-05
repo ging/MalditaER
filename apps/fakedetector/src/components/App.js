@@ -19,7 +19,7 @@ export default function App() {
   let [news, setNews] = useState([]);
   let [newsIndex, setNewsIndex] = useState(0);
   let [passed, setPassed] = useState(false);
-  
+
   useEffect(() => {
     I18n.init(GLOBAL_CONFIG);
     if(I18n.getLocale() === "en"){
@@ -53,7 +53,7 @@ export default function App() {
   const restoreState = (er_state) => {
     if(er_state.puzzlesSolved.length > 0){
       let lastPuzzleSolved = Math.max.apply(null, er_state.puzzlesSolved);
-      // lastPuzzleSolved = 3; //Force a puzzle (for development)
+       lastPuzzleSolved = 3; //Force a puzzle (for development)
       if(lastPuzzleSolved >= GLOBAL_CONFIG.escapp.appPuzzleIds[0]){
         setShowModalStart(false);
         setPassed(true);
@@ -75,20 +75,22 @@ export default function App() {
   }
 
   const isfalse = () => {
-    let mynews = JSON.parse(JSON.stringify(news));
-    mynews[newsIndex].answer = false;
-    setNews(mynews);
+    if(!passed){
+      let mynews = JSON.parse(JSON.stringify(news));
+      mynews[newsIndex].answer = false;
+      setNews(mynews);
+    }
   }
 
   const istrue = () => {
-    let mynews = JSON.parse(JSON.stringify(news));
-    mynews[newsIndex].answer = true;
-    setNews(mynews);
+    if(!passed){
+      let mynews = JSON.parse(JSON.stringify(news));
+      mynews[newsIndex].answer = true;
+      setNews(mynews);
+    }
   }
 
   const submit = () => {
-    //let hits = news.filter(n => n.answer === n.true_or_false).length;
-    //if(hits >= GLOBAL_CONFIG.hitsToPass){
     let solution = "";
     news.map(n => {
       if(n.answer===true){
@@ -100,12 +102,12 @@ export default function App() {
     console.log("SOLUTION: " + solution);
     escapp.submitPuzzle(GLOBAL_CONFIG.escapp.appPuzzleIds[0], solution, {}, function(success){
       if(success){
-        setPassed(true);    
+        setPassed(true);
         setShowModalEnd(true);
       } else {
-        setPassed(false);    
+        setPassed(false);
         setShowModalEnd(true);
-      }      
+      }
     });
   }
 
@@ -128,7 +130,7 @@ export default function App() {
     return <>
       <ModalStart showModal={showModalStart} closeModal={closeModalStart} I18n={I18n}/>
       <ModalEnd showModal={showModalEnd} closeModal={closeModalEnd} I18n={I18n} passed={passed}/>
-      <MainScreen news={news} newsIndex={newsIndex} openModalStart={openModalStart} left={left} right={right} isfalse={isfalse} istrue={istrue} submit={submit} I18n={I18n}/>
+      <MainScreen passed={passed} news={news} newsIndex={newsIndex} openModalStart={openModalStart} left={left} right={right} isfalse={isfalse} istrue={istrue} submit={submit} I18n={I18n}/>
     </>;
   }
 }

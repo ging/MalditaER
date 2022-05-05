@@ -6,7 +6,7 @@ export let LOCALES = {
     "i.context": "Contexto",
     "i.send":"Enviar bulos",
     "i.send_disabled":"Quedan elementos sin marcar",
-    "i.congrats": "¡Qué bien!, he identificado toda la desinformación. Esto me servirá como evidencia de que en este lugar se generan bulos:",
+    "i.congrats": "¡Qué bien!, he identificado toda la desinformación. Esto me servirá como evidencia de que en este lugar se generan bulos.",
     "i.retry": "Vaya, parece que no he identificado toda la desinformación. Voy a volver a intentarlo a ver si soy capaz.",
     "i.header": "Desinformación Europe Analytica",
     "i.modalheader": "Aplicación de elaboración de desinformación de Europe Analytica",
@@ -14,7 +14,10 @@ export let LOCALES = {
     "i.modalinstructions0":"Instrucciones:",
     "i.modalinstructions1": "1. Marca cada noticia como VERDADERA o FALSA.",
     "i.modalinstructions2": "2. Cuando tengas todas seleccionadas, envíalas a tu correo.",
-    "i.modalheader2": "Aplicación de elaboración de desinformación de Europe Analytica"
+    "i.modalheader2": "Aplicación de elaboración de desinformación de Europe Analytica",
+    "i.feedback": "Comentarios del redactor",
+    "i.congrats2": "Además han aparecido los comentarios de los redactores, cerrando este modal podré ver lo que piensan sobre cada elemento.",
+    "i.close": "Cerrar"
   },
   en:{
     "i.modal1":"In this tablet ...",
