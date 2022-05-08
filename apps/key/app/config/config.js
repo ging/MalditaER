@@ -10,7 +10,7 @@ export let GLOBAL_CONFIG = {
   localStorageKey:"KEY_2022",
   passwordLength:4,
   escapp:{
-    endpoint:"https://escapp.dit.upm.es/api/escapeRooms/306",
+    // endpoint:"https://escapp.dit.upm.es/api/escapeRooms/306",
     localStorageKey:"ESCAPP_KEY_2022",
     restoreState:"AUTO",
     imagesPath:"assets/images/",

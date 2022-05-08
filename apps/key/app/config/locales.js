@@ -13,7 +13,7 @@ export let LOCALES = {
     "i.button_nok":"Cancel",
     "see_keys":"See keys",
     "grab_keys":"Grab keys",
-    "thinking": "Son un montón de llaves. Debería cogerlas y probar si alguna de ellas abre la puerta de la sala de reuniones"
-    
+    "thinking": "These are a lot of keys. I should take them and try if any of them opens the door of the meeting room"
+
   },
 };

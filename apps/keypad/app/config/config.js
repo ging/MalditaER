@@ -26,7 +26,7 @@ export let GLOBAL_CONFIG = {
   afterOpen:"SHOW_MESSAGE_AND_CONTINUE",
   url:"https://vishub.org/pictures/20203.png",
   escapp:{
-    endpoint:"https://escapp.dit.upm.es/api/escapeRooms/306",
+    // endpoint:"https://escapp.dit.upm.es/api/escapeRooms/306",
     localStorageKey:"ESCAPP_KEYPAD_2022",
     restoreState:"AUTO",
     imagesPath:"assets/images/",
