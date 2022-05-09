@@ -7,19 +7,11 @@
  */
 
 /*!
- * Socket.IO v2.3.0
- * (c) 2014-2019 Guillermo Rauch
- * Released under the MIT License.
- */
-
-/*!
  * The buffer module from node.js, for the browser.
  *
  * @author   Feross Aboukhadijeh <http://feross.org>
  * @license  MIT
  */
-
-/*! https://mths.be/utf8js v2.1.2 by @mathias */
 
 /*! jQuery v3.4.0 | (c) JS Foundation and other contributors | jquery.org/license */
 
