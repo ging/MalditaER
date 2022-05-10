@@ -16,9 +16,11 @@ export let LOCALES = {
     "i.modalinstructions2": "2. Cuando tengas todas seleccionadas, envíalas a tu correo.",
     "i.modalheader2": "Aplicación de elaboración de desinformación de Europe Analytica",
     "i.feedback": "Comentarios del redactor",
-    "i.congrats2": "Además han aparecido los comentarios de los redactores, cerrando este modal podré ver lo que piensan sobre cada elemento.",
+    "i.congrats2": "Además sobre cada elemento ahora están los comentarios de los redactores donde puedo revisar lo que piensan. También han aparecido los códigos de acceso al despacho del CEO David Guzli.",
     "i.close": "Cerrar",
-    "i.end": "Reto superado"
+    "i.end": "Reto superado",
+    "i.codes": "Códigos de acceso de octubre",
+    "i.review": "Revisar comentarios"
   },
   en:{
     "i.modal1":"In this tablet ...",

@@ -26,8 +26,10 @@ export default function ModalEnd(props) {
         </div>
 
           <div className="continue">
-            <button onClick={props.closeModal}>{props.passed ? props.I18n.getTrans("i.close"):props.I18n.getTrans("i.continue")}</button>
+            <button onClick={props.closeModal}>{props.passed ? props.I18n.getTrans("i.review"):props.I18n.getTrans("i.continue")}</button>
+            {props.passed ? <button onClick={props.showModalCodes}>{props.I18n.getTrans("i.codes")}</button>:null}
           </div>
+
 
           <div className="close_modal" onClick={props.closeModal}>
             <svg className="close_modal_icon" viewBox="0 0 14 14">

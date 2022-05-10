@@ -27,18 +27,18 @@
       }
 
       .buttons_selections {
-    
+
         .buttonno {
-    
+
           @include button-selected($true);
           margin-bottom: .5rem;
-    
+
         }
         .buttonyes {
-    
+
           @include button-selected($false);
           margin-left: .5rem;
-    
+
         }
       }
     }
@@ -60,9 +60,9 @@
           display: flex;
           align-items: center;
           justify-content: center;
-  
+
           @include button($false, $white, 1);
-  
+
           svg {
               width: 1rem;
               fill: $white;
@@ -75,7 +75,7 @@
 
   .continue {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 
     button {
       @include button($black, $white, $hover-opacity);
@@ -98,4 +98,3 @@
 
   }
 }
-  

@@ -8,6 +8,7 @@ import * as I18n from '../vendors/I18n.js';
 
 import ModalStart from "./ModalStart";
 import ModalEnd from "./ModalEnd";
+import ModalCodes from "./ModalCodes";
 import MainScreen from './MainScreen.js';
 
 let escapp;
@@ -16,6 +17,7 @@ export default function App() {
   let [loading, setLoading] = useState(true);
   let [showModalStart, setShowModalStart] = useState(true);
   let [showModalEnd, setShowModalEnd] = useState(false);
+  let [showModalCodes, setShowModalCodes] = useState(false);
   let [news, setNews] = useState([]);
   let [newsIndex, setNewsIndex] = useState(0);
   let [passed, setPassed] = useState(false);
@@ -127,13 +129,22 @@ export default function App() {
     setShowModalEnd(false);
   }
 
+  const openModalCodes = () => {
+    setShowModalCodes(true);
+  }
+
+  const closeModalCodes = () => {
+    setShowModalCodes(false);
+  }
+
 
   if(loading){
     return <div>LOADING</div> ;
   } else {
     return <>
       <ModalStart showModal={showModalStart} closeModal={closeModalStart} I18n={I18n}/>
-      <ModalEnd showModal={showModalEnd} closeModal={closeModalEnd} I18n={I18n} passed={passed}/>
+      <ModalEnd showModalCodes={openModalCodes} showModal={showModalEnd} closeModal={closeModalEnd} I18n={I18n} passed={passed}/>
+      <ModalCodes showModal={showModalCodes} closeModal={closeModalCodes} I18n={I18n}/>
       <MainScreen passed={passed} news={news} newsIndex={newsIndex} openModalStart={openModalStart} openModalEnd={openModalEnd} left={left} right={right} isfalse={isfalse} istrue={istrue} submit={submit} I18n={I18n}/>
     </>;
   }
