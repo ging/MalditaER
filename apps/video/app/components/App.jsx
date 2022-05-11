@@ -11,7 +11,9 @@ import * as LocalStorage from '../vendors/Storage.js';
 
 import Header from './Header.jsx';
 import MainScreen from './MainScreen.jsx';
+import ReactPlayer from 'react-player/youtube';
 
+// Only loads the YouTube player
 let escapp;
 
 export class App extends React.Component {
@@ -65,21 +67,22 @@ export class App extends React.Component {
     this.props.dispatch(loaded(true));
   }
   submitPuzzle(){
-    console.log(2);
     escapp.submitPuzzle(GLOBAL_CONFIG.escapp.appPuzzleIds[0], "i_have_seen_the_video", {}, function(success){
     });
   }
 
   render(){
     let url = I18n.getTrans("video_url");
-    console.log(I18n.getTrans);
     return (
       <div id="container">
-        <video preload='metadata' controls='controls' poster={url + ".png?style=170x127%23"} onEnded={this.submitPuzzle}>
-          <source src={url + ".mp4"} type='video/mp4'/>
-          <source src={url + ".flv"} type='video/x-flv'/>
-            Your browser does not support HTML5 video.
-        </video>
+        <ReactPlayer
+          url={url}
+          width={"100%"}
+          height={"100%"}
+          muted
+          controls
+          onEnded={this.submitPuzzle}
+          config={{youtube:{playerVars:{'autoplay':1}}}} />
       </div>
     );
   }
