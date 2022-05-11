@@ -59,10 +59,7 @@ export default function MainScreen(props) {
       <div className="App">
         <div className='header'>
           <div className="notice_data">
-            <h2>{props.I18n.getTrans("i.header")}</h2>
-            {props.passed && item.feedback && <div className="context">
-              <p>{props.I18n.getTrans("i.feedback") + ": " + item.feedback}</p>
-            </div>}
+            <h2>{props.I18n.getTrans("i.header")}</h2>            
           </div>
           <div className="selection_info">
             <div className="true">
@@ -131,7 +128,7 @@ export default function MainScreen(props) {
               </svg>
               {props.I18n.getTrans("i.send")}
             </button>:
-            <button className={"buttonsubmit " + "buttonenabled"}  onClick={props.openModalEnd}>
+            <button className="buttonsubmit buttonenabled"  onClick={props.openModalEnd}>
               <p className="send_warning">{props.I18n.getTrans("i.send_disabled")}</p>
               <svg viewBox="0 0 25 23">
                 <path d="M20.214 12.041l-1.212 1.213 2.213 2.216h-7a3.429 3.429 0 100 6.857h1.714v-1.714h-1.715a1.714 1.714 0 110-3.429h7l-2.213 2.218 1.213 1.21 4.286-4.285-4.286-4.286z"/>

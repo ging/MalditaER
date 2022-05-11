@@ -15,7 +15,7 @@ export let GLOBAL_CONFIG = {
   localStorageKey:"NOUSOmaldito_fake_2022",
   restoreState:"AUTO",
   escapp:{
-    // endpoint:"https://escapp.dit.upm.es/api/escapeRooms/306",
+    endpoint:"https://escapp.dit.upm.es/api/escapeRooms/306",
     localStorageKey:"escapp_maldito_fake_2022",
     imagesPath:"assets/images/",
     I18n:{

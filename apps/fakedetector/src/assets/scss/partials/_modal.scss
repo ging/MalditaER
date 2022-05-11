@@ -13,6 +13,45 @@
     margin-bottom: 1rem;
   }
 
+  .outerfeedback {
+    display: flex;
+    min-height: 100%;
+    flex-direction: column; 
+  }
+
+  .rowfeedback {
+    display: flex;
+    flex: 1; 
+  }
+
+  .itemfeedback {
+    display: flex;
+    flex: 1; 
+    align-content: flex-start;
+    column-gap: 10px;
+    align-items: center;
+    min-width: 0;
+  }
+
+  .wrongfeedback {
+    border: 0.15rem solid #c41e1e;
+    background-color: rgba(196, 30, 30, 0.15);
+  }
+
+  .correctfeedback {
+    border: 0.15rem solid #1ec41e;
+    background-color: rgba(30, 196, 30, 0.15);
+  }
+
+  .imgfeedback {
+    flex: 1;
+    max-width: 30%;
+  }
+
+  .textfeedback {
+    flex: 3;
+  }
+
   .instructions {
 
     margin-bottom: 2rem;
