@@ -8,6 +8,7 @@ import {
 import './index.css';
 import './short.css';
 import Bloc from './Bloc';
+import MalditaHint from './MalditaHint';
 import {
   Background,
   BootScreen,
@@ -184,8 +185,8 @@ function App() {
       showBloc = !apps.notepad.hide && (apps.notepad.z >= toppest) && extra.showBloc;
     } catch(e) {console.error(e)}
   }
-
-
+  const puzzleSolution = escapp?.getNewestState().puzzleData[GLOBAL_CONFIG.escapp.appPuzzleIds[1]]?.solution;
+  const puzzleCompleted = escapp?.getNewestState().puzzlesSolved.indexOf(GLOBAL_CONFIG.escapp.appPuzzleIds[1]) != -1;
   return (
     <div className="App">  
 
@@ -219,8 +220,9 @@ function App() {
       </div>
      </ErrorBoundary>
      <Bloc show={showBloc} checkPlace={checkPlace} I18n={I18n} 
-        puzzleSolution={escapp?.getNewestState().puzzleData[GLOBAL_CONFIG.escapp.appPuzzleIds[1]]?.solution}
-        puzzleCompleted={escapp?.getNewestState().puzzlesSolved.indexOf(GLOBAL_CONFIG.escapp.appPuzzleIds[1]) != -1}/>
+        puzzleSolution={puzzleSolution}
+        puzzleCompleted={puzzleCompleted}/>
+      <MalditaHint I18n={I18n} show={showBloc} puzzleCompleted={puzzleCompleted}/>  
     </div>
   );
 }

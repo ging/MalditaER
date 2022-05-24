@@ -31,7 +31,7 @@ const emap = (v)=>{
   return v/11
 }
 
-export const MicroStore = ()=>{
+export const MicroStore = (props)=>{
   const apps = useSelector(state => state.apps)
   const wnapp = useSelector(state => state.apps.store)
   const hide = useSelector(state => state.apps.store.hide)
@@ -145,11 +145,11 @@ export const MicroStore = ()=>{
               width={20} payload={page==1}/>
           </div>
           <div className="restWindow msfull win11Scroll" onScroll={frontScroll}>
-            {page==0?<FrontPage/>:null}
+            {page==0?<FrontPage I18n={props.I18n}/>:null}
             {page==1?<DownPage action={action} apps={
               (storeapps.length && storeapps) || storedata
             }/>:null}
-            {page==2?<DetailPage app={opapp}/>:null}
+            {page==2?<DetailPage app={opapp} I18n={props.I18n}/>:null}
           </div>
         </LazyComponent>
       </div>

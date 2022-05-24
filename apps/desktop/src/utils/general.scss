@@ -427,3 +427,20 @@ body[data-theme="dark"] .win11Scroll,
 
     }  
   }
+
+.malditaHint {
+  background: rgba(255,10,20,0.85);
+  line-height: 1.2;
+  padding: 10px 20px;
+  position: fixed;
+  z-index: 10000;
+  bottom: 60px;
+  left: 20px;
+  display: none;
+  color: black;
+  width: 50%;
+  &.show {
+    display: inline-block;
+  }
+}
+
