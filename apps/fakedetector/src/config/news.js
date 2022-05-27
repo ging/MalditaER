@@ -1,6 +1,7 @@
 export let NEWSes = [
   {
-    "path": "./assets/images/es/1.jpg",
+    "path": "./assets/images/es/1.jpg",    
+    "comment": "¿Esta foto es de migrantes rescatados por el barco Open Arms?",
     "true_or_false": false,
     "feedback": "No es un barco, es un festival de música, pero seguro que la gente se lo cree."
   },

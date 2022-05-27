@@ -1,7 +1,7 @@
 export let LOCALES = {
   es:{
-    "i.button_ok":"Verdadera",
-    "i.button_nok":"Falsa",
+    "i.button_ok":"Verdadero",
+    "i.button_nok":"Falso",
     "i.continue":"Continuar",
     "i.context": "Contexto",
     "i.send":"Enviar bulos",
@@ -10,10 +10,10 @@ export let LOCALES = {
     "i.retry": "Vaya, parece que no he identificado toda la desinformación. Voy a volver a intentarlo a ver si soy capaz.",
     "i.header": "Desinformación Europe Analytica",
     "i.modalheader": "Aplicación de elaboración de desinformación de Europe Analytica",
-    "i.modalcontent": "En esta tablet hay varios escritos en los que están trabajando, si pudiera identificar las que son desinformación y mandármelas a mi correo electrónico, eso me serviría como una evidencia más de que esto es una fábrica de bulos.",
+    "i.modalcontent": "En esta tablet hay varios contenidos en los que están trabajando, si pudiera identificar las que son desinformación y mandármelas a mi correo electrónico, eso me serviría como una evidencia más de que esto es una fábrica de bulos. ",
     "i.modalinstructions0":"Instrucciones:",
-    "i.modalinstructions1": "1. Marca cada noticia como VERDADERA o FALSA.",
-    "i.modalinstructions2": "2. Cuando tengas todas seleccionadas, envíalas a tu correo.",
+    "i.modalinstructions1": "1. Marca cada contenido como VERDADERO o FALSO.",
+    "i.modalinstructions2": "2. Cuando tengas todos seleccionados, envíalos a tu correo.",
     "i.modalheader2": "Aplicación de elaboración de desinformación de Europe Analytica",
     "i.feedback": "Comentarios del CEO:",
     "i.congrats2": "Además sobre cada elemento ahora están los comentarios del CEO David Guzli donde puedo revisar lo que piensa. También han aparecido los códigos de acceso al despacho del CEO.",
