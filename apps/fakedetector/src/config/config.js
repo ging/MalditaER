@@ -24,7 +24,7 @@ export let GLOBAL_CONFIG = {
       locales:ESCAPP_LOCALES,
     },
     appPuzzleIds:[4],
-    //notifications: "FALSE",
+    notifications:false,
     rtc:true,
     forceValidation:false
   },
