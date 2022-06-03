@@ -59,7 +59,8 @@ export default function MainScreen(props) {
       <div className="App">
         <div className='header'>
           <div className="notice_data">
-            <h2>{props.I18n.getTrans("i.header")}</h2>            
+            <h2>{props.I18n.getTrans("i.header")}</h2>   
+            {item.comment !== undefined ? <div className="context">{item.comment}</div>:null}         
           </div>
           <div className="selection_info">
             <div className="true">
