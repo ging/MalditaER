@@ -21,7 +21,7 @@
 
         button.buttoninfo {
             display: flex;
-    
+
             svg {
                 width: 1rem;
                 fill: rgba($black, 1);
@@ -30,7 +30,7 @@
                     fill: rgba($black, $hover-opacity);
                     transition: all 200ms ease-in;
                 }
-            } 
+            }
         }
     }
 
@@ -48,7 +48,7 @@
         button.buttonyes {
             @include button-selection($false);
         }
-    
+
         button.true_selected {
             @include button-selected($true);
         }
@@ -66,12 +66,12 @@
         button.buttonsubmit {
             display: flex;
             align-items: center;
-            justify-content: center;    
+            justify-content: center;
 
             &.buttondisabled {
                 @include button(gray, $white, $hover-opacity);
                 cursor: not-allowed;
-                
+
                 .send_warning {
                     display: none;
                     position: absolute;
@@ -89,25 +89,30 @@
                     }
                 }
 
-            } 
+            }
             &.buttonenabled {
                 .send_warning {
                     display: none;
                 }
-                @include button($false, $white, $hover-opacity); 
+                @include button($false, $white, $hover-opacity);
 
             }
             svg {
                 width: 1rem;
                 fill: $white;
                 margin-right: .5rem;
-            }        
+            }
         }
         button.buttondisabled {
-            
+
         }
 
     }
 
 }
-  
+
+@media (max-width: 1280px) {
+  .footer {
+      padding: 0 1rem 0 1rem;
+    }
+}

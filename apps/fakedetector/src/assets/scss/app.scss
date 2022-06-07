@@ -43,3 +43,10 @@ button {
   border: none;
   cursor: pointer;
 }
+
+
+@media (max-width: 1280px) {
+  .App {
+      grid-template-rows: 12% 78% 10%;
+    }
+}
