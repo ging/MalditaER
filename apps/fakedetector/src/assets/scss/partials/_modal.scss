@@ -16,17 +16,17 @@
   .outerfeedback {
     display: flex;
     min-height: 100%;
-    flex-direction: column; 
+    flex-direction: column;
   }
 
   .rowfeedback {
     display: flex;
-    flex: 1; 
+    flex: 1;
   }
 
   .itemfeedback {
     display: flex;
-    flex: 1; 
+    flex: 1;
     align-content: flex-start;
     column-gap: 10px;
     align-items: center;
@@ -136,4 +136,32 @@
     }
 
   }
+}
+
+
+
+@media (max-width: 1280px) {
+      .modal_content {
+        width: 85%;
+        max-height: 80vh;
+        overflow: scroll;
+        padding: 1rem;
+        h2 {
+            font-size: 1.4em;
+        }
+        .modal_info {
+          margin-bottom: 0rem;
+        }
+        .instructions {
+          margin-bottom: 0rem;
+          h4 {
+            margin-block-end: 0.5em;
+          }
+          .step_two {
+            margin-top: 0rem;
+          }
+        }
+
+
+      }
 }

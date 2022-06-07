@@ -146,7 +146,7 @@ export default function App() {
   const closeModalFeedback = () => {
     setShowModalFeedback(false);
   }
-  
+
   if(loading){
     return <div>LOADING</div> ;
   } else {

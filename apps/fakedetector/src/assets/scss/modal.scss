@@ -240,20 +240,16 @@
   }
 }
 @media (max-width: 1024px) and (orientation: landscape) {
-  .modal {
-    width: 70%;
-    font-size: 1.3em;
-    max-height: 80vh;
-    .modal-box {
       .modal-content {
+        width: 70%;
+        font-size: 1.3em;
+        max-height: 80vh;
         .modal-title {
           &.modal-title-end {
             font-size: 1.7em;
           }
         }
       }
-    }
-  }
 }
 @media (max-width: 812px) and (orientation: landscape) {  //iPhone X
 
