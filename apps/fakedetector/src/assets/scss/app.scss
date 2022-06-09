@@ -16,19 +16,19 @@ html, body {
 }
 
 html {
-  background: url("../images/tablet.jpg") no-repeat center center fixed; 
+  background: url("../images/tablet.jpg") no-repeat center center fixed;
   background-color: #c8b197;
   background-size: 100% 100%;
 }
 
-.App {  
+.App {
   //height: 100vh;
-  overflow:hidden;
+  overflow: scroll;
   padding: 5vh 10vw;
   border-radius: .25rem;
   display: grid;
   justify-content: stretch;
-  align-content: stretch;    
+  align-content: stretch;
   grid-template-rows: 15% 70% 15%;
   height: 90vh;
 
@@ -42,4 +42,11 @@ button {
   background: none;
   border: none;
   cursor: pointer;
+}
+
+
+@media (max-width: 1280px) {
+  .App {
+      grid-template-rows: 12% 78% 10%;
+    }
 }
