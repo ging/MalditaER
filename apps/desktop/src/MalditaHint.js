@@ -5,7 +5,7 @@ function MalditaHint(props) {
  
   const { I18n, puzzleCompleted, show } = props;
   
-  return <div className={"malditaHint" + ((show && puzzleCompleted) ? " show" : "")} >
+  return <div className={"malditaHint" + ((show && !puzzleCompleted) ? " show" : "")} >
   		<p>{I18n.getTrans("hint")}</p>
     </div>;
 }

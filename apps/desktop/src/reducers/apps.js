@@ -104,7 +104,7 @@ const appReducer = (state = defState, action) => {
           case 'full':{
             obj.hide = false;
             obj.size = 'full'
-            obj.extra = action.extra;
+            obj.extra = obj.extra || action.extra;
             toTop(obj);
             break;
           }
@@ -119,6 +119,7 @@ const appReducer = (state = defState, action) => {
           }
           case 'mxmz':{
             obj.size = ["mini","full"][obj.size!="full"?1:0];
+            obj.extra = obj.extra || action.extra;
             toTop(obj);
             break;
           }
