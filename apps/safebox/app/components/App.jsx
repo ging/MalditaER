@@ -105,7 +105,7 @@ export class App extends React.Component {
       prevProps.screen === "keypad" &&
       this.props.screen === "safe_closed"){
       setTimeout(() => this.onOpenScreen(3), 1200);
-      setTimeout(() => this.onOpenScreenonOpenScreen(4), 6000);
+      setTimeout(() => this.onOpenScreen(4), 6000);
     }
     if(prevProps.screen != this.props.screen){
       this.handleResize();
