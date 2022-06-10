@@ -11,7 +11,7 @@ import * as LocalStorage from '../vendors/Storage.js';
 
 import Header from './Header.jsx';
 import MainScreen from './MainScreen.jsx';
-import ReactPlayer from 'react-player/youtube';
+// import ReactPlayer from 'react-player/youtube';
 
 // Only loads the YouTube player
 let escapp;
@@ -75,14 +75,11 @@ export class App extends React.Component {
     let url = I18n.getTrans("video_url");
     return (
       <div id="container">
-        <ReactPlayer
-          url={url}
-          width={"100%"}
-          height={"100%"}
-          muted
-          controls
-          onEnded={this.submitPuzzle}
-          config={{youtube:{playerVars:{'autoplay':1}}}} />
+        <video src="https://maldita.es/uploads/images/2022/06/escape-room-1.mp4" onEnded={this.submitPuzzle} autoPlay controls controlsList="nodownload nofullscreen noremoteplayback" height={"100%"} width={"100%"} />
+        <div className="lowbar">
+          <div><span><button className="skip" onClick={this.submitPuzzle}>{I18n.getTrans("skip_video")} </button></span></div>
+          <div><button className="fullscreen"><i className="fa fa-expand" /></button></div>
+        </div>
       </div>
     );
   }

@@ -33,7 +33,9 @@ export let LOCALES = {
     "right_solution":"Well done!",
     "new_email": "New e-mail received",
     "news": "En Australia dos buques de su armada, bloquean a un carguero lleno de inmigrantes ilegales tras negarse a responder a la orden de detención. \n\nLos ilegales deportados, la tripulación detenida y el carguero desmantelado para chatarra. \n\nEsto no lo verás en España.",
-    "hint": "It seems that this file contains the draft of a hoax that they are going to share. If I could prove that the image does not correspond to that text, it would be enough evidence that it is a piece of disinformation. Wait, I know! I can use the Maldita.es toolbox"
+    "hint": "It seems that this file contains the draft of a hoax that they are going to share. If I could prove that the image does not correspond to that text, it would be enough evidence that it is a piece of disinformation. Wait, I know! I can use the ",
+    "hint_maldita": "Maldita.es toolbox",
+    "hint_link": "https://maldita.es/herramientas-de-verificacion/"
   },
   es:{
     "about.opensource": "win11React is an open source project made in the hope to replicate the Windows 11 desktop experience on web, using standard web technologies like React, CSS, and JavaScript.",
@@ -69,7 +71,9 @@ export let LOCALES = {
     "right_solution":"¡Bien hecho!",
     "new_email": "Nuevo correo electrónico",
     "news": "En Australia dos buques de su armada, bloquean a un carguero lleno de inmigrantes ilegales tras negarse a responder a la orden de detención. \n\nLos ilegales deportados, la tripulación detenida y el carguero desmantelado para chatarra. \n\nEsto no lo verás en España.",
-    "hint": "Parece que este fichero contiene el borrador de un bulo que van a difundir. Si pudiera demostrar que la imagen no se corresponde con ese texto sería suficiente evidencia de que es una desinformación. ¡Ya sé! Puedo emplear la caja de herramientas de Maldita.es."
+    "hint": "Parece que este fichero contiene el borrador de un bulo que van a difundir. Si pudiera demostrar que la imagen no se corresponde con ese texto sería suficiente evidencia de que es una desinformación. ¡Ya sé! Puedo emplear la ",
+    "hint_maldita": "caja de herramientas de Maldita.es",
+    "hint_link": "https://maldita.es/herramientas-de-verificacion/"
   
   }
 };
