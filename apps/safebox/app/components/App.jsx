@@ -14,6 +14,7 @@ import MessageScreen from './MessageScreen.jsx';
 import PaintingScreen from './PaintingScreen.jsx';
 import SafeClosedScreen from './SafeClosedScreen.jsx';
 import SafeOpenScreen from './SafeOpenScreen.jsx';
+import NewspaperScreen from './NewspaperScreen.jsx';
 let escapp;
 
 export class App extends React.Component {
@@ -104,6 +105,7 @@ export class App extends React.Component {
       prevProps.screen === "keypad" &&
       this.props.screen === "safe_closed"){
       setTimeout(() => this.onOpenScreen(3), 1200);
+      setTimeout(() => this.onOpenScreenonOpenScreen(4), 6000);
     }
     if(prevProps.screen != this.props.screen){
       this.handleResize();
@@ -111,6 +113,7 @@ export class App extends React.Component {
   }
 
   render(){
+    console.log(this.props);
     if(this.props.loading){
       return "";
     }
@@ -120,6 +123,7 @@ export class App extends React.Component {
       <SafeClosedScreen show={this.props.screen === "safe_closed"} key="SafeClosedScreen" dispatch={this.props.dispatch} config={GLOBAL_CONFIG} I18n={I18n} Utils={Utils} escapp={escapp} onOpenScreen={this.onOpenScreen} />
       <MainScreen show={this.props.screen === "keypad"} key="MainScreen" dispatch={this.props.dispatch} config={GLOBAL_CONFIG} I18n={I18n} Utils={Utils} escapp={escapp} onOpenScreen={this.onOpenScreen} onBoxOpen={this.onBoxOpen} />
       <SafeOpenScreen show={this.props.screen === "safe_open"} key="SafeOpenScreen" dispatch={this.props.dispatch} config={GLOBAL_CONFIG} I18n={I18n} Utils={Utils} escapp={escapp} onOpenScreen={this.onOpenScreen} />
+      <NewspaperScreen show={this.props.screen === "newspaper"} key="NewspaperScreen" dispatch={this.props.dispatch} config={GLOBAL_CONFIG} I18n={I18n} Utils={Utils} escapp={escapp} />
     </div>);
   }
 

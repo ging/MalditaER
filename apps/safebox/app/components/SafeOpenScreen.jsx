@@ -7,9 +7,9 @@ export default class SafeOpenScreen extends React.Component {
   render(){
     return (
       <div id="screen_safe_open_screen" className={"screen_wrapper" + (this.props.show ? "" : " screen_hidden")} >
-      <div  className="containers">
-        {this.props.show ? <DoorSound play={this.props.show}/> : null}
-      </div>
+        <div className="containers">
+          {this.props.show ? <DoorSound play={this.props.show}/> : null}
+        </div>
       </div>
     );
   }

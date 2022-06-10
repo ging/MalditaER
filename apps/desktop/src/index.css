@@ -323,3 +323,9 @@ a {
     border: none;
   }
 }
+
+
+.malditaHint a {
+  color: black !important;
+  font-weight: 700;
+}

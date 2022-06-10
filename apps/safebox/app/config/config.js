@@ -4,7 +4,7 @@ let ESCAPP_LOCALES = {
 // AfterOpen can be "NOTHING", "SHOW_URL", "SHOW_MESSAGE" or "SHOW_MESSAGE_AND_CONTINUE"
 
 export let GLOBAL_CONFIG = {
-  availableLocales:["es","en","it"],
+  availableLocales:["es", "en", "it"],
   locale:undefined,
   defaultLocale:"en",
   localStorageKey:"SAFE_2022",
@@ -27,4 +27,3 @@ export let GLOBAL_CONFIG = {
     forceValidation:false,
   },
 };
-
