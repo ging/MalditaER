@@ -31,7 +31,9 @@ export class App extends React.Component {
     } else {
       GLOBAL_CONFIG.webs = GLOBAL_CONFIG.webs[webLocales[0]];
     }
-
+    GLOBAL_CONFIG.escapp.onErRestartCallback =  function(er_state){
+      this.restoreState(er_state);
+    }.bind(this);
     GLOBAL_CONFIG.escapp.onNewErStateCallback = function(er_state){
       this.restoreState(er_state);
     }.bind(this);
