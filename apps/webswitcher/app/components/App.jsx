@@ -32,7 +32,7 @@ export class App extends React.Component {
       GLOBAL_CONFIG.webs = GLOBAL_CONFIG.webs[webLocales[0]];
     }
     GLOBAL_CONFIG.escapp.onErRestartCallback =  function(er_state){
-      this.restoreState(er_state);
+      localStorage.clear();
     }.bind(this);
     GLOBAL_CONFIG.escapp.onNewErStateCallback = function(er_state){
       this.restoreState(er_state);
