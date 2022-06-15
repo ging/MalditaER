@@ -431,16 +431,23 @@ body[data-theme="dark"] .win11Scroll,
 .malditaHint {
   background: rgba(255,10,20,0.85);
   line-height: 1.2;
-  padding: 10px 20px;
+  padding: 0.4em .8em;
   position: fixed;
   z-index: 10000;
   bottom: 60px;
   left: 20px;
   display: none;
   color: black;
+  font-size: 0.88em;
   width: 50%;
   &.show {
     display: inline-block;
   }
+
+   a {
+    color: black !important;
+    font-weight: 700;
+  }
+
 }
 

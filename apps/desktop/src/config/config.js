@@ -1,6 +1,7 @@
 let ESCAPP_LOCALES = {
 };
 
+
 // AfterOpen can be "NOTHING", "SHOW_URL", "SHOW_MESSAGE" or "SHOW_MESSAGE_AND_CONTINUE"
 
 export let GLOBAL_CONFIG = {
@@ -22,6 +23,6 @@ export let GLOBAL_CONFIG = {
     appPuzzleIds:[6,7],
     notifications:false,
     rtc:true,
-    forceValidation:true,
+    forceValidation:process.env.NODE_ENV=="production",
   },
 };
