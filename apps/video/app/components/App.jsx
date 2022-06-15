@@ -76,10 +76,10 @@ export class App extends React.Component {
     return (
       <div id="container">
         <video src="https://maldita.es/uploads/images/2022/06/escape-room-1.mp4" onEnded={this.submitPuzzle} autoPlay muted controls controlsList="nodownload nofullscreen noremoteplayback" height={"100%"} width={"100%"} />
-        <div className="lowbar">
+        {/*<div className="lowbar">
           <div><span><button className="skip" onClick={this.submitPuzzle}>{I18n.getTrans("skip_video")} </button></span></div>
           <div><button className="fullscreen"><i className="fa fa-expand" /></button></div>
-        </div>
+        </div>*/}
       </div>
     );
   }
