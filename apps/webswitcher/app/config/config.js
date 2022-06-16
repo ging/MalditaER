@@ -1,8 +1,8 @@
 export let GLOBAL_CONFIG = {
-  availableLocales:["es","en","it"],
+  availableLocales:["es", "en", "it"],
   locale:undefined,
   defaultLocale:"es",
-  locales: {
+  locales:{
     es:{
       "i.help":"Pedir pista",
     },
@@ -32,7 +32,7 @@ export let GLOBAL_CONFIG = {
     ],
   },
   escapp:{
-    //endpoint:"https://escapp.dit.upm.es/api/escapeRooms/306",
+    // endpoint:"https://escapp.dit.upm.es/api/escapeRooms/306",
     restoreState:"AUTO",
     localStorageKey:"WEB_SWITCHER_2022",
     imagesPath:"assets/images/",
@@ -44,7 +44,7 @@ export let GLOBAL_CONFIG = {
     appPuzzleIds:[],
     notifications:false,
     rtc:true,
-    forceValidation:true,
+    forceValidation:process.env.NODE_ENV === "production",
   },
 };
 
