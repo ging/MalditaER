@@ -22,7 +22,7 @@ let emails = [
     name:"Departamento Seguridad Europe Analytica",
     issue:"IMPORTANTE: Nuevo código para acceder a la caja fuerte",
     description:"Hola David: Como bien sabes queríamos hace tiempo reforzar la seguridad",
-    content:"Hola David:\n    <br/> Como bien sabes queríamos hace tiempo reforzar la seguridad de la caja fuerte de tu despacho y por fin hemos realizado la mejora necesaria. \n    <br/> El código para acceder a dicha caja está formado por la sustitución de los siguientes cinco símbolos: <br/><br/> <h1> δ ф α β ε </h1> \n    <br/>\n  Creo que sólo tú sabrás sustituirlos porque conoces bien la empresa.\n    <br/> En cuanto leas este correo y puedas abrir la caja fuerte, cambia el código de acceso y borra este email.\n    <br/>\n    <br/> Un saludo\n    <br/>  Responsable del departamento de seguridad\n    <br/> Europe Analytica",
+    content:"Hola David:\n    <br/> Como bien sabes queríamos hace tiempo reforzar la seguridad de la caja fuerte de tu despacho y por fin hemos realizado la mejora necesaria. \n    <br/> El código para acceder a dicha caja está formado por la sustitución de los siguientes cinco símbolos: <br/><br/> <img src='assets/images/Simbolos.jpg' style='float: left; width: 100px;'> \n   <br/><br/>\n  Creo que sólo tú sabrás sustituirlos porque conoces bien la empresa.\n    <br/> En cuanto leas este correo y puedas abrir la caja fuerte, cambia el código de acceso y borra este email.\n    <br/>\n    <br/> Un saludo\n    <br/>  Responsable del departamento de seguridad\n    <br/> Europe Analytica",
     date:printDate(),
     unread:true,
   }, {
