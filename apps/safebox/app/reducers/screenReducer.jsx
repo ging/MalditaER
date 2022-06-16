@@ -2,7 +2,7 @@ import {GLOBAL_CONFIG} from '../config/config.js';
 const screens = ["painting", "safe_closed", "keypad", "safe_open"];
 
 const getScreenForPuzzle = (puzzle_id, step) => {
-  const thisPuzzle = GLOBAL_CONFIG.escapp.appPuzzleIds[0];
+  const thisPuzzle = GLOBAL_CONFIG.escapp.puzzleId;
 
   if(puzzle_id < thisPuzzle){
     if(puzzle_id === thisPuzzle - 1){

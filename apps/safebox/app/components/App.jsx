@@ -41,9 +41,11 @@ export class App extends React.Component {
     };
     escapp = new ESCAPP(GLOBAL_CONFIG.escapp);
     escapp.validate((success, er_state) => {
+      try { 
       if(success){
         this.restoreState(er_state);
       }
+    } catch(e){console.error(e)}
     });
     window.addEventListener('resize', this.handleResize);
     this.handleResize();
@@ -51,7 +53,7 @@ export class App extends React.Component {
 
   solvePuzzle(){
     const solution = LocalStorage.getSetting("safebox_password");
-    escapp.submitPuzzle(GLOBAL_CONFIG.escapp.appPuzzleIds[0], solution, {}, (success) => {
+    escapp.submitPuzzle(GLOBAL_CONFIG.escapp.puzzleId, solution, {}, (success) => {
       if(!success){
         this.onOpenScreen(2);
       }
@@ -87,9 +89,9 @@ export class App extends React.Component {
     if(typeof solution !== "string"){
       return;
     }
-    escapp.checkPuzzle(GLOBAL_CONFIG.escapp.appPuzzleIds[0], solution, {}, (success, er_state) => {
+    escapp.checkPuzzle(GLOBAL_CONFIG.escapp.puzzleId, solution, {}, (success, er_state) => {
       if(success){
-        this.onPuzzleCompleted(GLOBAL_CONFIG.escapp.appPuzzleIds[0]);
+        this.onPuzzleCompleted(GLOBAL_CONFIG.escapp.puzzleId);
         LocalStorage.saveSetting("safebox_password", solution);
       }
     });
