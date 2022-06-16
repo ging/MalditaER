@@ -143,15 +143,12 @@
 @media (max-width: 1280px) {
       .modal_content {
         width: 85%;
-        max-height: 80vh;
-        overflow: scroll;
+        max-height: 85vh;
+        overflow: auto;
         padding: 1rem;
         h2 {
             font-size: 1.4em;
-        }
-        .modal_info {
-          margin-bottom: 0rem;
-        }
+        }        
         .instructions {
           margin-bottom: 0rem;
           h4 {
