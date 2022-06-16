@@ -105,8 +105,7 @@ export class App extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState){
-    if(prevProps.screen === "keypad" &&
-      this.props.screen === "safe_closed"){
+    if(prevProps.screen === "keypad" && this.props.screen === "safe_closed"){
       setTimeout(() => this.onOpenScreen(3), 2000);
     }
     if(prevProps.screen != this.props.screen){
