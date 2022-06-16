@@ -119,7 +119,7 @@ export class App extends React.Component {
     }
     let newestState = escapp.getNewestState();
     let puzzlesSolved = (newestState && newestState.puzzlesSolved) ? newestState.puzzlesSolved : [];
-    let solvedAllPuzzles = newestState.puzzlesSolved.length == 8;
+    let solvedAllPuzzles = newestState.puzzlesSolved.length >= 7;
     return (<div>
       <PaintingScreen show={this.props.screen === "painting"} key="PaintingScreen" dispatch={this.props.dispatch} config={GLOBAL_CONFIG} I18n={I18n} Utils={Utils} escapp={escapp} onOpenScreen={this.onOpenScreen} />
       <SafeClosedScreen show={this.props.screen === "safe_closed"} key="SafeClosedScreen" dispatch={this.props.dispatch} config={GLOBAL_CONFIG} I18n={I18n} Utils={Utils} escapp={escapp} onOpenScreen={this.onOpenScreen} />
