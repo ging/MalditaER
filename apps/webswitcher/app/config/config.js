@@ -19,16 +19,20 @@ export let GLOBAL_CONFIG = {
       {name:"Ediphy MalditaER (I)", url:"https://ging.github.io/MalditaER/video", switchOnPuzzle:0},
       {name:"Ediphy MalditaER (I)", url:"https://vishub.org/ediphy_documents/411.full?nowatermark=1", switchOnPuzzle:1},
       {name:"Ediphy MalditaER (Full)", url:"https://vishub.org/ediphy_documents/402.full?nowatermark=1", switchOnPuzzle:2},
+      {name:"Ediphy MalditaER (III)", url:"https://vishub.org/ediphy_documents/416.full?nowatermark=1", switchOnPuzzle:8}
     ],
     en:[
       {name:"Ediphy MalditaER (I)", url:"https://ging.github.io/MalditaER/video", switchOnPuzzle:0},
       {name:"Ediphy MalditaER (I)", url:"https://vishub.org/ediphy_documents/411.full?nowatermark=1", switchOnPuzzle:1},
       {name:"Ediphy MalditaER (Full)", url:"https://vishub.org/ediphy_documents/402.full?nowatermark=1", switchOnPuzzle:2},
+      {name:"Ediphy MalditaER (III)", url:"https://vishub.org/ediphy_documents/416.full?nowatermark=1", switchOnPuzzle:8}
+
     ],
     it:[
       {name:"Ediphy MalditaER (I)", url:"https://ging.github.io/MalditaER/video", switchOnPuzzle:0},
       {name:"Ediphy MalditaER (I)", url:"https://vishub.org/ediphy_documents/411.full?nowatermark=1", switchOnPuzzle:1},
       {name:"Ediphy MalditaER (Full)", url:"https://vishub.org/ediphy_documents/402.full?nowatermark=1", switchOnPuzzle:2},
+      {name:"Ediphy MalditaER (III)", url:"https://vishub.org/ediphy_documents/416.full?nowatermark=1", switchOnPuzzle:8}
     ],
   },
   escapp:{

@@ -20,6 +20,7 @@ export let GLOBAL_CONFIG = {
     // endpoint:"https://escapp.dit.upm.es/api/escapeRooms/306",
     localStorageKey:"ESCAPP_VIDEO_2022",
     imagesPath:"assets/images/",
+    restoreState:"AUTO",
     I18n:{
       availableLocales:["es", "en"],
       defaultLocale:"es",

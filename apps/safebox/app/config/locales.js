@@ -5,6 +5,8 @@ export let LOCALES = {
     "i.button_nok":"Cancelar",
     "slide":"Deslizar cuadro",
     "see_keypad":"Ver cerradura",
+    "success_msg":"¡Has encontrado toda la evidencia necesaria para destapar la fábrica de bulos!",
+    "bad_msg":"Parece que te faltan pruebas por recolectar para poder destapar la fábrica de bulos. Vuelve a la oficina y regresa aquí cuando hayas terminado.",
   },
   en:{
     "i.continue":"Continue",
@@ -12,5 +14,7 @@ export let LOCALES = {
     "i.button_nok":"Cancel",
     "slide":"Slide painting",
     "see_keypad":"See keypad",
+    "success_msg":"You have found all the evidence to dismantle the hoax factory!",
+    "bad_msg":"You still need to gather more evidenve to dismantle the hoax factory. Go back to the office and come back here when you are done.",
   },
 };

@@ -21,9 +21,10 @@ export let GLOBAL_CONFIG = {
       defaultLocale:"es",
       locales:ESCAPP_LOCALES,
     },
-    appPuzzleIds:[8],
+    appPuzzleIds:[],
+    puzzleId: 8,
     notifications:false,
     rtc:true,
-    forceValidation:false,
+    forceValidation:process.env.NODE_ENV === "production",
   },
 };

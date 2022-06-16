@@ -34,7 +34,7 @@ export default class MainScreen extends React.Component {
 
         let solution = this.password.join("");
         this.password = [];
-        this.props.escapp.checkPuzzle(this.props.config.escapp.appPuzzleIds[0], solution, {}, function(success){
+        this.props.escapp.checkPuzzle(this.props.config.escapp.puzzleId, solution, {}, function(success){
           // Success === true => Good password. Otherwise, bad password.
           this.changeBoxLight(success, solution);
         }.bind(this));
