@@ -23,7 +23,18 @@ export class App extends React.Component {
   componentDidMount(){
     I18n.init(GLOBAL_CONFIG);
     LocalStorage.init(GLOBAL_CONFIG.localStorageKey);
-
+    try {
+      const prevEmail = LocalStorage.getSetting("user");
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const email = urlParams.get('escapp_email');
+      if(prevEmail && prevEmail.email && email && (email != prevEmail)){
+        localStorage.clear();
+        LocalStorage.init(GLOBAL_CONFIG.localStorageKey);
+      }
+    } catch (e){
+      console.error(e);
+    }
     // Set the array of webs to be used based on locale
     let webLocales = Object.keys(GLOBAL_CONFIG.webs);
     if(webLocales.indexOf(I18n.getLocale()) !== -1){
@@ -31,44 +42,26 @@ export class App extends React.Component {
     } else {
       GLOBAL_CONFIG.webs = GLOBAL_CONFIG.webs[webLocales[0]];
     }
-    GLOBAL_CONFIG.escapp.onErRestartCallback = function(er_state){
+    GLOBAL_CONFIG.escapp.onErRestartCallback =  function(er_state){
       localStorage.clear();
-    };
+    }.bind(this);
     GLOBAL_CONFIG.escapp.onNewErStateCallback = function(er_state){
       this.restoreState(er_state);
     }.bind(this);
     escapp = new ESCAPP(GLOBAL_CONFIG.escapp);
     // this.reset(); //For development
-    escapp.validate(this.validate.bind(this));
-  }
-
-
-  validate(success, er_state) {
-    if(success){
-      // Add escapp's user credentials to each URL
-      try {
-        const prevState = LocalStorage.getSetting("localErState");
-        const prevEmail = LocalStorage.getSetting("user");
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        const email = urlParams.get('escapp_email');
-        if(prevEmail && prevEmail.email && email && (email != prevEmail)){
-          escapp.reset();
-          escapp.validate(this.validate.bind(this));
-          return;
+    escapp.validate(function(success, er_state){
+      if(success){
+          // Add escapp's user credentials to each URL
+        if((typeof GLOBAL_CONFIG === "object") && (GLOBAL_CONFIG.webs instanceof Array)){
+          for(let i = 0; i < GLOBAL_CONFIG.webs.length; i++){
+            GLOBAL_CONFIG.webs[i].url = escapp.addEscappSettingsToUrl(GLOBAL_CONFIG.webs[i].url);
+          }
         }
-      } catch (e){
-        console.error(e);
+        this.restoreState(er_state);
       }
-      if((typeof GLOBAL_CONFIG === "object") && (GLOBAL_CONFIG.webs instanceof Array)){
-        for(let i = 0; i < GLOBAL_CONFIG.webs.length; i++){
-          GLOBAL_CONFIG.webs[i].url = escapp.addEscappSettingsToUrl(GLOBAL_CONFIG.webs[i].url);
-        }
-      }
-      this.restoreState(er_state);
-    }
+    }.bind(this));
   }
-
   reset(){
     escapp.reset();
     localStorage.clear();
