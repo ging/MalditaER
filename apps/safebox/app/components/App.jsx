@@ -69,8 +69,9 @@ export class App extends React.Component {
   restoreState(er_state){
     if((typeof er_state !== "undefined") && (er_state.puzzlesSolved.length > 0)){
       let lastPuzzleSolved = Math.max.apply(null, er_state.puzzlesSolved);
-      // lastPuzzleSolved = 3; //Force a puzzle (for development)
-      this.props.dispatch(restoreStateForPuzzle(lastPuzzleSolved));
+      if (er_state.puzzlesSolved.length == 7) {
+        this.props.dispatch(restoreStateForPuzzle(lastPuzzleSolved));
+      }
     } else {
       this.props.dispatch(loaded(true));
       this.restoreLocalState();
@@ -89,7 +90,6 @@ export class App extends React.Component {
   }
 
   onBoxOpen(solution){
-    console.log(solution)
     if(typeof solution !== "string"){
       return;
     }
