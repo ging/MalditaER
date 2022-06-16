@@ -39,30 +39,36 @@ export class App extends React.Component {
     }.bind(this);
     escapp = new ESCAPP(GLOBAL_CONFIG.escapp);
     // this.reset(); //For development
-    escapp.validate(function(success, er_state){
-      if(success){
-        // Add escapp's user credentials to each URL
-        try {
-          const prevState = LocalStorage.getSetting("localErState");
-          const prevEmail = LocalStorage.getSetting("user");
-          const queryString = window.location.search;
-          const urlParams = new URLSearchParams(queryString);
-          const email = urlParams.get('escapp_email');
-          if(prevEmail && email && (email != prevEmail)){
-            escapp.reset();
-          }
-        } catch (e){
-          console.error(e);
-        }
-        if((typeof GLOBAL_CONFIG === "object") && (GLOBAL_CONFIG.webs instanceof Array)){
-          for(let i = 0; i < GLOBAL_CONFIG.webs.length; i++){
-            GLOBAL_CONFIG.webs[i].url = escapp.addEscappSettingsToUrl(GLOBAL_CONFIG.webs[i].url);
-          }
-        }
-        this.restoreState(er_state);
-      }
-    }.bind(this));
+    escapp.validate(this.validate.bind(this));
   }
+
+
+  validate(success, er_state) {
+    if(success){
+      // Add escapp's user credentials to each URL
+      try {
+        const prevState = LocalStorage.getSetting("localErState");
+        const prevEmail = LocalStorage.getSetting("user");
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const email = urlParams.get('escapp_email');
+        if(prevEmail && email && (email != prevEmail)){
+          escapp.reset();
+          escapp.validate(this.validate.bind(this));
+          return;
+        }
+      } catch (e){
+        console.error(e);
+      }
+      if((typeof GLOBAL_CONFIG === "object") && (GLOBAL_CONFIG.webs instanceof Array)){
+        for(let i = 0; i < GLOBAL_CONFIG.webs.length; i++){
+          GLOBAL_CONFIG.webs[i].url = escapp.addEscappSettingsToUrl(GLOBAL_CONFIG.webs[i].url);
+        }
+      }
+      this.restoreState(er_state);
+    }
+  }
+
   reset(){
     escapp.reset();
     localStorage.clear();
