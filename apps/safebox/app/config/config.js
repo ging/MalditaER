@@ -21,7 +21,7 @@ export let GLOBAL_CONFIG = {
       defaultLocale:"es",
       locales:ESCAPP_LOCALES,
     },
-    appPuzzleIds:[8],
+    appPuzzleIds:[],
     notifications:false,
     rtc:true,
     forceValidation:process.env.NODE_ENV === "production",
