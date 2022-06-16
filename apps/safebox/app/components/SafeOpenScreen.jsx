@@ -9,6 +9,11 @@ export default class SafeOpenScreen extends React.Component {
       <div id="screen_safe_open_screen" className={"screen_wrapper" + (this.props.show ? "" : " screen_hidden")} >
         <div className="containers">
           {this.props.show ? <DoorSound play={this.props.show}/> : null}
+          <div className="boxStyle"><div>
+            <p>{!this.props.solvedAllPuzzles ? this.props.I18n.getTrans("success_msg") : this.props.I18n.getTrans("bad_msg")}&nbsp;
+              {!this.props.solvedAllPuzzles ? <button className="btn" onClick={this.props.solvePuzzle}>{this.props.I18n.getTrans("i.continue")}</button> : null}</p>
+          </div>
+          </div>
         </div>
       </div>
     );

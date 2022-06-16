@@ -38,7 +38,7 @@ export let GLOBAL_CONFIG = {
     appPuzzleIds:[2],
     notifications:false,
     rtc:true,
-    forceValidation:true,
+    forceValidation:process.env.NODE_ENV === "production"
   },
 };
 

@@ -14,7 +14,6 @@ import MessageScreen from './MessageScreen.jsx';
 import PaintingScreen from './PaintingScreen.jsx';
 import SafeClosedScreen from './SafeClosedScreen.jsx';
 import SafeOpenScreen from './SafeOpenScreen.jsx';
-import NewspaperScreen from './NewspaperScreen.jsx';
 let escapp;
 
 export class App extends React.Component {
@@ -28,6 +27,7 @@ export class App extends React.Component {
     this.onPuzzleCompleted = this.onPuzzleCompleted.bind(this);
     this.onOpenScreen = this.onOpenScreen.bind(this);
     this.reset = this.reset.bind(this);
+    this.solvePuzzle = this.solvePuzzle.bind(this);
   }
   componentDidMount(){
     I18n.init(GLOBAL_CONFIG);
@@ -41,13 +41,21 @@ export class App extends React.Component {
     };
     escapp = new ESCAPP(GLOBAL_CONFIG.escapp);
     escapp.validate((success, er_state) => {
-      console.log(er_state);
       if(success){
         this.restoreState(er_state);
       }
     });
     window.addEventListener('resize', this.handleResize);
     this.handleResize();
+  }
+
+  solvePuzzle(){
+    const solution = LocalStorage.getSetting("safebox_password");
+    escapp.submitPuzzle(GLOBAL_CONFIG.escapp.appPuzzleIds[0], solution, {}, (success) => {
+      if(!success){
+        this.onOpenScreen(2);
+      }
+    });
   }
   reset(){
     escapp.reset();
@@ -79,14 +87,11 @@ export class App extends React.Component {
     if(typeof solution !== "string"){
       return;
     }
-    escapp.submitPuzzle(GLOBAL_CONFIG.escapp.appPuzzleIds[0], solution, {}, (success) => {
-      // Success should be always true unless unespected failure in Escapp server
-      // console.log("Puzzle submitted: " + success);
+    escapp.checkPuzzle(GLOBAL_CONFIG.escapp.appPuzzleIds[0], solution, {}, (success, er_state) => {
       if(success){
         this.onPuzzleCompleted(GLOBAL_CONFIG.escapp.appPuzzleIds[0]);
+        LocalStorage.saveSetting("safebox_password", solution);
       }
-
-      // Otherwise (afterOpen === "NOTHING" or afterOpen === "SHOW_MESSAGE_AND_CONTINUE"), do nothing.
     });
   }
   onPuzzleCompleted(puzzle_id){
@@ -100,12 +105,9 @@ export class App extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState){
-    if(prevProps.puzzle < GLOBAL_CONFIG.escapp.appPuzzleIds[0] &&
-      this.props.puzzle === GLOBAL_CONFIG.escapp.appPuzzleIds[0] &&
-      prevProps.screen === "keypad" &&
+    if(prevProps.screen === "keypad" &&
       this.props.screen === "safe_closed"){
-      setTimeout(() => this.onOpenScreen(3), 1200);
-      setTimeout(() => this.onOpenScreen(4), 6000);
+      setTimeout(() => this.onOpenScreen(3), 2000);
     }
     if(prevProps.screen != this.props.screen){
       this.handleResize();
@@ -116,13 +118,14 @@ export class App extends React.Component {
     if(this.props.loading){
       return "";
     }
-
+    let newestState = escapp.getNewestState();
+    let puzzlesSolved = (newestState && newestState.puzzlesSolved) ? newestState.puzzlesSolved : [];
+    let solvedAllPuzzles = newestState.puzzlesSolved.length == 8;
     return (<div>
       <PaintingScreen show={this.props.screen === "painting"} key="PaintingScreen" dispatch={this.props.dispatch} config={GLOBAL_CONFIG} I18n={I18n} Utils={Utils} escapp={escapp} onOpenScreen={this.onOpenScreen} />
       <SafeClosedScreen show={this.props.screen === "safe_closed"} key="SafeClosedScreen" dispatch={this.props.dispatch} config={GLOBAL_CONFIG} I18n={I18n} Utils={Utils} escapp={escapp} onOpenScreen={this.onOpenScreen} />
       <MainScreen show={this.props.screen === "keypad"} key="MainScreen" dispatch={this.props.dispatch} config={GLOBAL_CONFIG} I18n={I18n} Utils={Utils} escapp={escapp} onOpenScreen={this.onOpenScreen} onBoxOpen={this.onBoxOpen} />
-      <SafeOpenScreen show={this.props.screen === "safe_open"} key="SafeOpenScreen" dispatch={this.props.dispatch} config={GLOBAL_CONFIG} I18n={I18n} Utils={Utils} escapp={escapp} onOpenScreen={this.onOpenScreen} />
-      <NewspaperScreen show={this.props.screen === "newspaper"} key="NewspaperScreen" dispatch={this.props.dispatch} config={GLOBAL_CONFIG} I18n={I18n} Utils={Utils} escapp={escapp} />
+      <SafeOpenScreen show={this.props.screen === "safe_open"} key="SafeOpenScreen" dispatch={this.props.dispatch} config={GLOBAL_CONFIG} I18n={I18n} Utils={Utils} escapp={escapp} onOpenScreen={this.onOpenScreen} solvedAllPuzzles={solvedAllPuzzles} solvePuzzle={this.solvePuzzle}/>
     </div>);
   }
 

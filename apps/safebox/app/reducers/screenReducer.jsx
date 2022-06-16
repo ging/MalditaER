@@ -1,5 +1,5 @@
 import {GLOBAL_CONFIG} from '../config/config.js';
-const screens = ["painting", "safe_closed", "keypad", "safe_open", "newspaper"];
+const screens = ["painting", "safe_closed", "keypad", "safe_open"];
 
 const getScreenForPuzzle = (puzzle_id, step) => {
   const thisPuzzle = GLOBAL_CONFIG.escapp.appPuzzleIds[0];
@@ -15,7 +15,7 @@ const getScreenForPuzzle = (puzzle_id, step) => {
     if(step !== undefined){
       return getScreen(step);
     }
-    return getScreen(4);
+    return getScreen(3);
   }
 };
 const getScreen = (n) => screens[n];
