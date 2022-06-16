@@ -52,7 +52,7 @@ export class App extends React.Component {
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         const email = urlParams.get('escapp_email');
-        if(prevEmail && email && (email != prevEmail)){
+        if(prevEmail && prevEmail.email && email && (email != prevEmail)){
           escapp.reset();
           escapp.validate(this.validate.bind(this));
           return;
