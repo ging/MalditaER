@@ -69,8 +69,14 @@ export class App extends React.Component {
   restoreState(er_state){
     if((typeof er_state !== "undefined") && (er_state.puzzlesSolved.length > 0)){
       let lastPuzzleSolved = Math.max.apply(null, er_state.puzzlesSolved);
-      if (er_state.puzzlesSolved.length == 7) {
+      if (er_state.puzzlesSolved.length == 7 && this.props.screen == "painting") {
         this.props.dispatch(restoreStateForPuzzle(lastPuzzleSolved));
+      } else {
+        if (this.props.screen == "painting") {
+          this.props.dispatch(restoreStateForPuzzle(lastPuzzleSolved));
+        } else {
+          this.forceUpdate();
+        }
       }
     } else {
       this.props.dispatch(loaded(true));
@@ -94,8 +100,6 @@ export class App extends React.Component {
       return;
     }
     escapp.checkPuzzle(GLOBAL_CONFIG.escapp.puzzleId, solution, {}, (success, er_state) => {
-      console.log(success,er_state)
-
       if(success){
         this.onPuzzleCompleted(GLOBAL_CONFIG.escapp.puzzleId);
         LocalStorage.saveSetting("safebox_password", solution);
