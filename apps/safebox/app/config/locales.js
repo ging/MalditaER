@@ -14,7 +14,7 @@ export let LOCALES = {
     "i.button_nok":"Cancel",
     "slide":"Slide painting",
     "see_keypad":"See keypad",
-    "success_msg":"You have found all the evidence to dismantle the hoax factory!",
+    "success_msg":"Congratulations! You now have all the evidence to reveal the existence of the hoax factory to the world.",
     "bad_msg":"You still need to gather more evidenve to dismantle the hoax factory. Go back to the office and come back here when you are done.",
   },
 };
