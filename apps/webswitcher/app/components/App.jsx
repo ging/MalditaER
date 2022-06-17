@@ -93,6 +93,8 @@ export class App extends React.Component {
     this.saveState();
   }
   getCurrentURL(){
+    console.log("GET URL");
+    console.log(this.props.puzzle);
     if((typeof GLOBAL_CONFIG !== "object") || (!(GLOBAL_CONFIG.webs instanceof Array)) || (GLOBAL_CONFIG.webs.length === 0) || (typeof this.props.puzzle !== "number")){
       return undefined;
     }

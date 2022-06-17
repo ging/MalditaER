@@ -41,7 +41,7 @@ export let GLOBAL_CONFIG = {
     ],
   },
   escapp:{
-    //endpoint:"https://escapp.dit.upm.es/api/escapeRooms/306",
+    //endpoint:"https://escaperoom.maldita.es/escapeRooms/1",
     restoreState:"AUTO",
     localStorageKey:"WEB_SWITCHER_2022",
     imagesPath:"assets/images/",
