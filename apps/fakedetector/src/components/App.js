@@ -55,14 +55,10 @@ export default function App() {
 
   //restaurar estado del puzzle. Es solo si ha terminado o no.
   const restoreState = (er_state) => {
-    if(er_state.puzzlesSolved.length > 0){
-      let lastPuzzleSolved = Math.max.apply(null, er_state.puzzlesSolved);
-      //lastPuzzleSolved = 3; //Force a puzzle (for development)
-      if(lastPuzzleSolved >= GLOBAL_CONFIG.escapp.appPuzzleIds[0]){
+    if (er_state && er_state.puzzlesSolved && er_state.puzzlesSolved.indexOf(GLOBAL_CONFIG.escapp.appPuzzleIds[0])!=-1){
         setShowModalStart(false);
         setPassed(true);
         setShowModalEnd(true);
-      }
     }
   }
 
