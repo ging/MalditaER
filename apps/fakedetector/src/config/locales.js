@@ -6,7 +6,7 @@ export let LOCALES = {
     "i.context": "Contexto",
     "i.send":"Enviar bulos",
     "i.send_disabled":"Quedan elementos sin marcar",
-    "i.congrats": "¡Qué bien!, he identificado toda la desinformación. Esto me servirá como evidencia de que en este lugar se generan bulos.",
+    "i.congrats": "¡Qué bien! He identificado toda la desinformación. Esto me servirá como evidencia de que en este lugar se generan bulos.",
     "i.retry": "Vaya, parece que no he identificado toda la desinformación. Voy a volver a intentarlo a ver si soy capaz.",
     "i.header": "Desinformación Europe Analytica",
     "i.modalheader": "Aplicación de elaboración de desinformación de Europe Analytica",
