@@ -1,4 +1,4 @@
 export const INITIAL_STATE = {
   loading:true,
-  puzzle:1,
+  puzzle:0,
 };
