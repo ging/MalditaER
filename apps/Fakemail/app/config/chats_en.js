@@ -1,27 +1,27 @@
 let CHATSen = [{
-  name:"ENYolanda Revilla",
-  msg:"ENAvísame cuando te hayan llegado las muestras",
-  photo:"assets/images/virologa_avatar.jpg",
+  name:"Kevin Gunton",
+  msg:"Delete the email when you read this",
+  photo:"assets/images/chat1.jpg",
   status:"offline",
 }, {
-  name:"ENGregorio Olmos",
-  msg:"¿Te ha gustado la foto?",
-  photo:"assets/images/politico_avatar.jpg",
+  name:"Michael Pryce",
+  msg:"¿Did you like the photo?",
+  photo:"assets/images/chat2.jpg",
   status:"offline",
 }, {
-  name:"Mariano Simón",
-  msg:"Ya he probado la contraseña de acceso",
-  photo:"assets/images/medico_avatar.jpg",
+  name:"Elliot Lamo",
+  msg:"I have already tried the password",
+  photo:"assets/images/chat3.jpg",
   status:"offline",
 }, {
-  name:"Julia Darwin",
+  name:"Simon Darwin",
   msg:"ok",
-  photo:"assets/images/darwin_hija_avatar.jpg",
+  photo:"assets/images/chat4.jpg",
   status:"offline",
 }, {
   name:"Walter Hartwell",
-  msg:"¡He conseguido los suministros!",
-  photo:"assets/images/farmaceutico_avatar.jpg",
+  msg:"¡I have got the supplies!",
+  photo:"assets/images/chat5.jpg",
   status:"offline",
 }];
 
