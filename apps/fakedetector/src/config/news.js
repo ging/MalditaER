@@ -91,7 +91,7 @@ export let NEWSen = [
     "feedback": "This hoax has worked in other countries, so let's try it out here."
   },
   {
-    "path": "./assets/images/en/5.jpg",
+    "path": "./assets/images/en/5.png",
     "comment": "Are they Europeans trying to get to North Africa during World War II?",
     "true_or_false": false,
     "feedback": "Changing the photo to black and white makes it look old. Even if it's from 1991, we are going to say it was taken during the Second World War."
