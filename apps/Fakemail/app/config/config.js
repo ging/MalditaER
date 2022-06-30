@@ -12,7 +12,7 @@ export let GLOBAL_CONFIG = {
   localStorageKey:"FAKEMAIL_2022",
   restoreState:"AUTO", // AUTO, AUTO_NOTIFICATION, REQUEST_USER, NEVER
   availableLocales:["es","en","it"],
-  locale: "en",
+  locale: undefined,
   defaultLocale:"en",
   escapp:{
     endpoint:"https://escapp.dit.upm.es/api/escapeRooms/306",
