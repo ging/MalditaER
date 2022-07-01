@@ -23,14 +23,27 @@ export let LOCALES = {
     "i.review": "Revisar comentarios"
   },
   en:{
-    "i.modal1":"In this tablet ...",
     "i.button_ok":"True",
     "i.button_nok":"False",
     "i.continue":"Continue",
-    "i.send":"Enviar bulos",
-    "i.congrats": "¡Qué bien!, he identificado toda la desinformación",
-    "i.retry": "Vaya, parece que no he identificado toda la desinformación. Voy a volver a intentarlo a ver si soy capaz.",
-    "i.header": "ENDesinformación Europe Analytica"
+    "i.context": "Context",
+    "i.send":"Send Disinformation",
+    "i.send_disabled":"There are items to be marked",
+    "i.congrats": "Good, I have identified all the disinformation. This will serve me as evidence that hoaxes are generated in this place.",
+    "i.retry": "Wow, I don't seem to have identified all the disinformation. I'm going to try again and see if I can.",
+    "i.header": "Disinformation Europe Analytica",
+    "i.modalheader": "Europe Analytica's disinformation elaboration application",
+    "i.modalcontent": "There are several writings on this tablet in which they are working on, if you could identify the ones that are disinformation and send them to my email, that would serve as further evidence that this is a hoax factory.",
+    "i.modalinstructions0":"Instructions:",
+    "i.modalinstructions1": "1. Mark each content as TRUE or FALSE.",
+    "i.modalinstructions2": "2. When you have selected all of them, send them to your email.",
+    "i.modalheader2": "Europe Analytica's disinformation elaboration application",
+    "i.feedback": "Comments from the CEO:",
+    "i.congrats2": "Additionally, over each item now there are the comments of the CEO David Guzli where I can review what he thinks. Also, there have appeared the access codes to the CEO's office.",
+    "i.close": "Close",
+    "i.end": "Challenge completed",
+    "i.codes": "Access codes of October",
+    "i.review": "Review comments"
   },
   it:{
     "i.modal1":"ITALIANO ...",
