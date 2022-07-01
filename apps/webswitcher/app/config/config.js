@@ -10,7 +10,7 @@ export let GLOBAL_CONFIG = {
       "i.help":"Request hint",
     },
     it:{
-      "i.help":"Pedir pista",
+      "i.help":"Richiedi indizio",
     },
   },
   localStorageKey:"WEB_SWITCHER_2022",
@@ -33,11 +33,11 @@ export let GLOBAL_CONFIG = {
     ],
     it:[
       {name:"Video", url:"https://ging.github.io/MalditaER/video", switchOnPuzzle:0},
-      {name:"Ediphy MalditaER (I)", url:"https://vishub.org/ediphy_documents/422.full?nowatermark=1", switchOnPuzzle:1},
-      {name:"Ediphy MalditaER (II)", url:"https://vishub.org/ediphy_documents/421.full?nowatermark=1", switchOnPuzzle:2},
-      {name:"Ediphy MalditaER (III)", url:"https://vishub.org/ediphy_documents/420.full?nowatermark=1", switchOnPuzzle:3},
-      {name:"Ediphy MalditaER (IV)", url:"https://vishub.org/ediphy_documents/419.full?nowatermark=1", switchOnPuzzle:5},
-      {name:"Ediphy MalditaER (Fin)", url:"https://vishub.org/ediphy_documents/416.full?nowatermark=1", switchOnPuzzle:8}
+      {name:"Ediphy MalditaER (I)", url:"https://vishub.org/ediphy_documents/426.full?nowatermark=1", switchOnPuzzle:1},
+      {name:"Ediphy MalditaER (II)", url:"https://vishub.org/ediphy_documents/426.full?nowatermark=1", switchOnPuzzle:2},
+      {name:"Ediphy MalditaER (III)", url:"https://vishub.org/ediphy_documents/426.full?nowatermark=1", switchOnPuzzle:3},
+      {name:"Ediphy MalditaER (IV)", url:"https://vishub.org/ediphy_documents/426.full?nowatermark=1", switchOnPuzzle:5},
+      {name:"Ediphy MalditaER (Fin)", url:"https://vishub.org/ediphy_documents/425.full?nowatermark=1", switchOnPuzzle:8}
     ],
   },
   escapp:{
@@ -47,7 +47,7 @@ export let GLOBAL_CONFIG = {
     imagesPath:"assets/images/",
     I18n:{
       availableLocales:["es", "en"],
-      defaultLocale:"es",
+      defaultLocale:"en",
       locales:{},
     },
     appPuzzleIds:[],

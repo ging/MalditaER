@@ -10,7 +10,7 @@ let ESCAPP_LOCALES = {
 
 export let GLOBAL_CONFIG = {
   availableLocales:["es", "en", "it"],
-  defaultLocale:"en",
+  defaultLocale:"es",
   locale: undefined,
   localStorageKey:"NOUSOmaldito_fake_2022",
   restoreState:"AUTO",

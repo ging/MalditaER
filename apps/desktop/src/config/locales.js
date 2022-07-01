@@ -104,14 +104,14 @@ export let LOCALES = {
     "continue":"Continua",
     "placeholder":"Scrivi qui",
     "prompt":"Scrivi la naziones in cui è stata scattata la foto",
-    "prompt_after":"You have already guessed where the photo was taken",
+    "prompt_after":"Hai già scoperto dove è stata scattata la foto",
     "previous_text":"Paese di origine delle navi bianche",
     "wrong_solution":"No, le barche bianche non appartengono a quel paese",
     "right_solution":"Ottimo lavoro!",
     "new_email": "Nuova e-mail",
     "news": "Marina Australiana: dopo aver initimato l'ALT e non essere stati ascoltati, i due pattugliatori bloccano la nave ONG.\n\nRientrati nel porto piú vicino, i clandestini imabarcati in una seconda nave e rispediti al mittente.\n\nLa nave ONG è stata sequestrata",
-    "hint": "Sembra che questo file contenga la bozza di una bufala che stanno per diffondere. Se potessi dimostrare che l'immagine non corrisponde a quel testo, sarebbe una prova sufficiente che si tratta di disinformazione. Aspetta, ci sono! Posso usare una ",
-    "hint_maldita": "ricerca di immagini inversa",
+    "hint": "Sembra che questo file contenga la bozza di una bufala che stanno per diffondere. Se potessi dimostrare che l'immagine non corrisponde a quel testo, sarebbe una prova sufficiente che si tratta di disinformazione. Lo so! Posso usare la ",
+    "hint_maldita": "ricerca inversa di immagini",
     "hint_link": "https://images.google.com/"
   },
 

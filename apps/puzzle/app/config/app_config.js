@@ -35,13 +35,13 @@ let GLOBAL_CONFIG_DEVELOPMENT = {
       "i.instructions_c3":"Each piece has two sides: front and back. To flip a piece over, double-click on it.",
     },
     it:{
-      "i.instructions_title":"Instrucciones",
+      "i.instructions_title":"Istruzioni",
       "i.instructions_c1_title":"",
-      "i.instructions_c1":"Coloca correctamente todos los trozos del pósit para reconstruirlo.",
+      "i.instructions_c1":"Posiziona correttamente tutti i pezzi del post-it per ricostruirlo..",
       "i.instructions_c2_title":"",
-      "i.instructions_c2":"Para intercambiar dos trozos de posición haz clic en uno y después en el otro.",
+      "i.instructions_c2":"Per scambiare due pezzi, fai clic su uno e poi sull'altro.",
       "i.instructions_c3_title":"",
-      "i.instructions_c3":"Cada trozo tiene dos caras: anverso y reverso. Para darle la vuelta a un trozo haz doble clic sobre él.",
+      "i.instructions_c3":"Ogni pezzo ha due lati: dritto e rovescio. Per capovolgere un pezzo, fare doppio clic su di esso.",
     },
   }
 };

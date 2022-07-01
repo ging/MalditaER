@@ -17,11 +17,11 @@ export let LOCALES = {
     "video_url":"https://maldita.es/uploads/images/2022/06/escape-room-en.mp4",
   },
   it:{
-    "i.continue":"Continue",
+    "i.continue":"Continua",
     "i.button_ok":"Ok",
-    "i.button_nok":"Cancel",
+    "i.button_nok":"Cancella",
     "i.hello":"Ciao #{name}",
-    "skip_video":"Skip video",
+    "skip_video":"Salta intro",
     "video_url":"https://maldita.es/uploads/images/2022/06/escape-room-ita.mp4",
   },
 };

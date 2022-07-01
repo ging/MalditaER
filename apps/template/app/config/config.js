@@ -31,7 +31,7 @@ export let GLOBAL_CONFIG = {
     imagesPath:"assets/images/",
     I18n:{
       availableLocales:["es", "en"],
-      defaultLocale:"es",
+      defaultLocale:"en",
       locales:ESCAPP_LOCALES,
     },
     appPuzzleIds:[1],

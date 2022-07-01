@@ -5,4 +5,7 @@ export let LOCALES = {
   es:{
     "i.instructions_title":"Instrucciones",
   },
+  it:{
+    "i.instructions_title":"Istruzioni",
+  },
 };

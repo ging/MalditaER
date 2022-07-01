@@ -13,14 +13,14 @@ export let GLOBAL_CONFIG = {
   restoreState:"AUTO", // AUTO, AUTO_NOTIFICATION, REQUEST_USER, NEVER
   availableLocales:["es","en","it"],
   locale: undefined,
-  defaultLocale:"en",
+  defaultLocale:"es",
   escapp:{
     endpoint:"https://escapp.dit.upm.es/api/escapeRooms/306",
     localStorageKey:"ESCAPP_TEMPLATE_2022",
     imagesPath:"assets/images/",
     I18n:{
       availableLocales:["es", "en"],
-      defaultLocale:"es",
+      defaultLocale:"en",
       locales:ESCAPP_LOCALES,
     },
     appPuzzleIds:[3],

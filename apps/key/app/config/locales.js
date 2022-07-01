@@ -16,4 +16,13 @@ export let LOCALES = {
     "thinking": "These are a lot of keys. I should take them and try if any of them opens the door of the meeting room"
 
   },
+  it:{
+    "i.continue":"Continua",
+    "i.button_ok":"Ok",
+    "i.button_nok":"Cancella",
+    "see_keys":"Vedi chiavi",
+    "grab_keys":"Prendi chiavi",
+    "thinking": "Sono un mucchio di chiavi. Dovrei prenderle e vedere se una di loro apre la porta della sala riunioni."
+
+  },
 };

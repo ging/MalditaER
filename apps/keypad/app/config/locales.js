@@ -9,4 +9,9 @@ export let LOCALES = {
     "i.button_ok":"Ok",
     "i.button_nok":"Cancel",
   },
+  it:{
+    "i.continue":"Continua",
+    "i.button_ok":"Ok",
+    "i.button_nok":"Cancella",
+  },
 };

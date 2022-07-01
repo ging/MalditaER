@@ -6,7 +6,7 @@ let ESCAPP_LOCALES = {
 export let GLOBAL_CONFIG = {
   availableLocales:["es", "en", "it"],
   locale:undefined,
-  defaultLocale:"en",
+  defaultLocale:"es",
   localStorageKey:"SAFE_2022",
   passwordLength:5,
   message:"¡Has abierto la puerta! \n Pulsa 'Continuar' para entrar a la nueva sala.",
@@ -18,7 +18,7 @@ export let GLOBAL_CONFIG = {
     imagesPath:"assets/images/",
     I18n:{
       availableLocales:["es", "en"],
-      defaultLocale:"es",
+      defaultLocale:"en",
       locales:ESCAPP_LOCALES,
     },
     appPuzzleIds:[],

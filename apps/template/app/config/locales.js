@@ -12,6 +12,9 @@ export let LOCALES = {
     "i.hello":"Hello #{name}",
   },
   it:{
+    "i.continue":"Continua",
+    "i.button_ok":"Ok",
+    "i.button_nok":"Cancella",
     "i.hello":"Ciao #{name}",
   },
 };

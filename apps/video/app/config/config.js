@@ -23,7 +23,7 @@ export let GLOBAL_CONFIG = {
     restoreState:"AUTO",
     I18n:{
       availableLocales:["es", "en"],
-      defaultLocale:"es",
+      defaultLocale:"en",
       locales:ESCAPP_LOCALES,
     },
     appPuzzleIds:[1],

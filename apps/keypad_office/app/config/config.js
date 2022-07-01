@@ -17,7 +17,7 @@ export let GLOBAL_CONFIG = {
       "i.continue":"Continue",
     },
     it:{
-      "i.message":"¡Has abierto la puerta! \n Pulsa 'Continuar' para entrar a la nueva sala.",
+      "i.message":"Hai aperto la porta! \n Fai clic su 'Continua' per entrare nella stanza seguente.",
       "i.continue":"Continui",
     },
   },
@@ -31,7 +31,7 @@ export let GLOBAL_CONFIG = {
     imagesPath:"assets/images/",
     I18n:{
       availableLocales:["es", "en"],
-      defaultLocale:"es",
+      defaultLocale:"en",
       locales:ESCAPP_LOCALES,
     },
     appPuzzleIds:[5],
