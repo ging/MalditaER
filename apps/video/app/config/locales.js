@@ -22,6 +22,6 @@ export let LOCALES = {
     "i.button_nok":"Cancel",
     "i.hello":"Ciao #{name}",
     "skip_video":"Skip video",
-    "video_url":"https://maldita.es/uploads/images/2022/06/escape-room-en.mp4",
+    "video_url":"https://maldita.es/uploads/images/2022/06/escape-room-ita.mp4",
   },
 };
