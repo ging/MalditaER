@@ -3,7 +3,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {Icon, Image, ToolBar, LazyComponent} from '../../../utils/general';
 import {GLOBAL_CONFIG} from '../../../config/config.js';
 
-export const EdgeMenu = ()=>{
+export const EdgeMenu = (props)=>{
   const apps = useSelector(state => state.apps)
   const wnapp = useSelector(state => state.apps.edge)
   const [url, setUrl] = useState("https://www.google.com/?igu=1")
@@ -136,7 +136,7 @@ export const EdgeMenu = ()=>{
                 onKeyDown={action}
                 onChange={typing}
                 data-payload={3}
-                value={url == GLOBAL_CONFIG.mailAppLink ? "https://gmail.com" : url}
+                value={(url == (GLOBAL_CONFIG.mailAppLink + "%3Flocale="+(props.I18n.getLocale()))) ? "https://gmail.com" : url}
                 placeholder="Type url or a query to search"
                 type="text"/>
                 <Icon className="z-1 handcr"

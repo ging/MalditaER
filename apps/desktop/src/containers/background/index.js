@@ -132,7 +132,7 @@ export const LockScreen = (props) => {
           })}
         </div>
         <div className="text-lg font-medium text-gray-200">
-          {new Date().toLocaleDateString(undefined, {
+          {new Date().toLocaleDateString(props.I18n.getLocale(), {
             weekday: "long",
             month: "long",
             day: "numeric",
