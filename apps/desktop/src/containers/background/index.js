@@ -125,18 +125,10 @@ export const LockScreen = (props) => {
     >
       <div className="splashScreen mt-40" data-faded={lock}>
         <div className="text-6xl font-semibold text-gray-100">
-          {new Date().toLocaleTimeString("en-US", {
-            hour: "numeric",
-            minute: "numeric",
-            hour12: true,
-          })}
+          8:15 AM
         </div>
         <div className="text-lg font-medium text-gray-200">
-          {new Date().toLocaleDateString(props.I18n.getLocale(), {
-            weekday: "long",
-            month: "long",
-            day: "numeric",
-          })}
+          {props.I18n.getTrans("currentDate")}
         </div>
       </div>
       <div className="fadeinScreen" data-faded={!lock} data-unlock={unlocked}>

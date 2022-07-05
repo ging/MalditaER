@@ -62,7 +62,7 @@ export const DesktopApp = (props) => {
   );
 };
 
-export const SidePane = () => {
+export const SidePane = (props) => {
   const sidepane = useSelector((state) => state.sidepane);
   const setting = useSelector((state) => state.setting);
   const tasks = useSelector((state) => state.taskbar);
@@ -199,7 +199,7 @@ export const SidePane = () => {
   );
 };
 
-export const CalnWid = () => {
+export const CalnWid = (props) => {
   const sidepane = useSelector((state) => state.sidepane);
   const [loaded, setLoad] = useState(false);
 
@@ -209,17 +209,20 @@ export const CalnWid = () => {
       window.dycalendar.draw({
         target: "#dycalendar",
         type: "month",
+        month: 9,
+        date: 29,
         dayformat: "ddd",
-        monthformat: "full",
+        monthformat: "mmm",
         prevnextbutton: "show",
-        highlighttoday: true,
+        highlighttoday: false,
+        highlighttargetdate: true,
       });
     }
   });
 
   return (
     <div className="calnpane dpShad" data-hide={sidepane.calhide} style={{ "--prefix": "CALN" }}>
-      <div className="topBar pl-4 text-sm">{new Date().toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric" })}</div>
+      <div className="topBar pl-4 text-sm">{props.I18n.getTrans("currentDate")}</div>
       <div id="dycalendar"></div>
     </div>
   );

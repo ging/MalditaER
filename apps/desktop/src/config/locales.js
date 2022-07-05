@@ -35,7 +35,10 @@ export let LOCALES = {
     "news": "Two Australian warships blocked a boat loaded with illegal immigrants that did not respond to requests for a halt in their waters. \n\nThe illegal immingrants were all returned back, the crew members were arrested and the boat was dismantled for scrap.\n\nWhy can't the UK do this?",
     "hint": "It seems that this file contains the draft of a hoax that they are going to share. If I could prove that the image does not correspond to that text, it would be enough evidence that it is a piece of disinformation. Wait, I know! I can use a ",
     "hint_maldita": "reverse image search",
-    "hint_link": "https://images.google.com/"
+    "hint_link": "https://images.google.com/",
+    "currentDate": "October 29th",
+    "currentMonth": "October"
+    
   },
   es:{
     "about.opensource": "win11React is an open source project made in the hope to replicate the Windows 11 desktop experience on web, using standard web technologies like React, CSS, and JavaScript.",
@@ -73,7 +76,9 @@ export let LOCALES = {
     "news": "En Australia dos buques de su armada, bloquean a un carguero lleno de inmigrantes ilegales tras negarse a responder a la orden de detención. \n\nLos ilegales deportados, la tripulación detenida y el carguero desmantelado para chatarra. \n\nEsto no lo verás en España.",
     "hint": "Parece que este fichero contiene el borrador de un bulo que van a difundir. Si pudiera demostrar que la imagen no se corresponde con ese texto sería suficiente evidencia de que es una desinformación. ¡Ya sé! Puedo emplear la ",
     "hint_maldita": "caja de herramientas de Maldita.es",
-    "hint_link": "https://maldita.es/herramientas-de-verificacion/"
+    "hint_link": "https://maldita.es/herramientas-de-verificacion/",
+    "currentDate": "29 de octubre",
+    "currentMonth": "Octubre"
   
   },
   it:{
@@ -112,7 +117,10 @@ export let LOCALES = {
     "news": "Marina Australiana: dopo aver initimato l'ALT e non essere stati ascoltati, i due pattugliatori bloccano la nave ONG.\n\nRientrati nel porto piú vicino, i clandestini imabarcati in una seconda nave e rispediti al mittente.\n\nLa nave ONG è stata sequestrata",
     "hint": "Sembra che questo file contenga la bozza di una bufala che stanno per diffondere. Se potessi dimostrare che l'immagine non corrisponde a quel testo, sarebbe una prova sufficiente che si tratta di disinformazione. Lo so! Posso usare la ",
     "hint_maldita": "ricerca inversa di immagini",
-    "hint_link": "https://images.google.com/"
+    "hint_link": "https://images.google.com/",
+    "currentDate": "29 ottobre",
+    "currentMonth": "Ottobre"
+
   },
 
 };
