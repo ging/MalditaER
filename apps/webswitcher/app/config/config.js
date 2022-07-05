@@ -25,10 +25,10 @@ export let GLOBAL_CONFIG = {
     ],
     en:[
       {name:"Video", url:"https://ging.github.io/MalditaER/video", switchOnPuzzle:0},
-      {name:"Ediphy MalditaER (I)", url:"https://vishub.org/ediphy_documents/424.full?nowatermark=1", switchOnPuzzle:1},
-      {name:"Ediphy MalditaER (II)", url:"https://vishub.org/ediphy_documents/424.full?nowatermark=1", switchOnPuzzle:2},
-      {name:"Ediphy MalditaER (III)", url:"https://vishub.org/ediphy_documents/424.full?nowatermark=1", switchOnPuzzle:3},
-      {name:"Ediphy MalditaER (IV)", url:"https://vishub.org/ediphy_documents/424.full?nowatermark=1", switchOnPuzzle:5},
+      {name:"Ediphy MalditaER (I)", url:"https://vishub.org/ediphy_documents/431.full?nowatermark=1", switchOnPuzzle:1},
+      {name:"Ediphy MalditaER (II)", url:"https://vishub.org/ediphy_documents/430.full?nowatermark=1", switchOnPuzzle:2},
+      {name:"Ediphy MalditaER (III)", url:"https://vishub.org/ediphy_documents/429.full?nowatermark=1", switchOnPuzzle:3},
+      {name:"Ediphy MalditaER (IV)", url:"https://vishub.org/ediphy_documents/428.full?nowatermark=1", switchOnPuzzle:5},
       {name:"Ediphy MalditaER (Fin)", url:"https://vishub.org/ediphy_documents/423.full?nowatermark=1", switchOnPuzzle:8}
     ],
     it:[
