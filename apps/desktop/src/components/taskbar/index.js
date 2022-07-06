@@ -124,8 +124,8 @@ const Taskbar = () => {
           </div>
 
           <div className="taskDate m-1 handcr prtclk rounded hvlight" onClick={clickDispatch} data-action="CALNTOGG">
-            <div>{new Date().toLocaleTimeString("en-US", { hour: "numeric", minute: "numeric" })}</div>
-            <div>{new Date().toLocaleDateString("en-US", { year: "2-digit", month: "2-digit", day: "numeric" })}</div>
+            <div>8:15 AM</div>
+            <div>29/10/22</div>
           </div>
           <Icon className="graybd my-4" ui width={6} click="SHOWDSK" pr />
         </div>
