@@ -17,7 +17,7 @@ export default function ModalCodes(props) {
     return (
       <Modal  className="modal_content" isOpen={props.showModal} onRequestClose={props.closeModal} style={customStyles} >
 
-        <img src={"./assets/images/codes.jpg"} alt=""/>
+          <img src={"./assets/images/"+props.I18n.getLocale()+"/codes.jpg"} alt=""/>
 
           <div className="close_modal" onClick={props.closeModal}>
             <svg className="close_modal_icon" viewBox="0 0 14 14">
