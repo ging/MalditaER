@@ -36,33 +36,39 @@ export let NEWSes = [
 export let NEWSit = [
   {
     "path": "./assets/images/it/1.jpg",
-    "source_url": "",
-    "true_or_false": false
+    "comment": "Le persone a bordo della nave di soccorso Sea Watch nel 2015 erano migranti?",
+    "true_or_false": false,
+    "feedback": "La foto non è stata scattata su un’imbarcazione bensì a un festival musicale. Ma la gente ci crede, non lo metto in dubbio."
   },
   {
     "path": "./assets/images/it/2.jpg",
-    "source_url": "https://www.telegraph.co.uk/news/2016/09/07/gas-tanks-found-in-unmarked-car-by-paris-notre-dame-cathedral-sp",
-    "true_or_false": false
+    "comment": "Sono state trovate bombole di gas e documenti in arabo in un’auto dopo l’incendio di Notre Dame nel 2019?",
+    "true_or_false": false,
+    "feedback": "Questa notizia è vecchia, ma per verificarla bisogna guardarla da vicino. Se la twittiamo come se fosse attuale, la gente ci crederà."
   },
   {
     "path": "./assets/images/it/3.jpeg",
-    "source_url": "",
+    "comment": "",
     "true_or_false": true,
+    "feedback": "È una notizia vera e c’è un video ufficiale. Per creare una bufala, meno prove forniamo, meglio è."
   },
   {
     "path": "./assets/images/it/4.jpg",
-    "source_url": "",
+    "comment": "",
     "true_or_false": false,
+    "feedback": "Questa bufala ha funzionato in altri Paesi, quindi mettiamola alla prova anche qui."
   },
   {
     "path": "./assets/images/it/5.jpg",
-    "source_url": "",
+    "comment": "",
     "true_or_false": false,
+    "feedback": "Roberto Fico non ha fatto tali dichiarazioni, ma se le mettiamo accanto a una sua foto, ci crederanno."
   },
   {
     "path": "./assets/images/it/6.jpeg",
-    "source_url": "",
+    "comment": "",
     "true_or_false": true,
+    "feedback": "Questo è uno screenshot di una notizia reale. Per creare una bufala basterebbe cambiare il titolo."
   }
 ]
 
