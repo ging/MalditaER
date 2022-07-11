@@ -36,7 +36,7 @@ export let NEWSes = [
 export let NEWSit = [
   {
     "path": "./assets/images/it/1.jpg",
-    "comment": "Le persone a bordo della nave di soccorso Sea Watch nel 2015 erano migranti?",
+    "comment": "Nella foto si vedono migranti a bordo della nave di soccorso Sea Watch nel 2015?",
     "true_or_false": false,
     "feedback": "La foto non è stata scattata su un’imbarcazione bensì a un festival musicale. Ma la gente ci crede, non lo metto in dubbio."
   },
